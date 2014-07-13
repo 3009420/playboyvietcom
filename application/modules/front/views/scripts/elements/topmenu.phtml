@@ -1,0 +1,57 @@
+<?php $tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);?>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container fix-full-ez">
+                <div class="navbar-header header-sty">
+                  <a href="<?php echo WEB_PATH;?>/home.html" class="navbar-brand "><img class='logo_ez img-responsive' style="width: 90px;" src="<?php echo WEB_PATH;?>/public/front/img/logo.png" ></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+               </div><!-- class="navbar-header" --> 
+
+               <div class="collapse navbar-collapse navbar-ex1-collapse menu " role="navigation">
+                    <ul class="nav navbar-nav navbar-right nav_top">
+                        <li class=""><a href="<?php echo WEB_PATH;?>/home.html"><?php echo $tr->translate('txt_menu_top_home');?></a></li>
+                        <li>
+                           <a  class="sf-with-ul"  href="<?php echo WEB_PATH;?>/product.html"><?php echo $tr->translate('txt_menu_top_products');?></a>
+                           <ul>
+                              <li><a href="<?php echo WEB_PATH;?>/product.html" class="sf-with-ul"><?php echo $tr->translate('txt_menu_top_products_overview');?></a></li>
+                              <li><a href="<?php echo WEB_PATH;?>/product/backoffice.html" class="sf-with-ul"><?php echo $tr->translate('txt_menu_top_products_backoffice');?></a></li>
+                              <li><a href="<?php echo WEB_PATH;?>/product/windows.html" class="sf-with-ul"><?php echo $tr->translate('txt_menu_top_products_archive');?></a></li>
+                              <li> <a href="<?php echo WEB_PATH;?>/product/tablet.html" class="sf-with-ul"><?php echo $tr->translate('txt_menu_top_products_tablet');?></a></li>
+                              <li> <a href="<?php echo WEB_PATH;?>/product/smartphone.html" class="sf-with-ul"><?php echo $tr->translate('txt_menu_top_products_smarphone');?></a></li>
+				              <li> <a href="<?php echo WEB_PATH;?>/product/marketing.html"  class="sf-with-ul"><?php echo $tr->translate('txt_menu_top_products_marketting');?></a></li>
+				              <!-- 
+                              <li>
+                                 <a href="#" class="sf-with-ul"> 
+                                 Third Level Menu 
+                                 <span class="sf-sub-indicator pull-right">
+                                 <i class="icon-angle-right "></i>
+                                 </span>
+                                 </a>
+                                 <ul>
+                                    <li><a href="#" class="sf-with-ul">Menu Item</a></li>
+                                    <li><a href="#" class="sf-with-ul">Menu Item</a></li>
+                                    <li><a href="#" class="sf-with-ul">Menu Item</a></li>
+                                 </ul>
+                              </li>
+                               -->
+                           </ul>
+                        </li>
+                        
+                        <li><a href="#"><?php echo $tr->translate('txt_menu_top_solutions');?></a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/pricing.html"><?php echo $tr->translate('txt_menu_top_pricing');?></a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/hardware.html"><?php echo $tr->translate('txt_menu_top_hardware');?></a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/download.html"><?php echo $tr->translate('txt_menu_top_dowload');?></a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/register.html" id='color1-menu'><?php echo $tr->translate('btn_sign_up');?> </a></li>
+                        <li><a href="http://quanly.maybanhang.net/" id='color-menu'><?php echo $tr->translate('btn_sign_in');?></a></li>
+                     
+                    </ul>
+                 </div><!--  class="collapse navbar-collapse navbar-ex1-collapse" role="navigation" -->
+
+            </div><!-- class="container"-->
+
+
+        </div>

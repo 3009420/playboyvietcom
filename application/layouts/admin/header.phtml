@@ -1,0 +1,75 @@
+<?php 
+	@$auth 		= Zend_Auth::getInstance();
+	$user 		= $auth->getStorage()->read();
+	//var_dump($user->role_id);die();
+	
+	if(isset($user->userid))
+	{
+?>
+<header id="header">
+  <hgroup>
+    <h1 class="site_title"><a href="<?php echo WEB_PATH;?>/administrator">ADMINISTRATOR</a></h1>
+    <h2 class="section_title">Chào mừng: <?php echo $user->firstname.' '.$user->lastname;?></h2>  
+      <?php
+      /*
+       
+        if ($user->role_id ==='1') 
+      {
+      	?>
+      	<ul class="menu-vew">
+	    <li><a href="#">Cài đăt User</a>
+	        <ul>
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/" class="menu-view-li">Đổi mật khẩu</a></li>
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/update" class="menu-view-li">Thêm thành viên</a></li>
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/" class="menu-view-li">Sửa thông tin </a></li>
+	        </ul>
+	    </li>
+	   </ul>
+    <?php 
+      } // admin?> 
+      
+       <?php if ($user->role_id ==='2') 
+      {
+      	?>
+      	<ul class="menu-vew">
+	    <li><a href="#">Cài đăt User</a>
+	        <ul>
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/" class="menu-view-li">Đổi mật khẩu</a></li>
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/" class="menu-view-li">Sửa thông tin</a></li>
+	        </ul>
+	    </li>
+	   </ul>
+    <?php 
+      } // viewer?> 
+      
+       <?php if ($user->role_id ==='3') 
+      {
+      	?>
+      	<ul class="menu-vew">
+	    <li><a href="#">Cài đăt User</a>
+	        <ul>
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/" class="menu-view-li">Đổi mật khẩu</a></li>
+	            
+	            <li><a href="<?php echo WEB_PATH;?>/administrator/useradmin/" class="menu-view-li">Sửa thông tin</a></li>
+	        </ul>
+	    </li>
+	   </ul>
+    <?php 
+      } // admin
+      
+      */
+      ?> 
+	   
+	   
+     <div class="btn_view_site"><a href="<?php echo WEB_PATH;?>/front/index/logout">Thoát</a></div>
+  </hgroup>
+</header>
+<?php 
+	}// if(isset($user->userid))
+?>
+
+
+	
+
+	
+

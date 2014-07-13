@@ -1,0 +1,166 @@
+<?php $slider = $this->slider; 
+?>
+<?php $tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);?>
+   <header id="header" class="site-header"> 
+    <section id="feature_slider" class="disabled">
+    
+        <article class="slide" id="responsive" >
+         <a href="<?php echo $slider['slider01']['link_news'];?>">
+           <div class="slide-02" style=" z-index:8; 100%; height: 445px;background-image: url('<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider01']['bg_article_img'];?>');  display: block; background-position: 50% 0%; background-repeat: repeat no-repeat;" >
+	            <img class="asset left-472 sp600 t120 z3" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider01']['sil_img_01'];?>" >
+	            <!--   <img class="asset left-190 sp500 t120 z2" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider02']['sil_img_01'];?>" > -->
+	            <div class="info" style="display: none;">
+	                <h2 class='tinhnang-text-p' >
+	                 <?php echo $slider['slider01']['title'];?>
+	                </h2>                
+	            </div>
+            </div>
+            <div class='container p-view-edit' style="display: block;">
+		        <div class='row'>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		            <div class='col-lg-11 col-md-11 col-sm-11 col-xs-12 text-view-edit-pos' style="z-index:17; block;/*background-color: #4e4e4e;*/">
+		                <?php echo $slider['slider01']['sil_description'];?>
+		             </div>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		        </div>
+		    </div>
+         </a>
+        </article>   
+         
+         
+         
+       
+        <article class="slide" id="showcasing" >
+           <a href="<?php echo $slider['slider02']['link_news'];?>"> 
+           <div class="slide-02"  style="background-image: url('<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider01']['bg_article_img'];?>'); display: block; opacity: 0.868928; background-position: 50% 0%; background-repeat: repeat no-repeat;">
+	            <img class="asset left-30 sp600 t120 z1" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider02']['sil_img_01'];?>" style="left: -966px; top: 120px; z-index: 1; display: inline;">
+	            <div class="info" style="display: none;">
+	                 <h2><?php echo $slider['slider02']['title'];?></h2>
+	            </div>
+            </div>
+            <div class='container p-view' style="display: block; position:relative;top:-50px;">
+		        <div class='row'>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		            <div class='col-lg-11 col-md-11 col-sm-11 col-xs-12 text-view'  >
+		                <?php echo $slider['slider02']['sil_description'];?>
+		             </div>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		        </div>
+		    </div>
+            </a>
+           
+        </article>
+      
+       
+         <article class="slide" id="responsive" >
+         <a href="<?php echo $slider['slider03']['link_news'];?>">
+             <div class="slide-02"  style="z-index:5; width: 100%; height: 445px;background-image: url('<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider03']['bg_article_img'];?>');  display: block; background-position: 50% 0%; background-repeat: repeat no-repeat;">
+               <img class="asset left-472 sp600 t120 z3" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider03']['sil_img_01'];?>" >
+	            <!--   <img class="asset left-190 sp500 t120 z2" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider03']['sil_img_01'];?>" > -->
+	            <div class="info" style="display: none;">
+	                <h2 class='tinhnang-text-p' >
+	                 <?php echo $slider['slider03']['title'];?>
+	                </h2>                
+	            </div>
+	          </div>
+            <div class='container p-view-edit' >
+		        <div class='row'>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		            <div class='col-lg-11 col-md-11 col-sm-11 col-xs-12 text-view-edit-pos ' style="display: block;"><!-- text-view-slider -->
+		                <?php echo $slider['slider03']['sil_description'];?>
+		             </div>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		        </div>
+		    </div>
+         </a>
+        </article>
+         
+           
+		    
+	<?php 
+	/*
+	?>	    
+		    
+   
+       <article class="slide" id="responsive" style=" width: 100%; height: 445px;background-image: url('<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider04']['bg_article_img'];?>');  display: none; background-position: 50% 0%; background-repeat: repeat no-repeat;">
+         <a href="<?php echo $slider['slider04']['link_news'];?>">
+            <img class="asset left-472 sp600 t120 z3" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider04']['sil_img_01'];?>" style="left: -732px; top: 20px; z-index: 3; display: inline;">
+            <!--  <img class="asset left-190 sp500 t120 z2" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider04']['sil_img_02'];?>" style="left: -732px; top: 20px; z-index: 2; display: inline;"> -->
+            <div class="info" style="display: none;">
+                <h3 class='tinhnang-text-p' >
+                 <?php echo $slider['slider04']['title'];?>
+                </h3>                
+            </div>
+            <div class='container p-view'>
+		        <div class='row'>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		            <div class='col-lg-11 col-md-11 col-sm-11 col-xs-12 text-view'>
+		                <?php echo $slider['slider04']['sil_description'];?>
+		             </div>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		        </div>
+		    </div>
+         </a>
+        </article> 
+         
+        <article class="slide" id="showcasing" >
+           <a href="<?php echo $slider['slider05']['link_news'];?>"> 
+           <div class="slide-02"  style="background-image: url('<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider01']['bg_article_img'];?>'); display: block; opacity: 0.868928; background-position: 50% 0%; background-repeat: repeat no-repeat;">
+	            <img class="asset left-30 sp600 t120 z1" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider02']['sil_img_01'];?>" style="left: -966px; top: 120px; z-index: 1; display: inline;">
+	            <div class="info" style="display: none;">
+	                 <h2><?php echo $slider['slider05']['title'];?></h2>
+	            </div>
+            </div>
+            <div class='container p-view'>
+		        <div class='row'>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		            <div class='col-lg-11 col-md-11 col-sm-11 col-xs-12 text-view'>
+		                <?php echo $slider['slider05']['sil_description'];?>
+		             </div>
+		            <div class='col-lg-1 col-md-1 col-sm-1 col-xs-12'></div>
+		        </div>
+		    </div>
+            </a>
+           
+        </article>    
+        */
+       ?>
+         
+ <?php 
+	/* 
+	?>
+       <article class="slide" id="tour" style="width: 100%; height: 445px; background-image: url('<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider05']['bg_article_img'];?>');  display: none; background-position: 50% 0%; background-repeat: repeat no-repeat;">
+           
+            <img class="asset left-472 sp650 t210 z3" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider05']['sil_img_01'];?>" style="left: -558px; top: 20px; z-index: 3; display: inline;">
+            <img class="asset left-365 sp600 t270 z4" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider05']['sil_img_02'];?>" style="left: -485px; top: 70px; z-index: 4; display: inline;">
+            <img class="asset left-350 sp450 t135 z2" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider05']['sil_img_03'];?>" style="left: -742px; top: 35px; z-index: 2; display: inline;">
+            <img class="asset left-185 sp550 t220 z1" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $slider['slider05']['sil_img_04'];?>" style="left: -746px; top: 30px; z-index: 1; display: inline;">
+            <div class="info" style="display: none;">
+                <h2><?php echo $slider['slider05']['title'];?></h2>
+                <a href="<?php echo $slider['slider05']['link_news'];?>">toujours à explorer</a>
+            </div>
+           
+        </article>
+
+   <?php */ ?>    
+  
+</section>
+       
+ </header>
+
+  <footer id="footer" class="footer">
+      <div class="container">
+        <div > <!-- class="row-fluid" -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+            <div class="notify-wrapper">
+              <div class="notify-inner">
+                <a class="notify" href="<?php echo WEB_PATH;?>/register.html" id='dang-ki-view'>
+                <?php echo $tr->translate('btn_sign_up_full');?>
+                </a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </footer>

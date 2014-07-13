@@ -1,0 +1,39 @@
+<?php 
+$objACL		= new HT_Model_administrator_models_acl();
+$objMenu	= new HT_Model_administrator_models_menu();
+@$auth 		= Zend_Auth::getInstance();
+$user 		= @$auth->getStorage()->read();
+
+$groupMenu	= $objMenu->getLeftMenu();
+
+if(isset($user->role_id) && (int)$user->role_id >0){
+	$roldId = (int)$user->role_id;
+	//$roldId = 13;
+	$actionRight = $objACL->getActionRight($roldId);
+	$groupMenu	 = $objMenu->buildLeftMenu($groupMenu,$actionRight);
+	//echo "<pre>";
+	//print_r($moduleRight);
+	foreach((array)$groupMenu as $group){	
+		$groupId 		= $group['group_id'];
+		$groupName 		= $group['group_name'];
+		$menuList 		= $group['menu_list'];
+?>
+  <h3><?php echo $groupName;?></h3>
+  <ul class="toggle">
+  	   <?php 
+  	   		foreach($menuList as $menu){
+				$menuName = $menu['menu_name'];
+				$menuUrl = $menu['menu_url'];
+				$actionId = $menu['action_id'];
+				list($info,$menuUrl) = explode('administrator/', $menuUrl);
+				$menuUrl 			 = WEB_PATH.'/administrator/'.$menuUrl;
+				if(in_array($actionId,$actionRight)){
+  	   				echo '<li class="icn_profile"><a href="'.$menuUrl.'">'.$menuName.'</a></li>';
+  	   			}
+  	   		}
+  	   ?>  	     
+  </ul>
+  <div class="cb"></div>
+  <hr/>
+
+<?php }}?>

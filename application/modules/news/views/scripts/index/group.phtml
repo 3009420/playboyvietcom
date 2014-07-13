@@ -1,0 +1,167 @@
+<?php 
+	$objConver  			= new HT_Model_administrator_models_convert();
+	$objUtil  				= new HT_Model_administrator_models_utility();
+	$groupNews 				= $this->groupNews;
+	$groupName				= $groupNews['group']['group_name'];
+	$hotNews 				= $groupNews['hotNews'];
+	$topNews				= $groupNews['topNews'];
+	$categoryList 			= $groupNews['categoryList'];
+	$bigNews				= @$hotNews[0];
+	$bigNewsTitle 			= trim(stripcslashes($bigNews['title']));
+	$bigNewsPath 			= ROOT_PATH."/public/uploads/news/".$bigNews['image'];
+	$bigNewsImageUrl		= null;
+	if(is_file($bigNewsPath)){
+		$bigNewsImageUrl	= WEB_PATH."/public/uploads/news/".$bigNews['image'];
+	}
+	$bigNewsDescription 	= $objUtil->tooltipString(trim(stripcslashes($bigNews['description'])),200);
+	$bigNewsUrl				= WEB_PATH.'/chi-tiet/'.$objConver->utf8_to_url($bigNewsTitle).'-'.$bigNews['news_id'].'.html';
+?>
+<div class="column1 fl">
+	<div class="c1_box1">
+		<div class="hot_news fl">
+			<?php if($bigNewsImageUrl){?>
+			<div class="hot_news_image"><img alt="" src="<?php echo $bigNewsImageUrl?>"></div>
+			<?php }?>
+			<div class="hot_news_title"><a href="<?php echo $bigNewsUrl;?>"><?php echo $bigNewsTitle;?></a></div>
+			<div class="hot_news_description"><?php echo $bigNewsDescription;?></div>
+		</div>
+		<div class="hot_news_list fl">
+			<div class="hot_news_list_header"><h1><?php echo $groupName;?><h1></div>
+			<?php 
+				for($i=1;$i<4;$i++){
+					$news 				= @$hotNews[$i];
+					$newsTitle 			= stripcslashes($news['title']);
+					$newsPath 			= ROOT_PATH."/public/uploads/news/".$news['image'];
+					$newsImageUrl		= null;
+					if(is_file($newsPath)){
+						$newsImageUrl	= WEB_PATH."/public/uploads/news/".$news['image'];
+					}
+					$newsDescription 	= $objUtil->tooltipString(trim(stripcslashes($news['description'])),100);
+					$newsUrl			= WEB_PATH.'/chi-tiet/'.$objConver->utf8_to_url($newsTitle).'-'.$news['news_id'].'.html';
+			?>
+			<div class="hot_item">
+				<?php if($newsImageUrl){?>
+				<div class="hot_item_image fl"><img src="<?php echo $newsImageUrl;?>"></div>
+				<?php }?>
+				<a alt="<?php echo $newsTitle;?>" title="<?php echo $newsTitle;?>" href="<?php echo $newsUrl;?>"><?php echo $newsTitle;?></a>
+				<br>
+				<?php echo $newsDescription;?>
+			</div>
+			<div class="cb"></div>
+			<?php }?>
+		</div>
+		<div class="cb"></div>
+	</div>
+	<div class="c1_box2">
+		<?php 
+			for($i=4;$i<8;$i++){
+				$news 				= @$hotNews[$i];
+				$newsTitle 			= stripcslashes($news['title']);
+				$newsPath 			= ROOT_PATH."/public/uploads/news/".$news['image'];
+				$newsImageUrl		= null;
+				if(is_file($newsPath)){
+					$newsImageUrl	= WEB_PATH."/public/uploads/news/".$news['image'];
+				}
+				$newsDescription 	= $objUtil->tooltipString(trim(stripcslashes($news['description'])),100);
+				$newsUrl			= WEB_PATH.'/chi-tiet/'.$objConver->utf8_to_url($newsTitle).'-'.$news['news_id'].'.html';
+		?>
+		<div class="cb2_item fl">
+			<?php if($newsImageUrl){?>
+			<div class="cb2_image"><img src="<?php echo $newsImageUrl;?>"></div>
+			<?php }?>
+			<div class="cb2_title"><a alt="<?php echo $newsTitle;?>" title="<?php echo $newsTitle;?>" href="<?php echo $newsUrl;?>"><?php echo $newsTitle;?></a></div>
+		</div>
+		<?php }?>
+		<div class="cb"></div>
+	</div>
+	<?php 
+		//echo "<pre>";
+		//print_r($categoryList);die();
+		for($i=0;$i<sizeof($categoryList);$i++){
+			$cate 			= $categoryList[$i];
+			$newsList 		= $cate['newsList'];
+			if($i%3==0) $boxPre = 'yb';
+			if($i%3==1) $boxPre = 'rb';
+			if($i%3==2) $boxPre = 'bb';
+			$cateLink = WEB_PATH.'/chuyen-de/'.$objConver->utf8_to_url($groupName).'/'.$objConver->utf8_to_url($cate['category_name']).'-'.$cate['category_id'].'.html'
+	?>
+	<div class="c1_box3">
+		<div class="<?php echo $boxPre;?>_header">
+			<div class="<?php echo $boxPre;?>h_1 fl"></div>
+			<div class="<?php echo $boxPre;?>h_subject fl"><a href="<?php echo $cateLink;?>"><?php echo $cate['category_name'];?></a></div>
+			<div class="<?php echo $boxPre;?>h_3 fl"></div>
+			<div class="<?php echo $boxPre;?>h_item fl"></div>
+			<div class="cb"></div>
+		</div>
+		<?php 
+			$totalNews = sizeof($newsList);
+			for($k=0;$k<$totalNews;$k++){
+				$news 				= $newsList[$k];
+				$newsTitle 			= stripcslashes($news['title']);
+				$newsPath 			= ROOT_PATH."/public/uploads/news/".$news['image'];
+				$newsImageUrl		= null;
+				if(is_file($newsPath)){
+					$newsImageUrl	= WEB_PATH."/public/uploads/news/".$news['image'];
+				}
+				$newsDescription 	= $objUtil->tooltipString(trim(stripcslashes($news['description'])),250);
+				$newsUrl			= WEB_PATH.'/chi-tiet/'.$objConver->utf8_to_url($newsTitle).'-'.$news['news_id'].'.html';
+				if($k %2 == 0){
+					$newsBox = 'news_box1';
+				}else{
+					$newsBox = 'news_box2';
+				}
+				
+		?>
+		<div class="<?php echo $newsBox;?> fl">
+			<div class="news_title"><a alt="<?php echo $newsTitle;?>" title="<?php echo $newsTitle;?>" href="<?php echo $newsUrl;?>"><?php echo $newsTitle;?></a></div>
+			<div class="news_info">
+				<?php if($newsImageUrl){?>
+				<div class="news_image1 fl"><img alt="" src="<?php echo $newsImageUrl;?>"></div>
+				<?php }?>
+				<?php echo $newsDescription;?>
+				<div class="cb"></div>
+			</div>
+		</div>
+		<?php 
+				if($k %2 == 1 && $k != $totalNews - 1){
+					echo '<div class="cb"></div><div class="news_line"></div>';
+				}elseif($k %2 == 1){
+					echo '<div class="cb"></div>';
+				}elseif($totalNews %2 == 1 && $k == $totalNews - 1){
+					echo '<div class="cb"></div>';
+				}
+			}
+		?>
+		<div class="see_all"><a href="<?php echo $cateLink;?>">Xem tất cả</a></div>
+	</div>
+	<div class="cb"></div>
+	<?php } ?>
+</div>
+<div class="column2 fl">
+	<?php echo $this->action('rightadv4','elements','front');?>
+	<?php echo $this->action('rightadv1','elements','front');?>
+	<div class="top_news_list">
+		<div class="hot_news_list_header">Những bài được xem nhiều nhất</div>
+		<?php 
+			foreach((array)$topNews as $news){
+				$newsTitle 			= stripcslashes($news['title']);
+				$newsPath 			= ROOT_PATH."/public/uploads/news/".$news['image'];
+				$newsImageUrl		= null;
+				if(is_file($newsPath)){
+					$newsImageUrl	= WEB_PATH."/public/uploads/news/".$news['image'];
+				}
+				$newsDescription 	= $objUtil->tooltipString(trim(stripcslashes($news['description'])),70);
+				$newsUrl			= WEB_PATH.'/chi-tiet/'.$objConver->utf8_to_url($newsTitle).'-'.$news['news_id'].'.html';
+		?>
+		<div class="top_item_info">
+			<?php if($newsImageUrl) echo '<div class="top_item_image fl"><img alt="" src="'.$newsImageUrl.'"></div>'; ?>
+			<a alt="<?php echo $newsTitle;?>" title="<?php echo $newsTitle;?>" href="<?php echo $newsUrl;?>"><?php echo $newsTitle;?></a>
+			<p><?php echo $newsDescription;?></p>
+			<div class="cb"></div>
+		</div>
+		<div class="cb"></div>
+		<?php } ?>
+	</div>
+	<?php //echo $this->action('rightadv2','elements','front');?>
+</div>
+<div class="cb"></div>

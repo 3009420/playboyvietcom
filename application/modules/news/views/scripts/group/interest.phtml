@@ -1,0 +1,20 @@
+<div class="video-dev1">
+	<div class="adv_title">Các bài nên đọc</div>
+	<div class="content-dev1_2">
+		<div class="seo_box">
+		<?php 
+		$objSeopage 		= new HT_Model_administrator_models_seopage();
+		$listLinks 			= $objSeopage->getLatestLink(2,100);
+		$objConvert 		= new HT_Model_administrator_models_convert();
+		//print_r($listLinks); die();
+		foreach($listLinks as $link){
+			$seopage_id 		= $link['seopage_id'];
+			$title 				= $link['title'];
+			$tagTitle 			= $link['tag_title'];
+			$url				= WEB_PATH.'/nen-doc/'.$objConvert->utf8_to_url($tagTitle).'-'.$seopage_id.'.html';
+			echo '<div class="item-dev1"><a target="_blank" href="'.$url.'">'.$title.'</a></div>';
+		}
+		?>
+		</div>
+	</div>
+</div>

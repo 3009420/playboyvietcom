@@ -1,0 +1,53 @@
+ <!doctype html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex,nofollow">
+<title>Khu vực quản trị</title>
+<?php 
+	$this->headLink()->appendStylesheet(WEB_PATH.'/public/admin/css/layout.css');   
+	//$this->headLink()->appendStylesheet(WEB_PATH.'/public/admin/css/base.css');
+	$this->headLink()->appendStylesheet(WEB_PATH.'/public/admin/css/menu-header.css');
+    echo $this->headLink();
+    $this->headScript()->appendFile(WEB_PATH.'/public/admin/js/jquery.js');
+    $this->headScript()->appendFile(WEB_PATH.'/public/admin/js/script.js');
+    echo $this->headScript();
+?>
+<script type="text/javascript" src="<?php echo $this->baseUrl(); ?>/public/js/jquery-ui.min.js"></script>
+<link rel='stylesheet' type='text/css' href='<?php echo $this->baseUrl(); ?>/public/css/jquery-ui.css' />
+</head>
+<body>
+<?php include_once APPLICATION_PATH.'/layouts/admin/header.phtml';?>
+<section id="secondary_bar">
+  <div class="user">
+    <p>DANH MỤC CHỨC NĂNG</p>
+  </div>
+  <div class="breadcrumbs_container">
+    <article class="breadcrumbs">
+    <a href="#">TRANG CHỦ</a>
+    <div class="breadcrumb_divider"></div>
+    
+    </article>
+  </div>
+</section>
+<!-- end of secondary bar -->
+
+<aside id="sidebar" class="column">
+  <?php include_once APPLICATION_PATH.'/layouts/admin/sidebar.phtml';?>
+</aside>
+<!-- end of sidebar -->
+
+<section id="main" class="column">
+	 <?php echo $this->layout()->content ?>    
+  <!-- end of post new article -->
+  <div class="spacer"></div>
+</section>
+<div class="cb"></div>
+<div class="footer">
+	Copyright &copy; Maybanhang.net 
+</div>
+<div class="cb"></div>
+<?php echo $this->inlineScript();?>
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/admin/js/common.js"></script>
+</body>
+</html>

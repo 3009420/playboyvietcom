@@ -1,0 +1,121 @@
+<?php
+	$objNews		= new HT_Model_administrator_models_news();
+	$objConvert 	= new HT_Model_administrator_models_convert();
+	$objUtil 		= new HT_Model_administrator_models_utility();
+	$info			= $this->info;
+	$news			= $info['news'];
+	//$relatedNews		= $info['relatedNews'];
+	$topNews			= $info['topNews'];
+	
+	$newsTitle		= ucfirst(trim(stripcslashes($news['title'])));
+	$newsContent	= ucfirst(trim(stripcslashes($news['content'])));
+	
+	$seo					= $this->seo;
+	$relatedNews			= $seo['relatedNews'];
+	$otherNews				= $seo['otherNews'];
+	$seoId 					= (int)$seo['seopage_id'];
+	$seoTagTitle 			= ucfirst(trim(stripcslashes($seo['tag_title'])));
+	$seoTagDescription 		= ucfirst(trim(stripcslashes($seo['tag_description'])));
+	$seoTitle 				= ucfirst(trim(stripcslashes($seo['title'])));
+	$seoContent 			= ucfirst(trim(stripcslashes($seo['content'])));
+	$arr 					= explode('note:', $seoContent);
+	$description 			= ucfirst(trim($arr[0]));
+	if(!$description) $description = stripcslashes($news['desc_vn']);
+	/*
+	 * structure of note
+	* note: content of note reference_link_http://www.wish.vn/abc
+	* note: content of note reference_tool_can_nang_ba_bau
+	* */
+	
+	$newsContent			= $objNews->formatSEOContent($seoContent,$newsContent);
+	$newsContent			= $objNews->formatNewsContent($newsContent);
+
+	if($seoTitle){
+		if($seoId % 2 == 0){
+			$newsTitle = $newsTitle.". ".$seoTitle;
+		}else{
+			$newsTitle = $seoTitle.". ".$newsTitle;
+		}
+	}	
+	$newsTitle 	= trim($newsTitle);
+    $this->headTitle()->append($seoTagTitle);
+    $this->headMeta()->setName('description',$seoTagDescription);
+    
+    $newsTitle = str_replace($seoTagTitle, "<i>$seoTagTitle</i>", $newsTitle);
+    $newsContent = str_replace($seoTagTitle, "<i>$seoTagTitle</i>", $newsContent);
+    
+    $link = WEB_PATH."/tu-van-suc-khoe-mien-phi-voi-cac-bac-si-hang-dau-tai-wish.html";
+    $text = 'WiSH cung cấp dịch vụ <b>Hỏi & Đáp</b>, bạn sẽ tư vấn sức khỏe <b style="color:#FF0000">MIỄN PHÍ</b> bởi những bác sĩ hàng đầu đến từ <b>bệnh viện Hồng Ngọc</b> và <b>bệnh viện An Thịnh</b>. Hãy <a href="'.$link.'">nhấn vào đây</a> để đặt câu hỏi của bạn và nhận được sự chăm sóc tận tình nhất từ các lương y của chúng tôi.';
+    $tip1 = $objNews->newsContentAttach($text,$link);
+    
+    $text = "<b>Đặt hẹn khám, mua các gói dịch vụ</b> thông qua <b>WiSH</b>, bạn sẽ được <b style='color:#FF0000'>giảm giá từ 20% đến 50% </b> giá thành. Các gói dịch vụ đến từ các bệnh viện, doanh nghiệp lớn & uy tín trên thị trường. ";
+    $link = WEB_PATH."/uu-dai-giam-gia-kham-chua-benh.html";
+    $tip2 = $objNews->newsContentAttach($text,$link);
+    
+    
+?>
+
+<div class="column1 fl">
+	<!-- div class="tip_top">
+		<?php echo $tip1;?>
+	</div -->
+	<div class="news_detail_title"><h1><?php echo $newsTitle;?><h1></div>
+	<ul class="news_related">
+		<?php foreach((array)$relatedNews as $news){
+			$newsTitle 			= stripcslashes($news['title_vn']);
+			$newsUrl			= WEB_PATH.'/chi-tiet/'.$objConvert->utf8_to_url($newsTitle).'-'.$news['id_news'].'.html';
+		?>
+		<li><a alt="<?php echo $newsTitle;?>" title="<?php echo $newsTitle;?>" href="<?php echo $newsUrl;?>"><?php echo $newsTitle;?></a></li>
+		<?php }?>
+	</ul>
+	<div class="news_detail_description"><?php echo $description;?></div>
+	<div class="news_detail_content">
+		<?php 
+			echo $newsContent;
+		?>
+		<div class="cb"></div>
+	</div>
+	<div class="cb"></div>
+	<!-- div class="tip_bottom">
+		<?php echo $tip2;?>
+	</div -->
+    <?php if (sizeof($otherNews >0)) :?>
+        <div class="seo_tags">
+        	<span>Tags:</span>
+                <?php foreach($otherNews as $vOther){?>
+                <a title="<?php echo $vOther['tag_title']; ?>" href="<?php echo WEB_PATH;?>/nen-doc/<?php echo $objConvert->utf8_to_url($vOther['tag_title']).'-'.$vOther['seopage_id']?>.html"><?php echo $vOther['tag_title'];?></a>, 
+                <?php };?>
+        </div>
+       <?php endif; ?> 
+    <div class="cmm_border">
+		<?php echo $this->comments;?>	
+	</div>
+</div>
+<div class="column2 fl">
+	<?php echo $this->action('rightadv4','elements','front');?>
+	<?php echo $this->action('rightadv1','elements','front');?>
+	<div class="top_news_list">
+		<div class="hot_news_list_header">Những bài được xem nhiều nhất</div>
+		<?php 
+			foreach((array)$topNews as $news){
+				$newsTitle 			= stripcslashes($news['title']);
+				$newsPath 			= ROOT_PATH."/public/uploads/news/".$news['image'];
+				$newsImageUrl		= null;
+				if(is_file($newsPath)){
+					$newsImageUrl	= WEB_PATH."/public/uploads/news/".$news['image'];
+				}
+				$newsDescription 	= $objUtil->tooltipString(trim(stripcslashes($news['description'])),70);
+				$newsUrl			= WEB_PATH.'/chi-tiet/'.$objConvert->utf8_to_url($newsTitle).'-'.$news['news_id'].'.html';
+		?>
+		<div class="top_item_info">
+			<?php if($newsImageUrl) echo '<div class="top_item_image fl"><img alt="" src="'.$newsImageUrl.'"></div>'; ?>
+			<a alt="<?php echo $newsTitle;?>" title="<?php echo $newsTitle;?>" href="<?php echo $newsUrl;?>"><?php echo $newsTitle;?></a>
+			<p><?php echo $newsDescription;?></p>
+			<div class="cb"></div>
+		</div>
+		<div class="cb"></div>
+		<?php } ?>
+	</div>
+	<?php //echo $this->action('rightadv2','elements','front');?>
+</div>
+<div class="cb"></div>

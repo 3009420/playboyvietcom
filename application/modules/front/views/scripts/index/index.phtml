@@ -1,0 +1,133 @@
+<?php 
+	$notes = $this->notes;
+	$tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
+	echo $this->action('slider','elements','front');
+?>
+     <div class="scroll" data-ui="jscroll-default">
+        <div class='container' >
+          <div class="row">
+                 <div id='giaiphap-ez1' >
+                      <div class="row height-view"></div>
+                      <!-- col-lg-3 col-md-3 col-sm-12 col-xs-12 animate_afl d1 animate_start -->
+                      <div class=" ani row animate_afl d1 animate_start">
+                            <div class="row">
+                                <!-- div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 giaiphap'> Solution</div -->
+                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='title_khachhang'><?php echo $notes['note1']['title']?></div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id='_contect_khachhang'>
+                                  <p class="p-view-ttkh "><strong><?php echo $notes['note1']['description']?></strong>
+                                    </p>
+                                </div>
+                            </div><!-- end row -->
+
+                      </div><!-- class="row animate_afl d1 animate_start" -->
+                        </div><!-- id='giaiphap' -->
+                  </div> <!-- class -row-->
+    </div><!-- container-->
+    <div class='container' id="giaiphap-ez2" >
+ 
+    <div class='row  '>
+       <div id="content" class="container_12">
+            
+
+      <div id="home-page" class="container content">
+                   <!-- Till - block -->
+
+            <section id="till-block" class="row">
+
+
+                    <div id="slider-app">
+
+                        <div id="tillCarousel" class="carousel slide hidden-phone" data-interval="false">
+
+                        <div class="carousel-inner col-md-12">
+
+                            <div class="item active row item-doc2">
+                                <div class="col-md-8 pagination-centered" style="margin-left: 0;">
+                                    <img src="<?php echo WEB_PATH;?>/public/front/img/toandien.png" alt="caisse enregistreuse caltos"  class="col-md-12" style="width: 95%; max-width: 565px; margin-bottom: 1%;">
+                                    <h3 class="col-md-12" style="font-size: 17px;"><?php echo $notes['note4']['title'];?> : </h3>
+                                     <p class="col-md-12 text-left">
+                                        <?php echo $notes['note4']['description'];?>
+                                    </p>
+                                </div>
+                                <div class="col-md-4" style="/* margin-top: 5%; */">
+                                   <img src="<?php echo WEB_PATH;?>/public/front/img/01-toandien.png" class="col-md-2" style="width: 72px;height: 71px;padding: 0px; margin: 0px;">
+                                    <p class="col-md-12 bold-viewez">Complete POS solution</p>
+
+                                    <h3 class="col-md-12 text-left"><?php echo $notes['note2']['title']?>:</h3>
+                                    <p class="col-md-12 text-left">
+                                        <?php echo $notes['note2']['description'];?>
+                                    </p>
+                                    <h3 class="col-md-12 text-left"><?php echo $notes['note3']['title']?>:</h3>
+                                    <p class="col-md-12 text-left">
+                                        <?php echo $notes['note3']['description'];?>
+                                    </p>
+                                </div>
+
+                            </div><!-- class="item row" -->
+
+
+                          <div class="item  row item-doc2">
+                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                      <h3 class='h3-span7'><i><img src="<?php echo WEB_PATH;?>/public/front/img/icon-span6.png" class="iconspan6"></i>  <?php echo $notes['note9']['title'];?></h3>
+                                      <p class="col-md-11  text-left">  
+                                         <?php echo $notes['note9']['description'];?>
+                                      </p>
+                                      
+                                      </div><!-- span 6 -->
+                                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 "> 
+                                        <img src="<?php echo WEB_PATH;?>/public/front/img/bg_span4.png" class='img-responsive tt-span4' >
+                                      </div><!-- span 5 -->
+                            </div><!-- class="item row" -->
+                     <div class="item  row item-doc1">
+                                 <div class="col-md-6 pagination-centered" style="margin-left: 0;">
+                                     <h3 class='h3-span8'><i><img src="<?php echo WEB_PATH;?>/public/front/img/icon-tk.png" class="iconspan6 re-tkiem"></i><?php echo $notes['note10']['title'];?></h3>
+                                     <img src="<?php echo WEB_PATH;?>/public/front/img/tietkiem.png" alt="caisse enregistreuse caltos"  class="col-md-12" style="width: 95%; max-width: 327px; margin-bottom: 1%;height: 361px;">
+                                </div>
+								
+                                <div class="col-md-6 pagination-centered" style="margin-left: 0;">
+
+                                  <h3 class="col-md-12 text-left" style="margin-left: 2.564102564102564%;"><?php echo $notes['note11']['title'];?></h3>
+                                    <p class="col-md-11  text-left">
+                                     <?php echo $notes['note11']['description'];?>
+                                     </p>
+										<br style="clear: both;">
+                                     <h3 class="col-md-12 text-left"><?php echo $notes['note12']['title'];?></h3>
+                                    <p class="col-md-11  text-left">
+                                      <?php echo $notes['note12']['description'];?>
+                                    </p>
+									<br style="clear: both;">
+                                     <h3 class="col-md-12 text-left"><?php echo $notes['note13']['title'];?></h3>
+                                    <p class="col-md-11  text-left">
+                                      <?php echo $notes['note13']['description'];?>
+                                    </p>
+                                   
+                                </div>
+
+                            </div><!-- class="item active row" -->
+                        </div><!-- class="carousel-inner col-md-12" -->
+                        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-1"></div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 pagination-centered btn-group flot-po" data-toggle="buttons-radio" style="margin-top: 2%;">
+                                <button type="button" class="btn btn active font_bt bg_bt_1  " data-target="#tillCarousel" data-slide-to="0"><?php echo $tr->translate('txt_title_tab_complet');?></button>
+                                <button type="button" class="btn btn font_bt bg_bt_2 " data-target="#tillCarousel" data-slide-to="1"><?php echo $tr->translate('txt_title_tab_simple');?></button> 
+                                <button type="button" class="btn btn font_bt bg_bt_3 " data-target="#tillCarousel" data-slide-to="2"><?php echo $tr->translate('txt_title_tab_raisonale');?></button>
+                            </div><!-- end button-->
+
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-2"></div>
+
+                        </div><!-- class="carousel-inner col-md-12" -->
+
+                    </div><!-- id="tillCarousel" class="carousel slide hidden-phone" data-interval="false" -->
+                
+
+            </section>
+      </div><!-- id="home-page" class="container content" -->
+    </div><!-- id="content" class="container_12" -->
+                        
+</div><!-- class="row" -->
+</div><!-- class='container ez2-tinhnang' -->
+<a href="<?php echo WEB_PATH;?>/front/index/home2">next</a>
+      </div>
+      <script>
+      $('.scroll').jscroll();
+      </script>
+

@@ -1,0 +1,102 @@
+<?php 
+	$basicPackage 		= $this->basicPackage;
+	$proPackage 		= $this->proPackage;
+	$basicPackageName 	= $basicPackage[0]['package_name'];
+	$proPackageName 	= $proPackage[0]['package_name'];
+?>
+<div class='container'>
+    <div class="row">
+         <div id='prix-giadichvu'>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-giadicvu">Nos Offres</div>
+          <div class="action-layer" data-stellar-background-ratio="0.5" data-stellar-vertical-offset="100" style="background-position: 0% -46.5px;"></div>  
+
+                              <section id="features" class="container">     
+                                  <!-- Featured Section Calls to Action -->
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ez-hotro-box item animate_afc d1 animate_start">
+                                      
+                                      <article class="ez4-block">
+                                        <div class="caption-ez4"> 
+                                          <h3 class='view-h3'><?php echo $basicPackageName;?></h3>
+                                           <ul class="nav-pills nav-stacked  nav-el-ez4">
+                                           <?php 
+                                           		foreach((array)$basicPackage as $pki){
+													$itemStatus = $pki['item_status'];
+													if($itemStatus == 3){
+														$itemStatus = 'icon-add-ez4';
+													}elseif($itemStatus == 2){
+														$itemStatus = 'icon-oki-ez4';
+													}else{
+														$itemStatus = 'icon-del-ez4';
+													}
+											?>
+                                            <li class="dis-pla-in">
+                                              <i class="<?php echo $itemStatus;?>"></i>
+                                              <div class="text-tx-right"><?php echo $pki['item_name'];?></div>
+                                            </li>
+                                            <?php }?>
+                                            <li>
+                                              <a href="#"><img class="action-image path-view img-responsive" src="<?php echo WEB_PATH;?>/public/front/img/19dola.png" alt=""></a>
+                                            </li>
+
+                                          </ul>
+                                        </div>
+
+                                      </article>
+
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  ez-hotro-box item animate_afc d2 animate_start">
+                                     
+                                      <article class="ez4-block">
+                                        
+                                        <div class="caption-ez4">  
+                                          <h3 class='view-h3'><?php echo $proPackageName;?></h3>
+                                          <ul class=" nav-pills nav-stacked nav-el-ez4">
+                                          	 <?php 
+                                           		foreach((array)$proPackage as $pki){
+													$itemStatus = $pki['item_status'];
+													if($itemStatus == 3){
+														$itemStatus = 'icon-add-ez4';
+													}elseif($itemStatus == 2){
+														$itemStatus = 'icon-oki-ez4';
+													}else{
+														$itemStatus = 'icon-del-ez4';
+													}
+											?>
+                                              <li class="dis-pla-in ">
+                                                <i class="<?php echo $itemStatus;?>"></i><strong><?php echo $pki['item_name'];?></strong>
+                                              </li>
+                                              <?php }?>
+                                              <li>
+                                                <img class="action-image path-view img-responsive" src="<?php echo WEB_PATH;?>/public/front/img/39dola.png" alt="">
+                                              </li>
+                                            </ul>
+
+                                        </div>
+                                       
+                                      </article>
+
+                                    </div>
+
+
+                                  </div><!-- class="row" -->
+                                  <!-- End Featured Section Calls to Action -->
+                                </section>
+
+                      </div><!-- class="article-tinhnang" -->
+
+
+           <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+               
+            </div><!-- span6-->
+
+            <div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+             
+            </div><!-- span6-->
+
+        </div><!-- giadichvu--> 
+      </div><!-- class row -->  
+    </div><!-- container-->
+<a href="<?php //echo WEB_PATH;?>/prix/index/prix3">next</a>
+<?php die();?>

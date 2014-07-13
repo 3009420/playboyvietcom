@@ -1,0 +1,49 @@
+<?php 
+	$group			= $this->group;
+	//echo "<pre>";
+	//print_r($group);
+	$relatedNews	= $group['relatedNews'];
+	$objNews		= new HT_Model_administrator_models_news();
+	$objConvert 	= new HT_Model_administrator_models_convert();
+	$link = WEB_PATH."/tu-van-suc-khoe-mien-phi-voi-cac-bac-si-hang-dau-tai-wish.html";
+	$text = 'WiSH cung cấp dịch vụ <b>Hỏi & Đáp</b>, bạn sẽ tư vấn sức khỏe <b style="color:#FF0000">MIỄN PHÍ</b> bởi những bác sĩ hàng đầu đến từ <b>bệnh viện Hồng Ngọc</b> và <b>bệnh viện An Thịnh</b>. Hãy <a href="'.$link.'">nhấn vào đây</a> để đặt câu hỏi của bạn và nhận được sự chăm sóc tận tình nhất từ các lương y của chúng tôi.';
+	$tip1 = $objNews->newsContentAttach($text,$link);
+?>
+
+<div class="group_left fl">
+	<div class="group_adv fl"><a href="<?php echo WEB_PATH.'/ung-dung-tinh-ngay-thu-thai.html'?>"><img src="<?php echo WEB_PATH;?>/public/images/cong_cu_tinh_ngay_thu_thai.jpg" /></a></div>
+	<div class="group_adv fl"><a href="<?php echo WEB_PATH.'/ung-dung-tra-cuu-trieu-chung.html'?>"><img src="<?php echo WEB_PATH;?>/public/images/cong_cu_tra_cuu_trieu_chung.jpg" /></a></div>
+	<div class="group_adv fl"><a href="<?php echo WEB_PATH.'/ung-dung-tao-va-quan-ly-lich-tiem-chung-cho-be.html'?>"><img src="<?php echo WEB_PATH;?>/public/images/theo_doi_lich_tiem_chung_cho_be.jpg" /></a></div>
+	<div class="group_adv fl"><a href="http://www.hfh.com.vn/?lang=vi" target="_blank"><img src="<?php echo WEB_PATH;?>/public/images/benh_vien_viet_phap_ha_noi.jpg" /></a></div>
+	<div class="cb"></div>
+	<!-- div class="group_small_adv fl"><a href="#"><img src="<?php echo WEB_PATH;?>/public/uploads/adv/demo1.jpg" /></a></div>
+	<div class="group_small_adv fl"><a href="#"><img src="<?php echo WEB_PATH;?>/public/uploads/adv/demo2.jpg" /></a></div>
+	<div class="group_small_adv fl"><a href="#"><img src="<?php echo WEB_PATH;?>/public/uploads/adv/demo3.gif" /></a></div -->
+</div>
+<div class="group_right fl">
+	<div class="group_header"><h1><?php echo $group['subject'];?></h1></div>
+	<?php foreach((array)$relatedNews as $item){?>
+		<div class="group_item"><a target="_blank" href="<?php echo WEB_PATH;?>/tin-tuc/chi-tiet/<?php echo $item['id_news']?>/<?php echo $objConvert->utf8_to_url($item['title_vn']);?>.html"><?php echo $item['title_vn'];?></a></div>
+	<?php }?>
+</div>
+<div class="cb"></div>
+
+<?php echo $tip1;?>
+<?php foreach((array)$relatedNews as $item){
+	$url = WEB_PATH.'/tin-tuc/chi-tiet/'.$item['id_news'].'/'.$objConvert->utf8_to_url($item['title_vn']).'.html';
+	$imagePath = ROOT_PATH.'/public/uploads/news/'.$item['pictrue'];
+	if(is_file($imagePath)){
+		$imageUrl = WEB_PATH.'/public/uploads/news/'.$item['pictrue'];
+	}else{
+		$imageUrl = WEB_PATH.'/public/images/noImageAvailable.jpg';
+	}
+	
+?>
+<div class="group_news_box">
+	<a class="group_news_image" href="<?php echo $url;?>"> <img src="<?php echo $imageUrl;?>" /></a>
+	<h2 class="group_news_title"><a href="<?php echo $url;?>"><?php echo $item['title_vn'];?></a></h2>
+	<p><?php echo $item['desc_vn'];?></p>
+	<div class="cb"></div>
+</div>
+<?php }?>
+

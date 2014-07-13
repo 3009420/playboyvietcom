@@ -1,0 +1,159 @@
+  <?php $notes = $this->notes;
+  $tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
+  ?>
+   <header id="header" class="site-header-smartphone " > <!-- class="site-header"  -->
+ 	<?php 
+        // menu 
+        echo $this->action('topmenu','elements','front');
+      ?>
+   </header>
+
+  <footer id="footer" class="footer">
+   
+ 
+      <div class="container">
+      <?php  /*
+        <div > <!-- class="row-fluid" -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+            <div class="notify-wrapper">
+              <div class="notify-inner">
+                <a class="notify" href="#" id='dang-ki-view'>M’INSCRIRE</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      */
+    ?>
+    </div>
+ 
+  </footer>
+<div id="menu">
+  
+     <div class="scroll" data-ui="jscroll-default">
+     
+    <div class='container' >
+          <div class="row">
+                 <div id='giaiphap-pag1-prod' >
+                      <div class="row height-view-pro"></div>
+                      <!-- col-lg-3 col-md-3 col-sm-12 col-xs-12 animate_afl d1 animate_start -->
+                      <div class=" ani row animate_afl d1 animate_start ">
+                            <div class="row ">
+                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 giaiphap1'><?php echo $notes['smartphone0']['title'];?></div>
+                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='title_khachhang'></div>
+                                <p class="text-just-smp col-md-11 " >
+                                <?php echo $notes['smartphone0']['description'];?> 
+                                </p>
+                            </div><!-- end row -->
+
+                      </div><!-- class="row animate_afl d1 animate_start" -->
+                     
+
+
+                        </div><!-- id='giaiphap' -->
+                  </div> <!-- class -row-->
+    </div><!-- container-->
+    <div class='container' id="giaiphap-ez2" >
+ 
+    <div class='row  '>
+       <div id="content" class="container_12">
+            
+
+      <div id="home-page" class="container content">
+                   <!-- Till - block -->
+
+            <section id="till-block" class="row">
+
+
+                    <div id="slider-app">
+
+                        <div id="tillCarousel" class="carousel slide hidden-phone" data-interval="false">
+
+                        <div class="carousel-inner col-md-12">
+
+                          <div class="item active  row item-doc1 hieght-pad">
+                               
+                                 <div class="col-md-5 pagination-centered" style="margin: 0;padding-right: 57px;">
+								  
+                                  <h3 class="col-md-12 text-left-product">
+                                     <i><img src="<?php echo WEB_PATH;?>/public/front/img/Points_de.png" class=" iconspan6 re-tkiem"></i>
+                                    <?php echo $notes['smartphone1']['title'];?>
+                                  </h3>
+                                    <p class="text-just-edi-09 col-md-12">
+                                    <?php echo $notes['smartphone1']['description'];?> 
+                                     </p>
+          						 <h3 class="col-md-12 text-left-product">
+                                     <i><img src="<?php echo WEB_PATH;?>/public/front/img/Toutes_les.png" class=" iconspan6 re-tkiem"></i>
+                                      <?php echo $notes['smartphone2']['title'];?>
+                                   </h3>
+                                     <p class="text-just-edi-09 col-md-12">
+                                      <?php echo $notes['smartphone2']['description'];?> 
+                                      </p>
+                                  
+								</div>
+								
+								 <div class="col-md-3 pagination-centered" style="margin-left: -35px;padding: 0px;">
+                                     <img src="<?php echo WEB_PATH;?>/public/front/img/smartphone-iphone.png" alt="caisse enregistreuse caltos"  class="" style="max-width: 281px;height: 510px;margin-left: -2%">
+                                    <div  class="col-md-1" ></div>
+                                     <div  class="col-md-8">
+                                       <a href="<?php echo WEB_PATH;?>/register.html">
+                                     <h3 class="iphone-edit-smp-edit-09">
+                                        <?php echo $tr->translate('btn_sign_up_full');?>
+                                     </h3>
+                                     </a>
+                                     </div>
+                                     <div  class="col-md-3" ></div>
+                                  </div>
+								
+								 <div class="col-md-4 pagination-centered" style="margin: 0px;padding-left: 10px;padding-right: 0px;width: 348px;">
+								 
+                                  
+                                   <h3 class="col-md-12 text-left-product">
+                                     <i><img  src="<?php echo WEB_PATH;?>/public/front/img/Gestionactive.png" class=" iconspan6 re-tkiem"></i>
+                                     
+                                       <?php echo $notes['smartphone3']['title'];?>
+                                   </h3>
+                                    <p class="text-just-edi-09 col-md-12">
+                                     <?php echo $notes['smartphone3']['description'];?> 
+                                    </p> 
+                                   <h3 class='col-md-12 text-left-product'>
+                                     <i><img src="<?php echo WEB_PATH;?>/public/front/img/information-dis.png" class=" iconspan6 re-tkiem"></i>
+                                      
+                                       <?php echo $notes['smartphone4']['title'];?>
+                                  </h3>
+	                                  <p class="text-just col-md-12">
+	                                   <?php echo $notes['smartphone4']['description'];?>  
+	                                </p>
+                                   
+                                  </div>
+                                 
+                               
+                                
+                                 
+
+                          </div><!-- class="item active row" -->
+                           <div class="item   row item-doc1 hieght-pad"></div>
+                           <div class="item   row item-doc1 hieght-pad"></div>
+
+                        </div><!-- class="carousel-inner col-md-12" -->
+                        
+
+                      </div><!-- class="carousel-inner col-md-12" -->
+
+                    </div><!-- id="tillCarousel" class="carousel slide hidden-phone" data-interval="false" -->
+                
+            </section>
+      </div><!-- id="home-page" class="container content" -->
+    </div><!-- id="content" class="container_12" -->
+                        
+   </div><!-- class="row" -->
+</div><!-- class='container' id="giaiphap-ez2" -->
+
+	<?php // echo $this->layout()->content;?>
+     <a href="<?php echo WEB_PATH;?>/product/smartphone/smartphone2">next</a>
+     
+      </div><!-- class="scroll" data-ui="jscroll-default" -->
+      <script>
+      $('.scroll').jscroll();
+      </script>
+ 

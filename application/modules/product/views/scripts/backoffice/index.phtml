@@ -1,0 +1,122 @@
+  <?php $notes = $this->notes;
+  $tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
+  ?>
+   <header id="header" class="site-header-smartphone " > <!-- class="site-header"  -->
+ 	 <?php echo $this->action('topmenu','elements','front');?>
+   </header>
+
+  <footer id="footer" class="footer">
+   
+ 
+      <div class="container">
+      <?php  /*
+        <div > <!-- class="row-fluid" -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+            <div class="notify-wrapper">
+              <div class="notify-inner">
+                <a class="notify" href="#" id='dang-ki-view'>M’INSCRIRE</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      */
+    ?>
+    </div>
+ 
+  </footer>
+<div id="menu">
+  
+     <div class="scroll" data-ui="jscroll-default">
+     
+    <div class='container' >
+          <div class="row">
+                 <div id='giaiphap-pag1-prod' >
+                      <div class="row height-view-pro"></div>
+                      <!-- col-lg-3 col-md-3 col-sm-12 col-xs-12 animate_afl d1 animate_start -->
+                      <div class=" ani row animate_afl d1 animate_start ">
+                            <div class="row ">
+                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 giaiphap'  style="font-size: 32px;"><?php echo $notes['backoffice0']['title'];?></div>
+                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='title_khachhang'></div>
+                                <p class="text-just-smp col-md-11 " >
+                                <?php echo $notes['backoffice0']['description'];?> 
+                                </p>
+                            </div><!-- end row -->
+
+                      </div><!-- class="row animate_afl d1 animate_start" -->
+                     
+
+
+                        </div><!-- id='giaiphap' -->
+                  </div> <!-- class -row-->
+    </div><!-- container-->
+    <div class='container' id="" >
+ 
+    <div class='row  '>
+       <div id="content" class="container_12">
+            
+
+      <div id="home-page" class="container content">
+                   <!-- Till - block -->
+
+            <section id="till-block" class="row">
+
+
+               
+
+                     
+
+                        <div class=" carousel-inner-bkoff col-md-12">
+
+                          <div class="item active  row page01-bkooffice " >
+                               
+                                 
+								
+								 <div class="col-md-12 pagination-centered" style="margin-left: 0;">
+                                    
+                                      <div  class="col-md-12" ><!-- page-01-bk-office.png -->
+                                       <img src="<?php echo WEB_PATH;?>/public/front/img/Eng_BC.png"  class=" img-responsive " style="width: 960px;height: 570px;margin:0px; padding:0px;">
+                                       </div>
+                                   
+                                 </div>
+                                 <div class="col-md-12 pagination-centered" style="margin-left: 0;">     
+                                    <center>
+                                    <a href="<?php echo WEB_PATH;?>/register.html">
+                                     <h3 class="iphone-view-smartphone-02" style="margin: 0px;">
+                                     <?php echo $tr->translate('btn_sign_up_full');?> 
+                                     </h3></a>
+                                     </a>
+                                     </center>
+                                  </div>
+								
+								
+                                 
+                               
+                                
+                                 
+
+                          </div><!-- class="item active row" -->
+                          
+
+                        </div><!-- class="carousel-inner col-md-12" -->
+                        
+
+                 
+
+                 
+                
+            </section>
+      </div><!-- id="home-page" class="container content" -->
+    </div><!-- id="content" class="container_12" -->
+                        
+   </div><!-- class="row" -->
+</div><!-- class='container' id="giaiphap-ez2" -->
+
+	<?php // echo $this->layout()->content;?>
+     <a href="<?php echo WEB_PATH;?>/product/backoffice/backoffice2">next</a>
+     
+ </div><!-- class="scroll" data-ui="jscroll-default" -->
+      <script>
+      $('.scroll').jscroll();
+      </script>
+ 

@@ -1,0 +1,128 @@
+  <?php $notes = $this->notes;?>
+   <header id="header" class="site-header-smartphone " > <!-- class="site-header"  -->
+   
+     <?php 
+        // menu 
+        echo $this->action('topmenu','elements','front');
+     ?>
+ 
+   </header>
+
+  <footer id="footer" class="footer">
+   
+ 
+      <div class="container">
+      <?php  /*
+        <div > <!-- class="row-fluid" -->
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+            <div class="notify-wrapper">
+              <div class="notify-inner">
+                <a class="notify" href="#" id='dang-ki-view'>M’INSCRIRE</a>
+              </div>
+            </div>
+        </div>
+      </div>
+      */
+    ?>
+    </div>
+ 
+  </footer>
+<div id="menu">
+  
+     <div class="scroll" data-ui="jscroll-default">
+ <div id="teleche-phg-01">    
+      <div class='container' >
+
+          <div class="row" >
+                 <div id='giaiphap-pag1-prod' >
+                      <div class="row height-view-pro"></div>
+                      <!-- col-lg-3 col-md-3 col-sm-12 col-xs-12 animate_afl d1 animate_start -->
+                      <div class=" ani row animate_afl d1 animate_start ">
+                            <div class="row ">
+                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 gp-h3-teleche'>
+                                     <?php echo $notes['telecharger0']['title'];?>
+                                </div>
+                              
+                            </div><!-- end row -->
+
+                      </div><!-- class="row animate_afl d1 animate_start" -->
+                     
+
+
+                        </div><!-- id='giaiphap' -->
+                  </div> <!-- class -row-->
+    </div><!-- container-->
+    <div class='container' id="page-01-archive-of-hei" >
+ 
+    <div class='row  '>
+       <div id="content" class="container_12">
+            
+
+      <div id="home-page-01-mart" class="container content">
+                   <!-- Till - block -->
+
+            <section id="till-block" class="row">
+
+                        <div class="col-md-12">
+
+                          <div class="item active  row page01-bkooffice " >
+                               
+								 <div class="col-md-12 pagination-centered" >
+								      <div class="col-md-12">
+								        <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-h03-arch">
+	                                     <i><img src="<?php echo WEB_PATH;?>/public/front/img/icon-download-01.png" class=" iconspan6 re-tkiem"></i>
+	                                      <?php echo $notes['telecharger1']['title'];?>
+	                                    </h3>
+	                                    <p class="text-just col-lg-10 col-md-10 col-sm-12 col-xs-12">
+	                                    <?php echo $notes['telecharger1']['description'];?> 
+	                                     </p>
+								      </div>
+                                      <div  class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  img-mart del-padding del-margin" >
+	                                      <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
+		                                  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+		                                    <img src="<?php echo WEB_PATH;?>/public/front/img/img-download-02.png"  class=" img-responsive " style="padding-left: 0%;width:556px; height:442px;" >
+		                                  </div> 
+		                                  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12"></div>
+	                                  
+                                      </div>
+                                      
+                                    
+                                 </div>
+                                
+			             
+
+                          </div><!-- class="item active row" -->
+                          
+
+                        </div><!-- class="carousel-inner col-md-12" -->
+             
+            </section>
+      </div><!-- id="home-page" class="container content" -->
+      
+    </div><!-- id="content" class="container_12" -->
+       <div id="telechar-01">                   
+				            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+				              <p class="col-lg-12 col-md-12 col-sm-12 col-xs-12 h3-telechevie" >
+				              <?php echo $notes['telecharger2']['title'];?>
+				            
+				               </p>
+				               <span class="text-ul-prix col-lg-11 col-md-11 col-sm-11 col-xs-12">
+				               <?php echo $notes['telecharger2']['description'];?> 
+				               
+				               </span>
+								
+				            </div>      
+						</div><!-- id="prix-gd-02" -->                  
+   </div><!-- class="row" -->
+</div><!-- id="teleche-phg-01 -->
+</div><!-- class='container' id="giaiphap-ez2" -->
+
+	<?php // echo $this->layout()->content;?>
+     <a href="<?php echo WEB_PATH;?>/telecharger/index/telecharger2">next</a>
+     
+ </div><!-- class="scroll" data-ui="jscroll-default" -->
+      <script>
+      $('.scroll').jscroll();
+      </script>
+ 

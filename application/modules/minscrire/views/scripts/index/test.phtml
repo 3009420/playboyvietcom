@@ -1,0 +1,238 @@
+<?php 
+	$notes = $this->notes;
+	//echo $this->action('slider','elements','front');
+?>
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/autocomplete/jquery-1.3.2.js"></script>
+<link href="<?php echo WEB_PATH;?>/public/autocomplete/autocomplete.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/autocomplete/jquery.autocomplete.js"></script>
+<div class="scroll" data-ui="jscroll-default">
+
+					
+			<select id="cboTitle" class="hidden_combobox">
+			  <option value="Mr">Mr</option>
+			  <option value="Mrs/Ms">Mrs/Ms</option>
+			</select>
+			<select id="cboIndustry" class="hidden_combobox">
+			  <option value="Foods & beverages">Foods & beverages</option>
+			  <option value="Clothing & Accessories">Clothing & Accessories</option>
+			  <option value="Craft & gift shops">Craft & gift shops</option>
+			  <option value="Home furnishings">Home furnishings</option>
+			  <option value="Technology / Electronics">Technology / Electronics</option>
+			  <option value="Education / Training">Education / Training</option>
+			  <option value="Health / Beauty">Health / Beauty</option>
+			  <option value="Leisure / Entertainment">Leisure / Entertainment</option>
+			  <option value="Gloceries / Stationaries">Gloceries / Stationaries</option>
+			  <option value="Industrial / Manufacturing">Industrial / Manufacturing</option>
+			  <option value="Wholesale">Wholesale</option>
+			  <option value="Service-based business">Service-based business</option>
+			  <option value="Other">Other</option>
+			</select>
+			<select id="cboPlan" class="hidden_combobox">
+			  <option value="Essential">Essential</option>
+			  <option value="Professional">Professional</option>
+			 </select>
+			<select id="cboState" class="hidden_combobox">
+			  <option value="New South Wales">New South Wales</option>
+			  <option value="Victoria">Victoria</option>
+			  <option value="Queensland">Queensland</option>
+			  <option value="Northern Territory">Northern Territory</option>
+			  <option value="Western Australia">Western Australia</option>
+			  <option value="South Australia">South Australia</option>
+			  <option value="Tasmania">Tasmania</option>
+			  <option value="Australian Capital Territory">Australian Capital Territory</option>
+			  <option value="Others">Others</option>
+			</select>
+			<select id="cboJob" class="hidden_combobox">
+			  <option value="Store owner">Store owner</option>
+			  <option value="Store manager">Store manager</option>
+			  <option value="Employee">Employee</option>
+			  <option value="Software learner">Software learner</option>
+			</select> 
+			<select id="cboDemand" class="hidden_combobox">
+			  <option value="I am needing a software for my current store(s)">I am needing a software for my current store(s)</option>
+			  <option value="I am searching for a software for my future store(s)">I am searching for a software for my future store(s)</option>
+			  <option value="I am looking for a better solution than my current software">I am looking for a better solution than my current software</option>
+			  <option value="I don't have a store but wish to discover the software">I don't have a store but wish to discover the software</option>
+			</select>
+			<div class='container'>
+			    <div class="row">
+			             <div id="minscrire-01">  
+			             <div class=" ani row animate_afl d1 animate_start ">
+			                            <div class="row ">
+			                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 minscrire-h3'>
+			                                    Start your free trial of EzPOS
+			                                </div>
+			                            </div><!-- end row -->
+			
+			            </div><!-- class="row animate_afl d1 animate_start" --> 
+			              <div class="container col-lg-12 col-md-12 col-sm-12 col-xs-12">          
+				            <form id="frmUpdate" name="frmUpdate" class="form form-horizontal" style="margin-bottom: 0;" method="post" action="<?php echo WEB_PATH;?>/minscrire/index">
+					               <div class="form-inline col-lg-6 col-md-6 col-sm-12 col-xs-12 del-padding ">
+					               <!--   <div class="img-div-caret"> <img alt="" src="<?php echo WEB_PATH;?>/public/front/img/caret-01.png" class="img-caret-02"> </div> --> 
+					                <div class="form-inline margin-meche" >
+					                <div style="width: 125px; float: left; margin-top: 5px;" >
+					                	<input id="autoTitle" name="autoTitle"  placeholder="Title" class="autoTitle placeholder_style" style="font-size: 13px;" />
+					                </div>
+					                <div style="width: 325px; float: left;">
+									  <input type="text" id="First_Name" name="First_Name" style="width: 150px;" class=" First_Name input-small text-minsrcre col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="First Name">
+									  <input type="text" id="Last_Name" name="Last_Name"  style="width: 150px;" class=" Last_Name input-small text-minsrcre col-lg-5 col-md-5 col-sm-12 col-xs-12" placeholder="Last Name">
+									 </div> 
+									 <div style="clear: both;"></div>
+					                </div>
+								      <input style="z-index: 0" type="text"  id="email_post" name="email_post"  class=" email_post input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Email">
+								      <label class="control-label input-small minsrcre-lb col-lg-12 col-md-12 col-sm-12 col-xs-12 " for="inputWarning">Kindly enter your correct email address. We shall send you instructions to activate your account.</label>
+							          <input type="text" id="Cellphone" name="Cellphone"  class=" Cellphone input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Cellphone">
+							          <input type="text" id="Store_Name" name="Store_Name" class=" Store_Name input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Store Name">
+							          <input type="password" id="Password" name="Password" class=" Password input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Password">
+							          <input type="password" id="Confirm_Password" name="Confirm_Password" class=" Confirm_Password input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Confirm Password">
+							          <div class="auto_padding">
+							          	<input id="autoIndustry" name="autoIndustry"  placeholder="Industry" class="autoIndustry placeholder_style" style="font-size: 13px;" />
+							          </div>
+							          <div class="auto_padding1">
+							          	<input id="autoPlan" name="autoPlan" placeholder="Subscription Plan" class="autoPlan placeholder_style"  style="font-size: 13px;"/>
+							          </div>
+							           <div style="clear: both;"></div>
+					               </div>
+					               
+					               <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 del-padding">
+					                  <img src="<?php echo WEB_PATH;?>/public/front/img/Eng_20copy.png"  class=" img-responsive col-lg-12 col-md-12 col-sm-12 col-xs-12 " style="padding-left: 0%;width:457px; height:240px;margin-bottom: 51px;" >
+					                  <input type="text" id="Address_location" name="Address_location" class=" Address_location input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Address - where your store or head store locates">
+							          <input type="text" id="Postal_Code" name="Postal_Code" class="Postal_Code input-small text-minsrcre-th col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="Postal Code ">
+							          <div class="auto_padding">
+							          	<input id="autoState" name="autoState" placeholder="State or territory" class="autoState placeholder_style"  style="font-size: 13px;"/>
+							          </div>
+							          <div class="auto_padding1">
+							          	<input id="autoJob" name="autoJob" placeholder="Job title" class="autoJob placeholder_style"  style="font-size: 13px;"/>
+							          </div>
+							          <div class="auto_padding1">
+							          	<input id="autoDemand" name="autoDemand" placeholder="Your demand" class="autoDemand placeholder_style" style="font-size: 13px;"/>
+							          </div>
+							           <div style="clear: both;"></div>
+					               </div>
+					               <div style="clear: both;"></div>
+					               <br><br>
+				               <div  class="col-md-12 del-padding del-margin padd-l-mart" >
+						              <div  class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ></div>
+						               <div  class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><h3 class="cta-dangki padd-l-mart-min-edit" style="width: 260px;"><button type="submit" class="but-minscri" onclick="return validateData_email()" > Create my account </button></h3></div>
+						               <div  class="col-lg-4 col-md-4 col-sm-12 col-xs-12" ></div>
+					                                    
+			                   </div>
+						</form>
+							</div>  <!-- class="container" -->     
+						 </div><!-- id="prix-gd-02" -->
+			 
+			        </div><!-- class- row --> 
+			      </div><!-- class = " container" -->  
+ 
+    </div><!-- scroll -->
+    
+<script type="text/javascript">
+jQuery().ready(function($){
+	$("#autoTitle").autocomplete({
+		source:"#cboTitle",
+		fillin:true,
+		width:120,
+	});
+	$("#autoIndustry").autocomplete({
+		source:"#cboIndustry",
+		fillin:true,
+		width:441,
+	});
+	$("#autoPlan").autocomplete({
+		source:"#cboPlan",
+		fillin:true,
+		width:441,
+	});
+	$("#autoState").autocomplete({
+		source:"#cboState",
+		fillin:true,
+		width:441,
+	});
+	$("#autoJob").autocomplete({
+		source:"#cboJob",
+		fillin:true,
+		width:441,
+	});
+	$("#autoDemand").autocomplete({
+		source:"#cboDemand",
+		fillin:true,
+		width:441,
+	});
+});
+
+
+function validateData_email(){
+	//alert('gui mail');
+	if($('#autoTitle').val()==''){
+		alert('Please enter Title');
+		$('#autoTitle').focus();
+		return false;
+	}else if($('#First_Name').val()==''){
+		alert('Please enter First Name');
+		$('#First_Name').focus();
+		return false;
+	}else if($('#Last_Name').val()==''){
+		alert('Please enter  Last Name');
+		$('#Last_Name').focus();
+		return false;
+	}else if($('#email_post').val()==''){
+		alert('Please enter  Email');
+		$('#email_post').focus();
+		return false;
+	}
+	else if($('#Cellphone').val()==''){
+		alert('Please enter  Cellphone');
+		$('#Cellphone').focus();
+		return false;
+	}
+	else if($('#Store_Name').val()==''){
+		alert('Please enter  Store_Name');
+		$('#Store_Name').focus();
+		return false;
+	}
+	else if($('#Password').val()==''){
+		alert('Please enter  Password');
+		$('#Password').focus();
+		return false;
+	}
+	else if($('#autoIndustry').val()==''){
+		alert('Please enter  autoIndustry');
+		$('#autoIndustry').focus();
+		return false;
+	}
+	else if($('#autoPlan').val()==''){
+		alert('Please enter  autoPlan');
+		$('#autoPlan').focus();
+		return false;
+	}
+	else if($('#Address_location').val()==''){
+		alert('Please enter  Address_location');
+		$('#Address_location').focus();
+		return false;
+	}
+	else if($('#Postal_Code').val()==''){
+		alert('Please enter  Postal_Code');
+		$('#Postal_Code').focus();
+		return false;
+	}
+	else if($('#autoState').val()==''){
+		alert('Please enter  autoState');
+		$('#autoState').focus();
+		return false;
+	}
+	else if($('#autoJob').val()==''){
+		alert('Please enter  autoJob');
+		$('#autoJob').focus();
+		return false;
+	}
+	else if($('#autoDemand').val()==''){
+		alert('Please enter  autoDemand');
+		$('#autoDemand').focus();
+		return false;
+	}
+	else{
+		$('#frmUpdate').submit();
+	}
+	return false;			
+}
+</script>
