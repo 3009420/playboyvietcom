@@ -15,7 +15,7 @@ $(document).ready(function(){
  });
 }); 
 
-function deleteContentdetailfull(contentdetailfullId){
+function deletecontentdetailfull(contentdetailfullId){
 	if(confirm('Bạn có chắc chắn muốn xóa dữ liệu này không? Dữ liệu sẽ bị xóa và không thể phục hồi!')){
 		$('#loading').show();
 		$('#'+contentdetailfullId).hide("slow");

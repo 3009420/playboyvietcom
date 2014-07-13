@@ -26,19 +26,31 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 	
 	public function updateAction(){
 		$objcontentdetailfull 	= new HT_Model_administrator_models_contentdetailfull();
+		$objappsatellite 	= new HT_Model_administrator_models_appsatellite();
 		$objUtil 	= new HT_Model_administrator_models_utility();
 		$do 		= @$this->_request->getParam('do');
 		$id 		= (int)$this->_request->getParam('id');
+		$idforeign 		= (int)$this->_request->getParam('foreign');
+		
+		
 		$status 	= (int)$this->_request->getParam('status');
 		$groupId	= null;
 		if($do == 'submit'){
-			$data = array();
-			$data['note_key'] 		= strtolower(trim($this->_request->getParam('note_key')));
-			$data['note_title'] 	= $this->_request->getParam('note_title');
-			$data['description'] 	= $this->_request->getParam('description');
-			$data['group_id'] 		= $this->_request->getParam('group_id');
+			$datacontentdetail = array();
+			$datacontentdetail['src'] 		    = $this->_request->getParam('src');
+			$datacontentdetail['idforeign'] 		    = $idforeign;
+			//$datacontentdetail['comment_content'] 	= $this->_request->getParam('comment_content');
+			
+			$data_appsatellite = array();
+			$data_appsatellite['title'] 	        = $this->_request->getParam('title');
+			$data_appsatellite['content_detail'] 	= $this->_request->getParam('content_detail');
+			$data_appsatellite['nameapp'] 		= $this->_request->getParam('nameapp');
+			$data_appsatellite['id'] 		= $idforeign;
+			
 			if($id >0){
-				$status = $objcontentdetailfull->updateData($data,(int)$id);
+				$status = $objcontentdetailfull->updateData($datacontentdetail,(int)$id);
+				//$status2 = $objappsatellite->updateData($data_appsatellite,(int)$idforeign);
+				
 			}else{
 				$status = $objcontentdetailfull->addData($data);
 			}
@@ -56,7 +68,9 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 			$this->view->contentdetailfull 	= $contentdetailfull;
 		}
 		
-		$this->view->contentdetailfullGroup = $objUtil->GetCombobox('idforeign','id','nameapp','appsatellite',array('cssClass'=>'form-control','isBlankVal'=>'no','defaultValue'=>$groupId));
+		$disabled ="disabled";
+		$this->view->contentdetailfullGroup = $objUtil->GetCombobox('nameapp','id','nameapp','appsatellite',array('cssClass'=>'form-control','isBlankVal'=>'no','defaultValue'=>$idforeign,'disabled'=>$disabled));
+		//$this->view->contentdetailfullGroup = $objUtil->QueryNameapp('appsatellite','id','nameapp',array('id'=>$idforeign));
 		
 		$this->view->id 		= $id;
 		$this->view->status 	= $status;
@@ -109,7 +123,7 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		$ajaxData .= '</thead>';
 		
 		$i=0;
-		$arrGroup = array();
+		$arrGroup = array();$addN = -1;
 		foreach($listcontentdetailfull as $cfg){
 			$i++;
 			$trClass = null;
@@ -124,7 +138,10 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 			$ajaxData .= '<td>'.$cfg['content_detail'].'</td>';
 			$ajaxData .= '<td>'.$cfg['nameapp'].'</td>';
 			$ajaxData .= '<td style="white-space: nowrap" align="center">';
-			$ajaxData .= '<a class="btn btn-danger btn-xs"  href="#" onclick="deletecontentdetailfull('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  | <a class="btn btn-xs" href="'.WEB_PATH.'/administrator/contentdetailfull/update/?id='.$cfg['id'].'" title="Edit"><i class="icon-edit"></i></a>';
+			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/contentdetailfull/update/?id='.$addN.'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|
+					      <a class="btn btn-danger btn-xs"  href="#" onclick="deletecontentdetailfull('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  |
+					       <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/contentdetailfull/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
+			//$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;" idforeign="'.$cfg['idforeign'].'" href="'.WEB_PATH.'/administrator/contentdetailfull/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|<a class="btn btn-danger btn-xs" idforeign="'.$cfg['idforeign'].'" href="#" onclick="deletecontentdetailfull('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  | <a class="btn btn-xs" idforeign="'.$cfg['idforeign'].'" href="'.WEB_PATH.'/administrator/contentdetailfull/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
 			//$ajaxData .= '<a class="btn btn-xs" href="'.WEB_PATH.'/administrator/contentdetailfull/update/?id='.$cfg['id'].'" title="Edit"><i class="icon-edit"></i></a>';
 			$ajaxData .= '</td>';
 			$ajaxData .= '</tr>';

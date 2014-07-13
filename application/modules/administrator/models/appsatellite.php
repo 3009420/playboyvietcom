@@ -25,10 +25,10 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 		}
 	}
 	
-	public function updateData($data,$notegroupId){
+	public function updateData($data,$id){
 		$groupName = $data['group_name'];
-		if(!$this->_checkExistsName($groupName,$notegroupId)){
-			$this->update($data,'group_id = '.(int)$notegroupId);
+		if(!$this->_checkExistsName($groupName,$id)){
+			$this->update($data,'id = '.(int)$id);
 			return $appsatelliteId;
 		}else{
 			return "-1";

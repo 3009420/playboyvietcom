@@ -9,6 +9,7 @@
 		$message = '<div class="ub_message"><span>Note key is already exists! Please choice other key.</span></div>';
 	}
 	$active = (int)@$contentdetailfull['active'];
+
 ?>
 <div class='row' id='content-wrapper'>
             <div class='col-xs-12'>
@@ -17,7 +18,7 @@
                   <div class='page-header'>
                     <h1 class='pull-left'>
                       <i class='icon-edit'></i>
-                      <span class="page_title">Add/Update a contentdetailfull</span>
+                      <span class="page_title"><?php if($this->id > 0) echo "Update a contentdetailfull"; else echo "Add a contentdetailfull"?></span>
                     </h1>
                   </div>
                 </div>
@@ -28,7 +29,7 @@
                     <div class='box-header blue-background'>
                       <div class='title'>
                         <div class='icon-edit'></div>
-                        Note page
+                        Add / Edit
                       </div>
                       <div class='actions'>
                         <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
@@ -43,7 +44,7 @@
 						<input type="hidden" id="do" name="do" value="submit" />
                         <input name="authenticity_token" type="hidden" />
                       <div class='form-group'>
-                        <label class='col-md-3 control-label' for='contentdetailfull_key'>Contentdetailfull group</label>
+                        <label class='col-md-3 control-label' for='contentdetailfull_key'>Title - NameApp</label>
                         <div class='col-md-9'>
                         	<?php echo $this->contentdetailfullGroup; 
                         	       //var_dump($this->contentdetailfullGroup);
@@ -51,28 +52,29 @@
                         	       ?>
                         </div>
                       </div>
+                 <?php if($contentdetailfull['src'] != "") {?>
                       <div class='form-group'>
-                        <label class='col-md-3 control-label' for='contentdetailfull_key'>Note key</label>
+                        <label class='col-md-3 control-label' for='thumbnail'>ThumbNail</label>
                         <div class='col-md-9'>
-                        	<input type="text" class='form-control' id="contentdetailfull_key" name="contentdetailfull_key" placeholder='Note key' value="<?php echo @$contentdetailfull['contentdetailfull_key'];?>" />
+                        
+                        	<img type="text" class='form-control' id="thumbnail" name="thumbnail" placeholder='Images' src="<?php echo @$contentdetailfull['src'];?>" style="width: 400px;height:400px;" />
                         </div>
                       </div>
+                   <?php }?>
                       <div class='form-group'>
-                        <label class='col-md-3 control-label' for='contentdetailfull_title' placeholder='Page URL'>Note title</label>
+                        <label class='col-md-3 control-label' for='src'>Images</label>
                         <div class='col-md-9'>
-                        	<input  class='form-control' type="text" id="contentdetailfull_title" name="contentdetailfull_title" value="<?php echo @$contentdetailfull['contentdetailfull_title'];?>" />
+                        	<input type="text" class='form-control' id="src" name="src" placeholder='Images' value="<?php echo @$contentdetailfull['src'];?>" />
                         </div>
                       </div>
-                      <!--  
-                      <div class='form-group'>
-                        <label class='col-md-3 control-label' for='description'>Description</label>
-                        <div class='col-md-9'>
-                        	<textarea  class='form-control' rows="10" type="text" id="description" name="description"><?php //echo @$contentdetailfull['description'];?></textarea>
-                        </div>
-                      </div>
-                      -->
                       
-                      
+                    <?php /*?> 
+                      <div class='form-group'>
+                        <label class='col-md-3 control-label' for='title' placeholder='Page URL'>title</label>
+                        <div class='col-md-9'>
+                        	<input  class='form-control' type="text" id="title" name="title" value="<?php echo @$contentdetailfull['contentdetailfull_title'];?>" />
+                        </div>
+                      </div>
                        <div class='form-group'>
                           <label class='control-label col-sm-3' for=''> Description</label>
                        </div>
@@ -80,7 +82,7 @@
                            <textarea type="text" id="description" name="description"><?php echo stripcslashes(@$contentdetailfull['description']);?></textarea>
                            <?php $objUtil->renderCkeditor('description',400)?>
                        </div>
-                       
+                      */?> 
                        
                       <div class='form-actions form-actions-padding-sm'>
                         <div class='row'>

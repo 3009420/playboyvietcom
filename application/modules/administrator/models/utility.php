@@ -865,11 +865,13 @@ public function renderData($TitleTable=null,$data,$paging = null){
 		$isMultiple        =  @$filter['isMultiple'];
 		$cssClass          =  @$filter['cssClass'];
 		$valueColumnAlias  =  @$filter['valueColumnAlias'];
+		$disabled_check          =  @$filter['disabled'];
+		if($disabled_check !='') { $disabled          =  @$filter['disabled']; } else $disabled = null;
 		//$keyColumn 	       =  @$filter['keyColumn'];
 		
 		$data = $this->Query2Cols($tableName,$keyColumn,$valueColumn,$whereCondition,$groupBy,$orderBy,$isLinkTable);
 		if($valueColumnAlias) $valueColumn = $valueColumnAlias;
-		return $this->toCombobox($coboboxName,$data,$keyColumn,$valueColumn,$defaultValue,$isBlankVal,$isMultiple,$cssClass);
+		return $this->toCombobox($coboboxName,$data,$keyColumn,$valueColumn,$defaultValue,$isBlankVal,$isMultiple,$cssClass,$disabled);
 	}
 	
 	function Query2Options($tableName,$keyColumn,$valueColumn,$whereCondition,$groupBy,$orderBy,$isLinkTable,$languageId,$defaultValue=null){
@@ -911,7 +913,21 @@ public function renderData($TitleTable=null,$data,$paging = null){
 		return $db->fetchAll($sql);
 	}
 	
-	public function toCombobox($combo_name,$data,$id_column,$val_column,$default_val=null,$blank_val = "no",$isMultiple=null,$cssClass=null){
+	function QueryNameapp($tableName,$keyColumn,$valueColumn,$whereCondition=null){
+		$db = $this->_db;
+		if(is_array($whereCondition))
+		{
+			$id = $whereCondition['id'];
+			$sql = 'SELECT '.$keyColumn.','.$valueColumn;
+			$sql .= ' FROM '.$tableName;
+			$sql .= ' WHERE '.$keyColumn.'='.$id;
+		//return $db->fetchAll($sql);
+			return $whereCondition;
+		}
+	}
+	
+	
+	public function toCombobox($combo_name,$data,$id_column,$val_column,$default_val=null,$blank_val = "no",$isMultiple=null,$cssClass=null,$disabled = null){
 		$return = "";
 		$multiple = null;
 		$cssPlus = null;
@@ -927,7 +943,7 @@ public function renderData($TitleTable=null,$data,$paging = null){
 				$cssPlus = ' class= "'.$cssClass.'"';
 			}
 			if(!is_array($data) || sizeof($data) == 0) $disable = ' disabled="disabled" ';
-			$return .= '<select id="'.$combo_name.'" name="'.$combo_name.'" '.$disable.$multiple.$cssPlus.'>';
+			$return .= '<select '.$disabled.' id="'.$combo_name.'" name="'.$combo_name.'" '.$disable.$multiple.$cssPlus.'>';
 			if($blank_val != "no"){
 				$return .= '<option value="">'.$blank_val.'</option>';
 			}
