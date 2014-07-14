@@ -52,19 +52,29 @@
                         	       ?>
                         </div>
                       </div>
-                 <?php if($contentdetailfull['src'] != "") {?>
+                  
+                  <?php if( (preg_match('/http/',$contentdetailfull['src']) == true) and ($contentdetailfull['src'] !='')) {?>
+                      <div class='form-group'>
+                        <label class='col-md-3 control-label' for='thumbnail'>ThumbNail</label>
+                        <div class='col-md-9'>
+                           <img type="text" class='form-control' id="thumbnail" name="thumbnail" placeholder='Images' src="<?php echo @$contentdetailfull['src'];?>" style="width: 400px;height:400px;" />
+                        </div>
+                      </div>
+                   <?php }
+                   if( (preg_match('/http/',$contentdetailfull['src']) and ($contentdetailfull['src'] !='') ) == fasle)  {?>
                       <div class='form-group'>
                         <label class='col-md-3 control-label' for='thumbnail'>ThumbNail</label>
                         <div class='col-md-9'>
                            <img type="text" class='form-control' id="thumbnail" name="thumbnail" placeholder='Images' src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo @$contentdetailfull['src'];?>" style="width: 400px;height:400px;" />
                         </div>
                       </div>
-                   <?php }?>
+                   <?php }?> 
+                   
                       <?php if($image){?>
                         <div class='form-group'>
                           <label class='control-label col-sm-3' for='Thứ tự sắp xếp ưu tiên'>Ảnh đang dùng</label>
                           <div class='col-sm-4 controls'>
-                          <img width="340" height="230" alt="<?php echo @$contentdetailfull['srcimgaes'];?>" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $image;?>" />
+                            <img width="340" height="230" alt="<?php echo @$contentdetailfull['src'];?>" src="<?php echo WEB_PATH;?>/public/uploads/news/<?php echo $image;?>" />
 			              <input type="checkbox" name="delete_image"> Xóa ảnh 
                            </div>
                         </div>
