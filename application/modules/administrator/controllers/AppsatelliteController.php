@@ -10,7 +10,6 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 		$do = @$this->_request->getParam('do');
 		$id = (int)$this->_request->getParam('id');
 		
-		
 		if($do == 'delete' && $id >0){
 			$this->deleteAppsatellite($id);
 		}elseif($do == 'list'){
@@ -19,6 +18,8 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 			$keyword 				= $this->_request->getParam('keyword');
 			$this->view->keyword 	= $keyword;
 		}
+		$this->view->appsatelliteGroup = $objUtil->GetCombobox('nameapp','appsatellite_nameapp','nameapp','catalogue_group',array('cssClass'=>'form-control','isBlankVal'=>'no'));
+		
 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/index.js');
 	}
 	
@@ -65,57 +66,59 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 		$objAppsatellite 		= new HT_Model_administrator_models_appsatellite();
 		$keyword 		= trim($this->_request->getParam('keyword'));
 		$page 			= (int)$this->_request->getParam('page');
+		$nameapp 		= (string)$this->_request->getParam('nameapp');
 		$size 			= PAGING_SIZE;
 		if (!is_numeric($page) || $page <= 0) {
 			$page = 1;
 		}
 		$start = $page * $size - $size;
-		$totalRecord = $objAppsatellite->getListAppsatellite_nb(array('keyword'=>$keyword));
-		$listAppsatellite = $objAppsatellite->getListAppsatellite($start,$size,array('keyword'=>$keyword));
-		$paging = trim($objUtil->paging($page, $size, $totalRecord));
-		$ajaxData .= ' <div class="box-header blue-background">
-                      <div class="title">Group new hot girls</div>
-                      <div class="actions">
-                        <a class="btn box-remove btn-xs btn-link" href="#"><i class="icon-remove"></i>
-                        </a>
+		$filter = array();
+		if($keyword) $filter['keyword'] = $keyword;
+		if($nameapp) $filter['nameapp'] = $nameapp;
 		
-                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="box-content box-no-padding">
-                      <div class="responsive-table">';
-		$ajaxData .= '<table class="table" style="margin-bottom:0;">';
+		$totalRecord = $objAppsatellite->getListAppsatellite_nb($filter);
+		$listAppsatellite = $objAppsatellite->getListAppsatellite($start,$size,$filter);
+		$paging = trim($objUtil->paging($page, $size, $totalRecord));
+		
+		$ajaxData = '<table cellspacing="0" class="table">';
 		$ajaxData .= '<thead>';
 			$ajaxData .= '<tr>';
-				$ajaxData .= '<th width="15">STT</th>';
-				$ajaxData .= '<th width="200">TÃªn nhÃ³m</th>';
-				$ajaxData .= '<th width="250">MÃ´ táº£</th>';
-				$ajaxData .= '<th width="250">Æ¯u tiÃªn</th>';
-				$ajaxData .= '<th width="50" >#</th>';
+				$ajaxData .= '<th width="10">No</th>';
+				$ajaxData .= '<th width="50">Title</th>';
+				$ajaxData .= '<th width="100">Image</th>';
+				$ajaxData .= '<th width="50">Content Detail</th>';
+				$ajaxData .= '<th width="50">Nameapp</th>';
+				$ajaxData .= '<th width="50">#</th>';
 			$ajaxData .= '</tr>';
 		$ajaxData .= '</thead>';
 		
 		$i=0;
-		$arrGroup = array();
-		foreach($listAppsatellite as $ngr){
+		$arrGroup = array();$addN = -1;
+		foreach($listAppsatellite as $cfg){
 			$i++;
 			$trClass = null;
+			if($cfg['title'] =="igirlxinhcom") {$nameview ="Hot girl";}
+			if($cfg['title'] =="phototamtayvn") {$nameview ="New hot girl";}
+			
 			if($i%2 == 1) $trClass = ' class="altrow"';
-			$ajaxData .= '<tr id="'.$ngr['id'].'" '.$trClass.'>';
+			$ajaxData .= '<tr id="'.$cfg['id'].'" '.$trClass.'>';
 			$ajaxData .= '<td align="center">'.$i.'</td>';
-			$ajaxData .= '<td>'.$ngr['nameapp'].'</td>';
-			$ajaxData .= '<td>'.$objUtil->tooltipString($ngr['title'],50).'</td>';
-			$ajaxData .= '<td>'.$ngr['image_thumbnail'].'</td>';
+			$ajaxData .= '<td>'.$nameview.'</td>';
+			$ajaxData .= '<td><img src="'.$cfg['image_thumbnail'].'" style="wieght:100px;height:100px;"</td>';
+			$ajaxData .= '<td>'.$cfg['content_detail'].'</td>';
+			$ajaxData .= '<td>'.$cfg['nameapp'].'</td>';
 			$ajaxData .= '<td style="white-space: nowrap" align="center">';
-			$ajaxData .= '<a class="btn btn-xs" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$ngr['id'].'"><i class="icon-edit"></i></a> <a class="btn btn-danger btn-xs" href="#" onclick="deleteAppsatellite('.$ngr['id'].')"><i class="icon-remove"></i></a> ';
+			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$addN.'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|
+					      <a class="btn btn-danger btn-xs"  href="#" onclick="deleteappsatellite('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  |
+					       <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
+			//$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;" idforeign="'.$cfg['idforeign'].'" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|<a class="btn btn-danger btn-xs" idforeign="'.$cfg['idforeign'].'" href="#" onclick="deleteappsatellite('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  | <a class="btn btn-xs" idforeign="'.$cfg['idforeign'].'" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
+			//$ajaxData .= '<a class="btn btn-xs" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'" title="Edit"><i class="icon-edit"></i></a>';
 			$ajaxData .= '</td>';
 			$ajaxData .= '</tr>';
 		}
 		$ajaxData .= '</tbody>';
 		$ajaxData .= '</table>';
-		$ajaxData .= '</div>
-                      ';
-		echo $objUtil->renderData($ajaxData,$paging);die();
+		$title="HotGirls All";
+		echo $objUtil->renderData($title,$ajaxData,$paging);die();
 	}
 }

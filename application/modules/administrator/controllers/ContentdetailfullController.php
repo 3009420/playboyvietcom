@@ -8,6 +8,7 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 	public function indexAction(){
 		$objUtil = new HT_Model_administrator_models_utility();
 		$do = @$this->_request->getParam('do');
+		
 		$id = (int)$this->_request->getParam('id');
 		if($do == 'delete' && $id >0){
 			$this->deleteContentdetailfull($id);
@@ -19,7 +20,7 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		}
 		
 		
-		$this->view->contentdetailfullGroup = $this->view->contentdetailfullGroup = $objUtil->GetCombobox('nameapp','appsatellite_nameapp','nameapp','catalogue_group',array('cssClass'=>'form-control','isBlankVal'=>'no'));
+		 $this->view->contentdetailfullGroup = $objUtil->GetCombobox('nameapp','appsatellite_nameapp','nameapp','catalogue_group',array('cssClass'=>'form-control','isBlankVal'=>'no'));
 		
 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/contentdetailfull/index.js');
 	}
@@ -154,7 +155,7 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		}
 		$ajaxData .= '</tbody>';
 		$ajaxData .= '</table>';
-		$title="Hot Girls All";
+		$title="Hot Girls Detail All";
 		echo $objUtil->renderData($title,$ajaxData,$paging);die();
 	}
 }

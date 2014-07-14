@@ -16,8 +16,9 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	}
 	
 	public function addData($data){
-		$groupName = $data['group_name'];
-		if(!$this->_checkExistsName($groupName)){
+		$nameapp = $data['nameapp'];
+		$image_thumbnail = $data['image_thumbnail'];
+		if($nameapp!=''){
 			$this->insert($data);
 			return $this->getMaxId();
 		}else{
@@ -26,10 +27,11 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	}
 	
 	public function updateData($data,$id){
-		$groupName = $data['group_name'];
-		if(!$this->_checkExistsName($groupName,$id)){
+		$nameapp = $data['nameapp'];
+		$image_thumbnail = $data['image_thumbnail'];
+		if($nameapp!=''){
 			$this->update($data,'id = '.(int)$id);
-			return $appsatelliteId;
+			return $id;
 		}else{
 			return "-1";
 		}
@@ -38,45 +40,67 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	private function _checkExistsName($key,$appsatelliteId = null){
 		$objUtil 	= new HT_Model_administrator_models_utility();
 		if($appsatelliteId >0){
-			$sql 		= "SELECT COUNT(group_id) FROM note_group WHERE group_name = ? AND group_id <> ?";
+			$sql 		= "SELECT COUNT(id) FROM appsatellite WHERE nameapp = ? AND id <> ?";
 			return $this->_db->fetchOne($sql,array($key,$appsatelliteId));
 		}else{
-			$sql 		= "SELECT COUNT(group_id) FROM note_group WHERE group_name = ?";
+			$sql 		= "SELECT COUNT(id) FROM appsatellite WHERE nameapp = ?";
 			return $this->_db->fetchOne($sql,array($key));
 		}
 	}
 	
 	public function getMaxId(){
-		$sql = "SELECT MAX(group_id) FROM note_group";
+		$sql = "SELECT MAX(id) FROM appsatellite";
 		return  (int)$this->_db->fetchOne($sql);
 	}
 	public function getAppsatellite($appsatelliteId,$filter = array()) {
-		$sql = " SELECT * FROM note_group WHERE group_id= ".(int)$appsatelliteId;
+		$sql = " SELECT * FROM appsatellite WHERE id= ".(int)$appsatelliteId;
 		return $this->_db->fetchRow($sql);
 	}
 	public function getListAppsatellite_nb($filter = array()) {
 		$sqlPlus = $this->getListAppsatellite_sqlPlus($filter);
-		$sql = "SELECT COUNT(ngr.group_id)
-				FROM note_group ngr
+		$sql = "SELECT COUNT(id)
+				FROM appsatellite
 				WHERE 1=1 $sqlPlus";
 		return $this->_db->fetchOne($sql);
 	}
 	public function getListAppsatellite($start=0,$size = 10,$filter = array()) {
 		$sqlPlus = $this->getListAppsatellite_sqlPlus($filter);
-		$sql = "SELECT ngr.*
-				FROM note_group ngr
-				WHERE 1=1 $sqlPlus ORDER BY ngr.group_order DESC,ngr.group_name ASC LIMIT $start,$size";
+		$sql = "SELECT appsatellite.nameapp,appsatellite.title,
+		               appsatellite.link,appsatellite.image_thumbnail,
+		               appsatellite.content_detail
+				FROM appsatellite 
+				WHERE 1=1 $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
 		return $this->_db->fetchAll($sql);
 	}
 	
 	private function getListAppsatellite_sqlPlus($filter){
 		$sqlPlus = null;
-		$keyword = trim(@$filter['keyword']);
-		$keyword = addslashes($keyword);
-		if($keyword){
-			$sqlPlus .= " AND (ngr.group_name LIKE '%$keyword%' OR ngr.description LIKE '%$keyword%') ";
+// 		$keyword = trim(@$filter['keyword']);
+// 		$keyword = addslashes($keyword);
+// 		if($keyword){
+// 			$sqlPlus .= " AND (appsa.title LIKE '%$keyword%' OR appsa.nameapp LIKE '%$keyword%'  OR appsa.content_detail LIKE '%$keyword%') ";
+// 		}
+// 		return $sqlPlus;
+
+		foreach((array)$filter as $key => $val){
+			$key = trim($key);
+			$val = addslashes(trim($val));
+			switch($key){
+				case 'keyword':
+					if($val){
+						// Noi bang nhieu truong o day 
+						$sqlPlus .= " AND appsatellite.content_detail LIKE '%$val%' OR appsatellite.nameapp LIKE '%$val%' OR appsatellite.title LIKE '%$val%'";
+					}
+					break;
+				case 'nameapp':
+					if($val){
+						$sqlPlus .= " AND (appsatellite.nameapp LIKE '%$val%' ) "; //OR contentdetailfull.idforeign LIKE '%$val%'
+					}
+					break;
+			}
 		}
 		return $sqlPlus;
+		
 	}
 	public function getValueKeyAppsatellite($querry) {
 		return $this->_db->fetchOne($querry);

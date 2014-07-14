@@ -41,7 +41,7 @@ function getAppsatellite(page){
         data: ajaxData,           
         success: function(serverData){
         	$('#loading').hide();
-        	$('#AppsatelliteArea').html(serverData);
+        	$('#appsatelliteArea').html(serverData);
         }
       });
 }
