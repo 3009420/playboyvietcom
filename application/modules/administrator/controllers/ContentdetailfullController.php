@@ -32,31 +32,36 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		$id 		= (int)$this->_request->getParam('id');
 		$idforeign 		= (int)$this->_request->getParam('foreign');
 		
+		$delete_image = @$this->_request->getParam('delete_image');
 		
 		$status 	= (int)$this->_request->getParam('status');
 		$groupId	= null;
 		if($do == 'submit'){
 			$datacontentdetail = array();
-			$datacontentdetail['src'] 		    = $this->_request->getParam('src');
-			$datacontentdetail['idforeign'] 		    = $idforeign;
+			$datacontentdetail['idforeign'] 		    = $_POST['idforeign'];
 			//$datacontentdetail['comment_content'] 	= $this->_request->getParam('comment_content');
+			$image = $objUtil->uploadFile('srcimgaes',NEWS_IMAGE_PATH,MAX_IMAGE_FILE_SIZE,IMAGE_TYPE_ALLOW);
+			$data = array();
+			if(!in_array($image,array(1,2,3,4))){
+				$datacontentdetail['src'] = $image;
+			}
+			if($delete_image) $datacontentdetail['src'] = null;
 			
 			$data_appsatellite = array();
 			$data_appsatellite['title'] 	        = $this->_request->getParam('title');
 			$data_appsatellite['content_detail'] 	= $this->_request->getParam('content_detail');
 			$data_appsatellite['nameapp'] 		= $this->_request->getParam('nameapp');
-			$data_appsatellite['id'] 		= $idforeign;
+			$data_appsatellite['id'] 		= $_POST['idforeign'];
 			
 			if($id >0){
 				$status = $objcontentdetailfull->updateData($datacontentdetail,(int)$id);
 				//$status2 = $objappsatellite->updateData($data_appsatellite,(int)$idforeign);
-				
 			}else{
-				$status = $objcontentdetailfull->addData($data);
+				$status = $objcontentdetailfull->addData($datacontentdetail);
 			}
 
 			if($status > 0){
-				$this->_redirect(WEB_PATH.'/administrator/contentdetailfull');
+				$this->_redirect(WEB_PATH.'/administrator/contentdetailfull/update/?id='.$status.'&foreign='.$_POST['idforeign']);
 			}else{
 				$redirectLink = WEB_PATH."/administrator/contentdetailfull/update?status=$status";
 				if($id >0) $redirectLink .= "&id=$id";
@@ -74,6 +79,7 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		
 		$this->view->id 		= $id;
 		$this->view->status 	= $status;
+		$this->view->idforeign	= $idforeign;
 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/contentdetailfull/update.js');
 	}
 

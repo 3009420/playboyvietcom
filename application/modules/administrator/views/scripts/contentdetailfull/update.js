@@ -1,13 +1,15 @@
 function validateData(){
-	if($('#contentdetailfull_key').val()==''){
+	if($('#srcimgaes').val()==''){
 		alert('Vui lòng nhập Anh');
-		$('#note_key').focus();
+		$('#srcimgaes').focus();
 		return false;
-	}else if($('#note_value').val()==''){
-		alert('Vui lòng nhập note value');
-		$('#contentdetailfull_value').focus();
-		return false;
-	}else{
+	}
+//		else if($('#note_value').val()==''){
+//		alert('Vui lòng nhập note value');
+//		$('#contentdetailfull_value').focus();
+//		return false;
+//	}
+	else{
 		$('#frmUpdate').submit();
 	}
 	return false;		

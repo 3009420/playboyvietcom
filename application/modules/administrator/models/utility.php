@@ -1195,11 +1195,24 @@ public function renderData($TitleTable=null,$data,$paging = null){
 					$thumbPath = $path."thumb/".$fileName;
 					$path .= $fileName;
 					
-					move_uploaded_file($fileAttach["tmp_name"], $path);
+					try {
+						move_uploaded_file($fileAttach["tmp_name"], $path);
+					} catch (Exception $e) {
+						$errorCode = 1317;
+						exit('Not upload: '.$e);
+					}
+					
 					if(is_array($thumb) && sizeof($thumb)>0){
 						$thumbWidth = $thumb['width'];
 						$thumbHeight = $thumb['height'];
-						include('SimpleImage.php');
+						//include('SimpleImage.php');
+						try {
+						    include('SimpleImage.php');
+						} catch (Exception $e) {
+							$errorCode = 1313;
+							exit('Require failed! Error: '.$e);
+							// Or handle $e some other way instead of `exit`-ing, if you wish.
+						}
 						$image = new SimpleImage();
 						$image->load($path);
 						$image->resize($thumbWidth,$thumbHeight);

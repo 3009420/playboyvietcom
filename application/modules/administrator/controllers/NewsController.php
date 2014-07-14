@@ -31,9 +31,9 @@ class Administrator_NewsController extends Zend_Controller_Action {
         $delete_image = @$this->_request->getParam('delete_image');
         
         if ($do == 'submit') {
+        	
         	$image = $objUtil->uploadFile('image',NEWS_IMAGE_PATH,MAX_IMAGE_FILE_SIZE,IMAGE_TYPE_ALLOW);
 
-        	
             $data = array();
             if(!in_array($image,array(1,2,3,4))){
             	$data['image'] = $image;

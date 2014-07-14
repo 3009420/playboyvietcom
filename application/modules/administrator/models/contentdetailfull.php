@@ -22,8 +22,11 @@ class HT_Model_administrator_models_contentdetailfull extends Zend_Db_Table {//t
 	}
 	
 	public function addData($data){
-		$noteKey = $data['src'];
-		if(!$this->_checkExistsKey($noteKey)){
+		//return $data;
+		$srcimgaes = $data['src'];
+		$idforeign = $data['idforeign'];
+		
+		if($srcimgaes!=""){
 			$this->insert($data);
 			return $this->getMaxId();
 		}else{
@@ -31,11 +34,11 @@ class HT_Model_administrator_models_contentdetailfull extends Zend_Db_Table {//t
 		}
 	}
 	
-	public function updateData($data,$noteId){
-		$noteKey = $data['src'];
-		if(!$this->_checkExistsKey($noteKey,$noteId)){
-			$this->update($data,'id = '.(int)$noteId);
-			return $noteId;
+	public function updateData($data,$Id){
+		$srcimgaes = $data['src'];
+		if($srcimgaes !=''){
+			$this->update($data,'id = '.(int)$Id);
+			return $Id;
 		}else{
 			return "-1";
 		}
