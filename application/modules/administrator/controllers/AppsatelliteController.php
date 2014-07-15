@@ -3,6 +3,7 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 {
 	public function init() {
 		
+		
 	}
 	
 	public function indexAction(){
@@ -57,19 +58,26 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 
 	public function readviewdetailAction()
 	{
+		$ReadJson = new Zend_Session_Namespace('ReadJson');
+		$ReadJson->setExpirationSeconds(604800);
+		$ReadJson->namefile = rand(10, 999999);
+
+       //var_dump($ReadJson->namefile);die;
+
+		
 		$objAppsatellite = new HT_Model_administrator_models_appsatellite();
 		$id 		= (int)$this->_request->getParam('id');
 		if($id == 0) $this->_redirect(WEB_PATH.'/administrator/appsatellite');
 		$appsatellitedetailread				= $objAppsatellite->getAppsatellitejoihcontendetail($id);
 		
 		// Lưu tin đã lấy vào file cache
-		$path = ROOT_PATH . '/public/cache/appsatellitedetailread.cache.php';
+		$path = ROOT_PATH . '/public/cache/'.$ReadJson->namefile.'cache.php';
 		$content = '<?php $appsatellitedetailread = ' . var_export ( $appsatellitedetailread, true ) . ';?>';
 		$handler = fopen ( $path, 'w+' );
 		fwrite ( $handler, $content );
 		fclose ( $handler );
 		
-		$path = ROOT_PATH . '/public/cache/appsatellitedetailread.json';
+		$path = ROOT_PATH . '/public/cache/'.$ReadJson->namefile.'.json';
 		$content = '{"Messages":'.json_encode($appsatellitedetailread,true).'}';
 		$handler = fopen ( $path, 'w+' );
 		fwrite ( $handler, $content );
@@ -79,12 +87,12 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 		
 // 		exit();
 
-		//$this->view->appsatellitedetailread = Zend_Json::encode($appsatellitedetailread);
+        $this->view->namefile = $ReadJson->namefile;
 		
 // 		$this->view->appsatellitedetailread = $appsatellitedetailread;
 // 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/readviewdetail.js');
 
-
+       //$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/readviewdetail.js');
 	}
 	
 	
