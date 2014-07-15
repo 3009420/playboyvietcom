@@ -55,6 +55,39 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/update.js');
 	}
 
+	public function readviewdetailAction()
+	{
+		$objAppsatellite = new HT_Model_administrator_models_appsatellite();
+		$id 		= (int)$this->_request->getParam('id');
+		if($id == 0) $this->_redirect(WEB_PATH.'/administrator/appsatellite');
+		$appsatellitedetailread				= $objAppsatellite->getAppsatellitejoihcontendetail($id);
+		
+		// Lưu tin đã lấy vào file cache
+		$path = ROOT_PATH . '/public/cache/appsatellitedetailread.cache.php';
+		$content = '<?php $appsatellitedetailread = ' . var_export ( $appsatellitedetailread, true ) . ';?>';
+		$handler = fopen ( $path, 'w+' );
+		fwrite ( $handler, $content );
+		fclose ( $handler );
+		
+		$path = ROOT_PATH . '/public/cache/appsatellitedetailread.json';
+		$content = '{"Messages":'.json_encode($appsatellitedetailread,true).'}';
+		$handler = fopen ( $path, 'w+' );
+		fwrite ( $handler, $content );
+		fclose ( $handler );
+		
+// 		echo Zend_Json::encode($appsatellitedetailread);
+		
+// 		exit();
+
+		//$this->view->appsatellitedetailread = Zend_Json::encode($appsatellitedetailread);
+		
+// 		$this->view->appsatellitedetailread = $appsatellitedetailread;
+// 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/readviewdetail.js');
+
+
+	}
+	
+	
 	function deleteAppsatellite($id){
 		$objAppsatellite = new HT_Model_administrator_models_appsatellite();
 		echo $objAppsatellite->delete("id=".(int)$id);die();
@@ -108,11 +141,11 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 			$ajaxData .= '<td>'.$cfg['content_detail'].'</td>';
 			$ajaxData .= '<td>'.$cfg['nameapp'].'</td>';
 			$ajaxData .= '<td style="white-space: nowrap" align="center">';
-			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$addN.'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|
-					      <a class="btn btn-danger btn-xs"  href="#" onclick="deleteappsatellite('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  |
-					       <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
-			//$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;" idforeign="'.$cfg['idforeign'].'" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|<a class="btn btn-danger btn-xs" idforeign="'.$cfg['idforeign'].'" href="#" onclick="deleteappsatellite('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  | <a class="btn btn-xs" idforeign="'.$cfg['idforeign'].'" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
-			//$ajaxData .= '<a class="btn btn-xs" href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'" title="Edit"><i class="icon-edit"></i></a>';
+			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/appsatellite/readviewdetail/?id='.$cfg['id'].'" title="Read/view detail"><i class="icon-book"></i></a>|
+					     <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
+// 			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$addN.'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|
+// 					      <a class="btn btn-danger btn-xs"  href="#" onclick="deleteappsatellite('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  |
+// 					       <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
 			$ajaxData .= '</td>';
 			$ajaxData .= '</tr>';
 		}

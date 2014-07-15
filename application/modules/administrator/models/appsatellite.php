@@ -63,9 +63,18 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 				WHERE 1=1 $sqlPlus";
 		return $this->_db->fetchOne($sql);
 	}
+	
+	public function getAppsatellitejoihcontendetail($appsatelliteId,$filter = array()) {
+		$sql = " SELECT contentdetailfull.id,contentdetailfull.src,appsatellite.*
+				 FROM appsatellite 
+				 INNER JOIN contentdetailfull  ON appsatellite.id = contentdetailfull.idforeign
+				 WHERE appsatellite.id= ".(int)$appsatelliteId;
+		return $this->_db->fetchAll($sql);
+	}
+	
 	public function getListAppsatellite($start=0,$size = 10,$filter = array()) {
 		$sqlPlus = $this->getListAppsatellite_sqlPlus($filter);
-		$sql = "SELECT appsatellite.nameapp,appsatellite.title,
+		$sql = "SELECT appsatellite.nameapp,appsatellite.title,appsatellite.id,
 		               appsatellite.link,appsatellite.image_thumbnail,
 		               appsatellite.content_detail
 				FROM appsatellite 
