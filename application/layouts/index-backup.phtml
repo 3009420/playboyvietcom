@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <?php echo $this->headTitle() ?>
+  <?php echo $this->headMeta() ?>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <script type="text/javascript" src='<?php echo WEB_PATH;?>/public/js/jquery-1.10.2.min.js'></script>
+    <link href="<?php echo WEB_PATH;?>/public/front/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/compiled/bootstrap-overrides.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/compiled/theme.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/fonts/css.css">
+     <link href="<?php echo WEB_PATH;?>/public/front/css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/jazzy.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/jazzy-responsive.css">
+     <link href="<?php echo WEB_PATH;?>/public/front/css/custum.css" rel="stylesheet" media="screen">
+     <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/bootstrap.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/mabanghang.net_style.css">
+     <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/animations.css" media="screen">
+   <!--
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
+   -->
+   <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/menu-linespeed.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/product.css"> 
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/smartphone.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/backoffice.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/tablette.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/martketing.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/archive.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/telecharger.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/minscrire.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/hardware.css"> 
+	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/fix-all-device.css"> 
+	
+    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/compiled/index.css" type="text/css" media="screen">    
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/lib/animate.css" media="screen, projection">    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- css new -->
+    <!-- Animate CSS -->
+    <link href="<?php echo WEB_PATH;?>/public/front/css/animate.min.css" rel="stylesheet">
+    <!-- Slider Revolution CSS -->
+    <link href="<?php echo WEB_PATH;?>/public/front/css/rs-settings.css" rel="stylesheet">
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/rs-settings-ie8.css">
+    <![endif]-->
+    <!-- Countdown Watch -->
+    <link href="<?php echo WEB_PATH;?>/public/front/css/jquery.countdown.css" rel="stylesheet">
+    <!-- Portfolio CSS -->
+    <link href="<?php echo WEB_PATH;?>/public/front/css/prettyPhoto.css" rel="stylesheet">
+    <!-- Font awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/menu.css">
+    <link href="<?php echo WEB_PATH;?>/public/front/css/main.css" type="text/css" rel="stylesheet" />
+    <link href="<?php echo WEB_PATH;?>/public/front/css/main.css" type="text/css" rel="stylesheet" />
+   
+    <!-- <script src="jquery.jscroll.min.js"></script> -->
+    <script src="<?php echo WEB_PATH;?>/public/front/js/jquery.jscroll.js"></script>
+    <style type="text/css">
+      .container .scroll {
+            /* padding: 5px 10px;
+            height: 300px;
+            width: 940px;
+            overflow-y: scroll;
+            */
+
+            }
+		@charset "utf-8";
+		/* CSS Document */
+		
+		#menu {
+		background: #fff;
+		-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+		-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+		box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+		z-index: 999999;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		/*line-height: 60px; */
+		}
+
+    </style>
+    <!-- css menu list chilren -->
+    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/superfish.css" media="screen">
+    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/style-pix.css" media="screen">
+  
+    
+	<body class="pull_top">
+		<?php echo $this->action('analyticstracking','elements','front');?>
+		<?php echo $this->action('topmenu','elements','front');?>
+		<?php echo $this->layout()->content;?>
+	     <?php echo $this->action('footer','elements','front');?>
+	</body>
+</html>

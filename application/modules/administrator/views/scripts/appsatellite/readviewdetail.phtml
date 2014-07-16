@@ -6,20 +6,14 @@ $(document).ready(function()
 		//$(".sttext").livequery(function () { $(this).linkify({
 //		    target: "_blank"
 		//}); });
-		var url = "http://127.0.0.1/playboyviet.com/public/cache/<?php echo $this->namefile;?>.json";
+		var url = "<?php echo WEB_PATH;?>/public/cache/<?php echo $this->namefile;?>.json";
 		$.getJSON(url, function(data)
 		{  			 
-		/*
-		      var array = data.Messages;	        	
-					
-			            $.each(array, function(i , employee){
-			              alert(JSON.stringify(employee));
-						 });
-		*/
 		var totalCount=5;
 		var jsondata='';
 		$.each(data.Messages, function(i, M)
 		{
+		// alert(JSON.stringify(m));
 		var num = Math.ceil( Math.random() * totalCount );
 		var i = Math.random();
 		jsondata +='<div class="stbody"><span class="timeline_square color'+num+'"></span><div class="stimg"><img src="'+M.src+'" /></div>'

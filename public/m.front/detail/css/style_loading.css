@@ -1,0 +1,26 @@
+/**** Base styles ****/
+
+/* Infinite Scroll loader */
+
+#infscr-loading {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  left: 40%;
+  bottom: 40px;
+  width: 100px;
+  clear: both;
+  padding: 10px;
+  background-color:#d2d2d2;
+  opacity: 0.8;
+  color: #FFF;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  
+}
+
+
+#infscr-loading div{
+    font-size: 12px;
+}

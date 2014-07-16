@@ -1,0 +1,753 @@
+/* Tamtay Photo - 2013 */
+
+/* ==== Reset / Preset ==== */
+
+* { padding : 0; margin : 0; }
+html, body, h1, h2, h3, h4, p, strong, em, ul, li, div, span, a, img {
+    font-family : inherit;
+    font-size : 100%;
+    font-weight : normal;
+    font-style : normal;
+    text-align : left;
+    text-decoration : none;
+    list-style : none;
+    background : transparent;
+    padding : 0;
+    margin : 0;
+    border : 0 none;
+    outline : 0 none;
+    vertical-align : baseline;
+}
+.clearfix:after {
+    content : "";
+    line-height : 0;
+    height : 0;
+    display : block;
+    clear : both;
+    visibility : hidden;
+}
+.clearfix { display : block; }
+html[xmlns] .clearfix { display : block; }
+* html .clearfix { height : 1%; }
+:focus { outline : 0; }
+::selection { color : #fff; background : #14cccc; }
+::-moz-selection { color : #fff; background : #14cccc; }
+::-webkit-selection { color : #fff; background : #14cccc; }
+
+/* ==== Base styles ==== */
+
+body {
+    font-family : 'Arial', sans-serif;
+    overflow-y : scroll;
+    overflow-x : hidden;
+    cursor : default;
+	background:url('../img/bg.png');
+	font-size: 1em;
+	margin-bottom:60px;
+}
+.pageG {
+    width : 100%;
+    min-height: 550px;
+    margin : 0 auto;
+    overflow-x:hidden;
+}
+#thumbnails {
+    margin : 0 auto;
+}
+#background, #loader {
+    width : 100%;
+    height : 100%;
+    position : fixed;
+    top : 0; left : 0;
+}
+#background {
+    background :url('../img/bg.png') repeat;
+    z-index : 0;
+}
+
+h2, h2:after {
+    line-height : 72px;
+    letter-spacing : -1px;
+}
+h2, h4 { color : #242626; }
+h3 {
+    color : #616666;
+    font-size : 30px;
+    line-height : 42px;
+    margin : 0 0 30px;
+}
+h4, h4:after {
+    font-size : 15px;
+    line-height : 20px;
+}
+p {
+    color : #616666;
+    font-size : 16px;
+    line-height : 22px;
+    margin : 0 0 10px;
+}
+p a {
+    color : #242626;
+}
+p a:hover, p a:active { color : #14cccc; }
+strong { color : #14cccc; }
+/*em { text-decoration : line-through; }*/
+a, img, span {
+    -webkit-transition : all 0.2s ease;
+    -moz-transition : all 0.2s ease;
+    -o-transition : all 0.2s ease;
+    -ms-transition : all 0.2s ease;
+    transition : all 0.2s ease;
+}
+a {color:rgb(38,139,167)}
+a:hover, a:active, #other-house .userInfo span:nth-child(2) a:hover, #other-house .userInfo span:nth-child(2) a:active, .photoView .notePhoto a:hover, .photoView .notePhoto a:active, .actived {text-decoration:none; color:#F58320}
+
+i:before {
+	margin:0 3px;
+	}
+/* ==== Header / Footer ==== */
+#header {
+    z-index : 100;
+	border-bottom:1px solid #cdcdcd;
+	box-shadow: 0px 3px 10px #ddd; -moz-box-shadow: 0px 3px 10px #ddd; -webkit-box-shadow: 0px 3px 10px #ddd;
+	/*background:rgba(255,255,255,0.9);*/
+    background:rgba(255,255,255,0.9) url(../img/bg_secNav.gif) center 2px no-repeat;
+	margin:0 0 20px 0; 
+}
+#navigation {width:92%}
+#navigation, #header #navigation .navMain {margin:0 auto;}
+#header, #header #navigation, #header #navigation span, #header #navigation span a, #header #navigation .btn-category, #header #navigation .btn-category a {height:60px}
+#header #navigation #site, #header #navigation .navMain .btn-category {float:left}
+
+#header #navigation #networks {float:right}
+#header #navigation .navMain .btn-category {display:block; float:left; margin-top:8px; background-color:#efefef; width:40px; height:40px; padding:3px}
+#header #navigation .navMain .btn-category a {display:block; width:40px; height:40px; background-color:rgb(38,139,167); text-align:center}
+#header #navigation .navMain .btn-category a i {color:#fff; font-size:24px; line-height:40px}
+#header #navigation .navMain .btn-category a i.icon-list:before {
+	margin:0 0.1em 0 0.07em; 
+	opacity:1}
+#header #navigation .current, #header #navigation #networks a > i {margin-top:5px; display:block; height:52px; width:50px;}
+#header #navigation .current {background:url('../img/logo-tt.png') no-repeat; background-size:50px}
+#header #navigation #networks a > i {background:url('../img/user-tt.png') no-repeat; background-size:50px}
+#header #navigation .navMain {width:56px}
+
+#main {
+	margin:0 0 70px;
+	}
+.newPost {padding:30px 10px}
+h2 { margin:15px 0.6%}
+.item a {color:#333}
+h2 a {font:bolder 19px/24px corbel, arial; text-transform:uppercase; color:rgb(107,107,107)}
+h2 a i {margin:0px 5px 0 0;}
+
+/* ==== Thumbnails ==== */
+
+#thumbnails #container {
+    padding:10px 0;
+}
+#thumbnails #container .box {
+    float : left;
+}
+#thumbnails #container .box > a, #thumbnails #container .box a img, #thumbnails #container .box a span { display : block; }
+#thumbnails #container .box > a, .thumbnails > ul li{
+    background : #fff;
+    width : 100%;
+    /*height : 100%;*/	
+    position : relative;
+    overflow : hidden;
+}
+/* 27/02/2013 */
+.thumbnails, #thumbnails, #other-house {width:93.5%; margin:10px auto}
+.thumbnails > ul li {background:none; overflow:hidden}
+.thumbnails > ul > li a {background:#dedede;}
+
+/*minhpn edit 27/2/2013
+.thumbnails > ul > li a img, .box .thumbnail img {width:300px}
+.box{min-height: 100px;max-height: 700px;margin-bottom: 15px;}
+*/
+.thumbnails > ul > li a img, .box .thumbnail img {width:100%}
+.box{margin-bottom: 15px;}
+
+#thumbnails #container .box a.current { cursor : default; }
+#thumbnails #container .box a img {
+	max-width:100%;
+    position : relative;
+    z-index : 10;
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    -o-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+}
+#thumbnails #container .box a:hover img, #thumbnails #container  .box a:active img  {
+    -webkit-transform : scale(1.1);
+    -moz-transform : scale(1.1);
+    -o-transform : scale(1.1);
+    -ms-transform : scale(1.1);
+    transform : scale(1.1);
+}
+#thumbnails #container .box a.current:hover img, #thumbnails #container  .box a.current:active img {
+    -webkit-transform : scale(1);
+    -moz-transform : scale(1);
+    -o-transform : scale(1);
+    -ms-transform : scale(1);
+    transform : scale(1);
+}
+#thumbnails #container .box a span, .thumbnails ul li a span {
+    /*background : rgba(20,204,204,0.7) url(../images/ico_view.png) no-repeat center center;*/
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 0; left : 0;
+    z-index : 20;
+    opacity : 0;
+
+}
+#thumbnails #container .box a span {
+    /*background : rgba(20,204,204,0.7) url(../images/ico_view.png) no-repeat center center;*/
+}
+.thumbnails ul li a span {
+    background : rgba(255,255,255,0.7) ;
+}
+
+#thumbnails #container .box a:hover span, #thumbnails #container  .box a:active span, .thumbnails ul li a:hover span, .thumbnails ul li a:active span { opacity : 1; }
+#thumbnails #container .box a.current span {
+    /*background : rgba(12,13,13,0.9) url(../images/ico_current.png) no-repeat center center;*/
+    opacity : 1;
+}
+#thumbnails #container .box a .loader {
+    /*background : #14cccc url(../images/loader.gif) no-repeat center center;*/
+    width : 100%;
+    height : 100%;
+    display : none;
+    position : absolute;
+    top : 0; left : 0;
+    z-index : 100;
+}
+#thumbnails #container .box .title {
+    background : #fff;
+    height : 20px;
+    padding : 15px 10px;
+}
+#thumbnails #container .box .title h4 {
+	font-style:italic;
+}
+#thumbnails #container .box  {width:300px}
+
+#thumbnails .toolAlbum ul {background:#fff; padding:8px 0; margin:0 auto}
+#thumbnails .toolAlbum ul li {color:#969696; font-size:85%; text-align:center; min-width:33%; max-width:33%; padding:0 0%; overflow: hidden; text-overflow:ellipsis; white-space:nowrap; line-height:14px}
+/*#thumbnails {margin-top:20px}*/
+.thumbnails h2 a, .thumbnails ul {margin:0 auto}
+.thumbnails h2 a, .thumbnails ul li a {display:block;}
+.thumbnails h2 a > i {
+	font-size:24px;
+	margin-top:10px;
+	}
+.thumbnails ul li {float:left; margin-top:0.6%;}
+.item {background:#fff; margin-bottom:20px}
+.item i {margin-right:5px}
+.item .content {padding:0 15px 15px}
+.item p a {text-align:center}
+.item p a img {max-width:100%}
+.item a {display:block; padding-bottom:5px}
+.item .user {float:left; margin-right:20px; font-weight:bold}
+.item .user span {font-size:0.9em; color:#999}
+.item .description p {font: italic 1em/1.2em 'MS Reference Serif', Time, serif; color:#333}
+.item .toolAlbum ul li {color:#7d7d7d; padding:8px 15px; border-left:1px dotted #c0c0c0;}
+.item .toolAlbum ul li, #thumbnails .toolAlbum ul li {display:block; float:left; border-left:1px dotted #c0c0c0; font-size:85%}
+.item .toolAlbum ul li:first-child, #thumbnails .toolAlbum ul li:first-child {border-left:none}
+.item .toolAlbum {padding:2px}
+.item .toolAlbum ul {background:#f3f3f3}
+
+/* edit - delete */
+.delEdit {background:rgb(243,243,243)}
+.delEdit span {float:left; width:49% !important;text-align:center; border-right:1px solid #fff;}
+/*.delEdit a.btn-delEdit {color:#999; text-align:center; padding:8px 0; box-shadow:none; border:1px solid #FFF; font-size:12px; background:none !important; border-top:none}*/
+.delEdit a.btn-delEdit {color:#999; text-align:center; padding:8px 0; box-shadow:none; font-size:12px; background:none !important; border:none}
+.delEdit span:first-child a {border-left:none}
+.delEdit span:last-child {border-right:none}
+.delEdit a.btn-delEdit i {margin-right:2px}
+.delEdit a.btn-delEdit:hover, .delEdit a.btn-delEdit:active {text-decoration:none; color:#000}
+
+
+/* shadow */
+.item, #thumbnails #container .box { -moz-box-shadow: 0px 0px 3px #aaa; -webkit-box-shadow: 0px 0px 3px #aaa; box-shadow: 0px 0px 3px #aaa;}
+
+/* ==== Nha Khach ==== */
+/*#other-house {margin:15px 0}*/
+#other-house .userInfo {width:69%}
+#other-house .userInfo, #other-house .userInfo .avatar, #other-house .userInfo .username, .infoAlbum ul li, .titleView h1, .detail .topic, .floatleft {float:left}
+#other-house .userInfo .avatar a {width:40px; height:40px; margin:0 8px 5px 0;}
+#other-house .userInfo .username {width:78%;}
+#other-house .userInfo .username a {font-size:18px; color:#ed4d4b; padding-bottom:3px; width:100%; text-overflow: ellipsis; white-space:nowrap; overflow:hidden; font-weight:bold; line-height:30px}
+#other-house .userInfo .username span {font-size:15px; color:#b4b4b4; }
+#other-house .follow, .titleView .like, .detail .profilePic {float:right}
+#other-house .follow {width:110px}
+#other-house .follow .btn-doitheo > label {display:inline-block; margin:0}
+#other-house .follow .btn-doitheo > i {padding-left:10px}
+#other-house .follow span {font-size:11px; margin-top:8px; border-bottom:1px dotted #b4b4b4; display:block; line-height:16px; text-align:right}
+#other-house .userInfo .avatar a, #other-house .follow a, #other-house .userInfo span, #other-house .userInfo .username a {display:block}
+#other-house .followInfo span {display:inline-block; width:99%;margin-left: 1%;}
+#other-house .followInfo span a {color:#ed4d4b;}
+#other-house .followInfo span a i {margin-left:3px; font-size:20px}
+.btn-doitheo, .btn-doitheo:hover, .btn-doitheo:active {background:#ed4d4b; padding:7px 0px; font-size:15px; text-align:left; width:100px; float:right}
+i.arrow {border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 7px solid #ed4d4b; display:inline-block; margin:0 0 2px 5px} 
+#other-house .setView, #other-house .setView .dropdown-toggle {width:100%; margin-bottom:0; border: none;}
+
+.btn-quanly {float:right; margin:0}
+.btn-quanly a, .btn-quanly a:hover, .btn-quanly a:active {width:93px; margin:0}
+.floatleft {margin-top:9px}
+/* ==== Xem anh ==== */
+.titleView h1 {font-size:22px; line-height:30px; color:#ed4d4b; width:78%}
+.titleView .like {position:relative}
+.titleView .like a {width:50px; height:50px; display:inline-block; background-color:#ed4d4b; margin-top:5px; text-align:center;}
+.titleView .like a i {color:#fff; font-size:24px; display:inline-block; line-height:50px}
+.titleView .like .likeDeal {font-size:11px; display:block; text-align:right; position:absolute; top:60px; right:0; line-height:16px; width:80px;border-bottom: 1px dotted #b4b4b4; padding-bottom:2px}
+
+/*.titleView .like span {font-size:12px; border-bottom:1px dotted #b4b4b4; display:block; text-align:right}*/
+
+.infoAlbum {margin:15px 0}
+.infoAlbum ul li {font-size:13px; padding:0 8px; border-right:1px dotted #CCC; line-height:13px}
+.infoAlbum ul li:first-child {padding-left:0px}
+.infoAlbum ul li:last-child {border-right:none; position:relative}
+.infoAlbum ul li:last-child a:hover i, .infoAlbum ul li:last-child a:active i {color:#ed4d4b}
+.infoAlbum ul li:last-child a i {color:#333; font-size:24px; position:absolute; top:-5px}
+
+.detail {margin:20px 0}
+.detail .topic {width:73%}
+.detail .topic span {display:block; font-size:14px; margin-bottom:7px; line-height:23px}
+.detail .topic span a {color:#ed4d4b; padding-right:10px}
+.detail .profilePic {position:relative}
+.detail .profilePic .nailthumb-container {width:70px; height:70px; display:block; margin-bottom:0}
+.detail .profilePic span {position:absolute; font-size:10.5px; display:block; background-color:rgba(0,0,0,0.6); color:#fff; text-align:center; width:70px; bottom:0px}
+.detail .description p {font-size:14px; line-height:20px} 
+
+.photoView p {text-align:center; background-color:#efefef}
+.photoView .shareAlbum li {display:inline-block}
+.photoView .shareAlbum li .btn-share {padding:7px 9px; background:rgba(255,255,255,1); margin-bottom:10px}
+.photoView .shareAlbum li:last-child, .shareSocialNetwork ul li:last-child {float:right}
+.photoView .notePhoto {margin-bottom:30px}
+.photoView .notePhoto span:first-child {border-bottom:1px dotted #CCC; font-size:14px; display:inline-block; line-height:18px}
+
+.shareSocialNetwork {border-bottom:1px dotted #CCC; padding-bottom:30px; margin-top:20px; margin-bottom:30xp}
+.shareSocialNetwork ul li {display:block; float:left; margin-right:10px}
+.shareSocialNetwork ul li a, .shareSocialNetwork ul li a i {display:inline-block}
+.shareSocialNetwork ul li a i {font-size:35px; color:#8d8d8d; line-height:50px;}
+.shareSocialNetwork ul li a {width:50px; height:50px; text-align:center; background:rgb(211, 211, 211); box-shadow:0px 0px 1px rgba(0,0,0,0.5); -moz-box-shadow:0px 0px 1px rgba(0,0,0,0.5); -webkit-box-shadow:0px 0px 1px rgba(0,0,0,0.5)}
+.shareSocialNetwork ul li a .iconTamtay {line-height:1em}
+.shareSocialNetwork ul li:last-child {margin-right:0; margin-top:4px}
+.shareSocialNetwork ul li:last-child a {height:31px;}
+.shareSocialNetwork ul li:last-child a, .btn-addPhoto, .btn-addPhoto:hover {background:#ed4d4b; font-size:15px; text-align:center; display:block; line-height: 32px;height: 32px; width:95px}
+.shareSocialNetwork ul li:last-child a i, .btn-addPhoto > i {color:#fff; font-size:15px; padding-left:5px; line-height: 32px;}
+.btn-addPhoto {line-height:25px; margin:10px 10px 0 10px; height:25px}
+
+/* comment */
+/* emoticon */
+.tt-emo { bottom: 45px; position: absolute; right: 10px }
+.tt-emo-list { display: none; width:204px; height:230px; padding:5px; overflow: hidden; position: absolute; bottom:40px; right:4%; background-color: #F6F9F0; border: 1px solid #D6DED3; z-index: 999; }
+.tt-emo-list span { display: block; height: 22px; padding: 3px 5px 0; float: left; cursor: pointer; }
+.tt-emo-list span:hover { background: #999; }
+/*Added By Minhpn - 2013May06*/
+.tt-emo-list-1 { display: none; width:230px; height:340px; padding:5px; overflow: hidden; position: absolute; bottom:40px; right:4%; background-color: #F6F9F0; border: 1px solid #D6DED3; z-index: 999; }
+.tt-emo-list-1 span { display: block; height: 46px; padding: 3px 3px 0; float: left; cursor: pointer; }
+.tt-emo-list-1 span:hover { background: #999; }
+
+.tt-emo-list-2 { display: none; width:204px; height:230px; padding:5px; overflow: hidden; position: absolute; bottom:40px; right:4%; background-color: #F6F9F0; border: 1px solid #D6DED3; z-index: 999; }
+.tt-emo-list-2 span { display: block; height: 52px; padding: 3px 5px 0; float: left; cursor: pointer; }
+.tt-emo-list-2 span:hover { background: #999; }
+
+.tt-emo-list-3 { display: none; width:280px; height:340px; padding:5px; overflow: hidden; position: absolute; bottom:40px; right:4%; background-color: #F6F9F0; border: 1px solid #D6DED3; z-index: 999; }
+.tt-emo-list-3 span { display: block; height: 46px; padding: 3px 3px 0; float: left; cursor: pointer; }
+.tt-emo-list-3 span:hover { background: #999; }
+
+.btn-emo-master1 { display: block; background: url(../img/emo-chat/emo-btn.png) no-repeat; width: 20px; height: 20px; cursor: pointer; float: right; }
+/*Added By Minhpn 2013May06*/
+/*.btn-emo-news-master { display: block; background: url(http://i0.ttimg.vn/emo/2.png) no-repeat; width: 20px; height: 20px; cursor: pointer; float: right; }*/
+.input-with-person { position: relative; display: none; }
+/* end */
+.commentDetailArticle {margin:20px 0 0}
+.commentDetailArticle h1 { font-size: 22px; line-height:30px; color:#ed4d4b; margin-bottom: 15px; font-family:"Arial", Helvetica, sans-serif}
+.cmt-lv1 {margin-bottom: 15px }
+.cmt-lv1 .avatar { float:left; margin-right:8px; margin-top:3px}
+.cmt-lv1 .avatar a {width:32px; height:32px; display:block;}
+.cmt-lv1 .content { margin: 0 0px 15px 30px; }
+.cmt-lv1 .content .sub-input textarea {width:90%; height:50px}
+.cmt-lv1 .text-lv1 .action, .cmt-lv1 .text-lv1 .time, .cmt-lv1 .text-lv2 .action, .cmt-lv1 .text-lv2 .time { color: #999; font-size:14px}
+.cmt-lv1 .text-lv1 { margin-left: 9px }
+.cmt-lv1 .text-lv1 a { font-weight: bold; color: #333;}
+.cmt-lv1 .text-lv1 p { color: #333; line-height: 18px; }
+.cmt-lv1 .text-lv1 a:hover { color: #ee4a48; }
+.cmt-lv1 a, .cmt-lv1 span {font-size:14px}
+.text-lv2 { display: none; }
+.text-lv2 .block { padding: 10px 0; border-bottom: 1px solid white; padding-bottom: 10px; }
+.text-lv2 .block a { font-weight: bold; color: #333; }
+.text-lv2 .block a:hover { color: #ee4a48; }
+.text-lv2 .block p { margin: 0 0px 10px 40px; line-height: 17px; color: #333; }
+.text-lv2 textarea { width:80% !important; height:50px; padding-left: 5px; font-style: italic; }
+.main-input, .sub-input { position: relative; }
+.sub-input .tt-emo { bottom: 14px; position: absolute; right:8%; }
+.btn-emo-master1 { display: block; background: url(../img/emo-chat/emo-btn.png) no-repeat; width: 20px; height: 20px; cursor: pointer; float: right; margin-left: 2px }
+/*Added By Minhpn - 2013May06*/
+.btn-emo-news-master { display: block; background: url(http://i0.ttimg.vn/emo/2.png) no-repeat; width: 20px; height: 20px; cursor: pointer; float: right; margin-left: 2px }
+.btn-emo-orange-master { display: block; background: url(http://blog.tamtay.vn/img/button-orange.png) no-repeat; width: 20px; height: 20px; cursor: pointer; float: right; margin-left: 2px }
+.btn-emo-banhbao-master { display: block; background: url(http://blog.tamtay.vn/img/btn_BB.png) no-repeat; width: 20px; height: 20px; cursor: pointer; float: right; margin-left: 2px }
+
+.delete {cursor: pointer; font-size:20px !important; font-weight: bold; float: right; display:block}
+.cmt-ct {display:block}
+/* End comment */
+
+/* Dang anh */
+.setInfo {position:relative}
+/*minhpn edit 27/2/2013 .setInfo form fieldset {position:absolute; top:0; left:-20%; display:none; width:100%}*/
+.setInfo form fieldset {position:absolute; top:0; left:-20%; display:none; width:100%}
+.setInfo form .input-txt {width:95%}
+.setInfo form span {font-size:14px}
+.setInfo form label:first-child {display:inline-block; padding-top:10px}
+.setInfo form .radio-txt {font-size:12px}
+.setInfo form .dropdown-toggle {width:150px}
+.bootstrap-select {padding-top:9px; margin-left:5px}
+.dropdown-toggle, .setInfo form .dropdown-toggle:hover {box-shadow:none; background:#dedede}
+.btn-group.open .btn.dropdown-toggle {box-shadow:none}
+.bootstrap-select .btn:focus {outline:none !important}
+.pull-left {color:#999}
+.caret {border-top:4px solid #999}
+.dropdown-menu li > a {color:#b0b0b0}
+.dropdown-menu li > a:hover {background:#efefef; color:#000}
+.setInfo form .submit {margin:20px 0; text-align:center}
+.setInfo form .submit a {padding:10px 15px 10px 10px !important; margin:0 2px; background:#efefef}
+.setInfo form .submit a:last-child {background:#ee4a48}
+.setInfo form .submit a i {margin-right:5px}
+.setInfo form .share-scn {margin-top:5px}
+.setInfo form .share-scn .btn-danger {background:#dedede; color:#999; box-shadow:none; text-shadow:none; border-bottom:1px solid rgba(0,0,0,0.1)}
+.setInfo form .share-scn .btn-danger:hover, .setInfo form .share-scn .btn-danger.active {background:#ee4a48; box-shadow:none; color:#FFF; border-bottom:1px solid rgba(0,0,0,0.3)}
+.stepUpload {float:right}
+.stepUpload a, .next-back .pull-right a {color:#c9c9c9; font-size:24px}
+.stepUpload [class^="icon-"]::before, [class*=" icon-"]::before {margin-right:0}
+.stepUpload a:hover, .stepUpload a:active, .next-back .pull-right a:hover, .next-back .pull-right a:active{color:#ee4a48;}
+
+.setInfo form .upload {position:absolute; width:100%; top:0px}
+.setInfo form .upload .box-upload {border:2px dashed #d4d4d4; background:#fff; border-radius:10px}
+.setInfo form .upload .box-upload .step1 {padding-top:40px}
+.setInfo form .upload .box-upload span {display:block; text-align:center; color:#999; margin:0 auto; width:85%}
+.setInfo form .upload .box-upload span > a {color:#333; display:block; width:45px; height:45px; background:#fff; border:1px solid #999; text-align:center; box-shadow:0px 0px 8px rgba(0,0,0,0.4); -moz-box-shadow:0px 0px 8px rgba(0,0,0,0.4); -webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.4); font-size:10px; margin:20px 0 5px 26px}
+.setInfo form .upload .box-upload span a i {line-height:45px; font-size:20px;}
+.setInfo form .upload .box-upload button {float:right; color:#b4b4b4; margin-top:35px}
+.setInfo form .upload .box-upload button.btn-active, .setInfo form .upload .box-upload button.btn-active:hover {color:#ee4a48; text-decoration:none}
+.setInfo form .upload .btn-uploadPhoto {margin:20px 0}
+.setInfo form .upload .btn-uploadPhoto a {width:100%; padding:10px 0; background:#ee4a48}
+.setInfo form .upload .btn-uploadPhoto a i {font-size:18px; color:rgba(255,255,255,0.8); margin-right:10px}
+
+.setInfo form .upload .listPhoto > ul > li {background:#dedede; border-bottom:1px solid #c9c9c9}
+.setInfo form .upload .listPhoto > ul > li > ul > li.avatar {width:30px; height:30px; margin:5px 10px}
+.setInfo form .upload .listPhoto > ul > li > ul > li {float:left; line-height:40px}
+.setInfo form .upload .listPhoto > ul > li > ul > li.namePhoto, .setInfo form .upload .listPhoto > ul > li > ul > li.delPhoto a {color:#333; line-height:40px}
+.setInfo form .upload .listPhoto > ul > li > ul > li.delPhoto a {display:inline-block; padding:0 10px; border-left:1px solid #c9c9c9}
+.setInfo form .upload .listPhoto > ul > li > ul > li.sizePhoto {padding:0 10px}
+.setInfo form .upload .listPhoto > ul > li > ul > li.delPhoto, .setInfo form .upload .listPhoto > ul > li > ul > li.sizePhoto {float:right}
+/* ==== Doi theo ==== */
+#collapseOne .listPhoto {border-top:none;}
+#collapseOne .listPhoto ul li a span {display:inline; line-height:30px}
+#collapseOne .listPhoto ul li a span.avatar {width:30px; height:30px; display:inline-block}
+#collapseOne .listPhoto ul li a span:first-child {float:left; margin-right:10px}
+#collapseOne .listPhoto ul li a {color:#333; font-size:15px; height:30px; display:block; padding:10px 0; border-bottom:1px dotted #c9c9c9}
+#collapseOne .listPhoto ul li a:hover, #collapseOne .listPhoto ul li a:active {color:#ee4a48}
+
+form.manageAlbum h3 {font-size:20px; margin-bottom:0; color:#ee4a48}
+form.manageAlbum .listAlbum h3 a {display:inline-block; text-align:right; width:30px; float:right; font-size:16px}
+form.manageAlbum .listAlbum a {color:#333; cursor:pointer}
+form.manageAlbum .listAlbum a i {color:rgb(177, 177, 177)}
+form.manageAlbum .listAlbum .input-append {display:none}
+form.manageAlbum .listAlbum .input-append input {width:78%}
+form.manageAlbum .listAlbum ul > li {padding:10px 0; border-bottom:1px dotted #c9c9c9}
+form.manageAlbum .listAlbum ul > li span a {text-align:right; float:right; padding:0 10px}
+form.manageAlbum .listAlbum ul > li span a i {font-size:16px}
+form.manageAlbum .listAlbum ul > li span a:first-child {padding-right:0}
+
+/* ==== Media Queries ==== */
+/* Wide Screen */
+@media (min-width : 1280px) {
+	#thumbnails #container .box {max-width:22.8%; margin:15px 1%}
+	.thumbnails ul li {max-width:23%; margin:1%}
+}
+@media (min-width : 960px) and (max-width : 1280px) {
+	#thumbnails #container .box {max-width:22.8%; margin:15px 1%}
+	.thumbnails ul li {max-width:23%; margin:1%}
+}
+@media (min-width : 720px) and (max-width : 960px) {
+	#thumbnails #container .box {max-width:22.8%; margin:15px 1%}
+	#thumbnails .toolAlbum ul li {font-size:75%; min-width:32%; max-width:32%}
+	.thumbnails ul li {max-width:23%; margin:1%}
+}
+@media (min-width : 640px) and (max-width : 720px) {
+	#thumbnails #container .box {max-width:31.1%; margin:0 1% 15px;}
+	#thumbnails .toolAlbum ul li {font-size:75%; min-width:32%; max-width:32%}
+	.thumbnails ul li {max-width:23%; margin:1%}
+}
+@media (min-width : 480px) and (max-width : 640px) {
+	#thumbnails #container .box {max-width:45.8%; margin:0 2% 15px;}
+	#thumbnails .toolAlbum ul li {font-size:75%; min-width:32%; max-width:32%}
+	.thumbnails, #other-house {width:91%}
+	.thumbnails ul li {max-width:23%; margin:1%}
+}
+@media (min-width : 320px) and (max-width : 480px) {
+	#thumbnails #container .box {max-width:45.8%; margin:0 2% 15px;}
+	#thumbnails .toolAlbum ul li {font-size:75%; min-width:32%; max-width:32%}
+	.thumbnails, #other-house {width:91%} 
+	.thumbnails ul li {max-width:23%; margin:1%}
+	h2 a i {text-align:start}
+	#other-house .userInfo {width:60%}
+	#other-house .userInfo .username {width:70%}
+    #header #navigation .navMain li a span {margin-right:12px}
+    #header #navigation .navMain li:last-child a span {margin-right:0px}
+}
+@media (max-width : 320px) {
+	#thumbnails #container .box {max-width:45.8%; margin:0 2% 15px;}
+	#thumbnails .toolAlbum {display:none}	
+	.thumbnails, #other-house {width:91%}
+	.thumbnails ul li {max-width:23%; margin:1%}
+	h2 a i {text-align:start; padding-left:1px}
+	#other-house .userInfo {width:60%}
+	#other-house .userInfo .username {width:63%}
+    #header #navigation .navMain li a span {margin-right:12px}
+    #header #navigation .navMain li:last-child a span {margin-right:0px}
+}
+
+/*LEFT SIDEBAR*/
+.sidebar-left, .sidebar-right, .category-left{
+	position: fixed;
+	z-index:99;
+	top:0px;
+	display:none;
+	background:#fff;
+	border:1px solid #ddd;
+	height:100%;
+}
+.sidebar-right{
+	right:0px;
+	width:210px;
+	padding:10px 0px 15px 0;
+}
+.sidebar-left, .category-left{
+	left:0px;
+	padding:10px 20px 15px 20px;
+}
+.sidebar-left {
+	width:160px;
+}
+.category-left {width:180px;}
+.sidebar-hide-scroll-left, .sidebar-hide-scroll-right {margin-right:5px; overflow:auto !important; overflow-x: hidden!important; -webkit-overflow-scroll: touch!important; width:200px; height:80%}
+.sidebar-hide-scroll-right {height: 100%;}
+.sidebar-hide-scroll-right {width:210px!important}
+.bgcircle {background:#eaeaea; width:43px; height:43px !important; display:block; padding:4px; float:left;}
+.sidebar-right .bgcircle {
+	margin:0 10px 0 12px;
+	}
+.bgcircle a, .bgcircle i {width:43px; height:43px !important; display:inline-block; cursor:pointer;}
+#networks .bgcircle {margin-top:5px}
+.sidebar-right .avatar a {line-height:50px; font-size:17px; font-weight:bold}
+.navTamtay {position:relative;}
+.navTamtay ul {margin-bottom:30px;}
+.category-left .navTamtay ul, .navTamtay .miss-list {position:absolute; width:100%}
+.navTamtay .miss-list {display:none}
+.navTamtay .miss-list ul {height:90%;}
+.navTamtay .miss-list span {position:fixed; bottom:30px; left:20px}
+.navTamtay .miss-list ul li:last-child a i {}
+.navTamtay ul li, .navUser ul li {border-bottom:dotted 1px rgba(0,0,0,0.1)}
+.navTamtay ul li:last-child, .navUser ul li:last-child {border-bottom:none}
+.category-left .navTamtay ul li a, .navUser ul li a {color:rgb(29, 29, 29); font-size:15px; line-height:20px; display:block; padding:9px 0}
+/*.sidebar-left .navTamtay ul li a {color:rgb(29, 29, 29); font-size:16px; line-height:38px; display:block;}*/
+.navTamtay ul li a {color:rgb(29, 29, 29); font-size:15px; line-height:38px; display:block; margin-top:2px}
+.close-left-sidebar, .close-right-sidebar {background:url('../img/sprite.png') no-repeat 0 -103px; position:absolute; top:33px; height:53px; width:53px; z-index:999; cursor:pointer}
+.navTamtay ul li a.miss i, .navTamtay .miss-list span a {font-size:24px; float:right;color:#999}
+.navTamtay ul li a.miss i {font-size:20px;}
+.close-left-sidebar {left:175px}
+.close-right-sidebar {right:185px}
+.navTamtay h3 {margin-bottom:0px}
+.navTamtay h3 a {background:url('../img/sprite.png') no-repeat -205px -63px; display:block; width:90px; height:25px}
+.navTamtay ul li a:hover,.navTamtay ul li a:active, .navTamtay ul li a:hover i,.navTamtay ul li a:active i, .navUser ul li a:hover, .navUser ul li a:active, .navTamtay .miss-list a:hover, .navTamtay .miss-list a:active {color:#F58320}
+
+.navUser ul li a i, .navTamtay ul li a i {
+	font-size:14px; 
+	margin:0 10px 0 0;
+	}
+.navTamtay ul li a, .navUser ul li a {
+	padding-left:20px;
+	}
+.navTamtay ul li a i.icon-house {
+	font-size:16px !important;
+	}
+.title-nav {
+	background-color: #f2f2f2;
+	line-height:40px;
+	font-size:13px;
+	border-top:1px solid #dedede;
+	border-bottom:1px solid #dedede;
+	padding: 0 0 0 20px;
+	margin:25px 0 10px;
+	}
+.actived {text-decoration:none; color:#ed4d4b !important; font-weight:bold}
+.navUser ul li.logout {border-bottom:none}
+.navUser ul li:last-child a.danganh {display:block; width:140px; margin:15px 3px 10px 20px; background:#F58320; color: #fff; font-size: 17px; font-weight: bold; text-align:center; padding-left:0}
+.navUser ul li:last-child a.danganh i {
+	font-size:17px; 
+	margin:0 5px 0 0px;
+	}
+/*BEGIN: 21/2/2013 - minhpn add*/
+/*share function*/
+.photoView .shareAlbum li .btn-share {font-size:14px}
+.photoView .shareAlbum li .share-image-click {background:rgb(238,238,238)}
+.share-func {margin:5px 0 15px 0; display:none}
+.share-func .box-share-link {background:#fff; padding:10px; border:1px solid #dedede; position:relative}
+.share-func .box-share-link .caret {position:absolute; top:-5px; left:30px; border-bottom:4px solid #bababa; border-top:none}
+.box-share-link .facebook {text-align:center; border-bottom:1px solid #dedede; margin:5px 0 15px}
+.box-share-link .facebook a {font-size:25px; color:#fff; display:inline-block; background:#3c5991; width:100%; height:33px; text-align:center; border:1px solid #bbb; border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;}
+.box-share-link .facebook a i {display:inline-block; line-height:33px; width:33px; height:33px;}
+.box-share-link table { font-size: 11px; line-height: 22px; width:96%;}
+.box-share-link table td { font-weight: bold; color: #000; font-size:10px; line-height:40px}
+.box-share-link input {width:100%; height:20px; font-size:11px; margin:0 0; background-color:#fff}
+/*pop-up*/
+.modalShadow {width:100%; top:25%; left:0; margin-left:0;}
+.modal.fade.in {top:25%;}
+.modal-bdr {border:10px solid #5d5b5c}
+.modal-header {background-color:#ed4d4b; padding:6px 15px}
+.modal-header h3 {font-size:20px;color: #fff; font-weight:bold}
+.modal-header .close {font-size:30px; margin-top:5px}
+.modal-body {background:#fff; padding:10px}
+.btn-danger-fix {background:#ed4d4b;}
+.btn-fix {background:#dedede;}
+.btn-danger-fix, .btn-fix {padding:8px 20px; font-size:16px; margin:2px}
+.btn-group-fix, .btn-group + .btn-group {margin:10px 0 0 0; width:100%}
+#other-house .btn-group + .btn-group {margin-top:7px}
+#other-house .btn-group .dropdown-toggle {color:#999; display:inline-block;}
+fieldset .btn-group .dropdown-toggle {border: none;}
+#other-house .btn-group .btn-bdr {border:1px solid #d6d6d6; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px}
+#other-house .btn-group .dropdown-toggle .menu-selector {margin-left:10px}
+/*fieldset .btn-group .dropdown-toggle .caret {margin-right:70px}*/
+#other-house .btn-group-fix .dropdown-toggle .caret {float:right; margin-right:10px}
+#other-house .btn-group .dropdown-toggle, .btn-group .dropdown-menu {width:98%; padding:7px 0; text-align:left;margin-left: 1%;}
+.fixShared .btn-group .dropdown-toggle, .btn-group .dropdown-menu {width:66%}
+/*END: 21/2/2013 - minhpn add*/
+
+/*BEGIN: 22-2-20213*/
+/*button send comment*/
+.btn-submit a {background:#fff}
+.btn-submit a:hover {color:#000 !important}
+
+/*pagination*/
+.pagination {text-align:center}
+.pagination ul > li > a {color:#333; box-shadow:0px 1px 1px rgba(0,0,0,0.4); font-size:15px}
+.pagination ul > li.active > a {background:rgb(231,231,231)}
+.spaceT {margin-top:20px;}
+/*END: 22-2-20213*/
+
+/*location edit box*/
+/*minhpn edit 27/2/2013 .edit-box {top:0px; left:110%; index:9999; display:none; margin:0 auto; width:92%}*/
+.edit-box {top:0px; left:19%; index:9999; display:block; margin:0 auto; width:92%}
+
+/*next back*/
+.pull-left {float:left !important}
+.next-back {margin-bottom:5px}
+.next-back .pull-right i.icon-left-circled:before {margin-right:0px !important}
+#other-house {margin-top:20px}
+.next-back-2 button.btn-active {margin-top:20px; font-size:12px; color:#999 !important}
+.next-back-2 button.btn-active i {font-size:24px; color:#b4b4b4}
+.next-back-2 button.btn-active i:before {margin-left:0px !important; margin-right:0px !important}
+
+.fixnail{left: 0!important;}
+
+.fixview {width:88%!important;}
+
+.navTamtay .back-category {position:fixed; bottom:30px; left:20px; display:none}
+.navTamtay .back-category a {font-size:24px; color:#999}
+.navTamtay .back-category a:hover {color:#ed4d4b}
+
+select, input[type="file"] {
+    width: 100%;
+line-height:0;
+}
+
+.detail-box {display:none}
+.btn-detail-box {text-align:center; font-size:11px; margin-bottom:15px; padding-top:5px; color:#666}
+
+/*fix edir album combobox*/
+.fix-btn-group-category .bootstrap-select.btn-group .btn .caret, .fix-btn-group-security .bootstrap-select.btn-group .btn .caret, .fix-btn-group-category-2 .bootstrap-select.btn-group .btn .caret {margin-right:0px}
+.fix-btn-group-category .bootstrap-select, .fix-btn-group-security .bootstrap-select {width:auto}
+.fix-btn-group-category .dropdown-menu {min-width:130% !important;}
+.fix-btn-group-category .dropdown-menu > ul, .fix-btn-group-category-2 .dropdown-menu > ul {height:300px !important; overflow-y:scroll !important}
+.fix-btn-group-category .dropdown-menu li>a {font-size:13px}
+
+/*btn on top*/
+.btnUpTop {position:fixed; bottom:20px; right:10px; z-index:1001}
+.btnUpTop a {display:block; width:42px; height:42px; background:#f58320; color:#fff; line-height:40px; text-align:center; opacity:0.8; z-index:1000}
+
+/*START : Limit Content*/
+.limit-content {
+ background:#efefef; 
+ color:#F00;
+ text-align:center;
+ line-height:22px;
+ font-size:16px;
+ margin:20px 0 50px;
+ padding:7px 0;
+ border-radius:3px;
+ -moz-border-radius:3px;
+ -webkit-border-radius:3px;
+ }
+ .limit-content > a.login {
+  color:#F00;
+  padding:0 0 0 3px;
+ }
+ .limit-content > a.login:hover {
+  text-decoration:underline;
+ }
+/*END : Limit Content*/
+
+#modallink .modal-body {
+	padding:0;
+	}
+#modallink .optLink {
+	font-size:15px;
+	line-height:30px;
+	border-bottom:1px solid #999;
+	display:block;
+	padding:8px 10px;
+	color:#000;
+	}
+#modallink .optLink i {
+	color:#999;
+	}
+#modallink .optLink i:before {
+	margin-right:8px;
+}
+#modallink .optLink b {
+	color:#999;
+}
+#modallink .optLink:hover, #modallink .optLink:active {
+	background:#ed4d4b;
+	color:#fff;
+	}
+#modallink .optLink:hover i, #modallink .optLink:active i, #modallink .optLink:hover b, #modallink .optLink:active b {
+	color:#fff;
+	}
+#modallink .no-border {
+	border-bottom:none;
+}
+.navTamtay ul li a.miss i {
+	background:none}
+.box-w-color > li {
+	color: #666;
+	font-size: 11px;
+	margin: 0 5px 0 0;
+	line-height: 18px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	display: inline-block;
+	}
+.box-w-color > li > i:before {
+	margin-left:0;}
+.btn-danger {text-shadow:none; box-shadow:none; border:none}
+.login form{margin-left: 20px}
+legend{border-bottom: none}
+.login form input[type="text"], .login form input[type="password"] {
+ width:165px;
+ }

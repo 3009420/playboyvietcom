@@ -1,133 +1,235 @@
+<script>
+$(document).ready(function()
+		{
+	    var url = "<?php echo WEB_PATH;?>/public/cache/<?php echo $this->namefile;?>.json";
+		$.getJSON(url, function(data)
+		{  			 
+		var totalCount=5;
+		var jsondata='';
+		$.each(data.Messages, function(i, M)
+		{
+		// alert(JSON.stringify(m));
+		var num = Math.ceil( Math.random() * totalCount );
+		var i = Math.random();
+// 		jsondata +='<div class="stbody"><span class="timeline_square color'+num+'"></span><div class="stimg"><img src="'+M.src+'" /></div>'
+// 		             +'<div class="sttext"><span class="stdelete" title="Delete">X</span><b>'+M.aid+'</b><br/>'+M.thumbnail
+// 		             +'<div class="sttime"><img src="'+M.thumbnail+'" style="width:100%;height:auto; border-radius:1px solid white;padding:5px;" /></div><div class="stexpand">Playboy Viet</div></div></div>';
+
+		jsondata +='<li style="height: 217px;"><a href="'+M.thumbnail+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url(http://img3.tamtay.vn/'+M.thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
+	     
+		});
+		$(jsondata).appendTo("#promoted234");
+
+		});
+		});
+</script>
+
+
+   
+		
+
+
+
+
 <?php 
 	$notes = $this->notes;
 	$tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
-	echo $this->action('slider','elements','front');
+	//echo $this->action('slider','elements','front');
+
 ?>
-     <div class="scroll" data-ui="jscroll-default">
-        <div class='container' >
-          <div class="row">
-                 <div id='giaiphap-ez1' >
-                      <div class="row height-view"></div>
-                      <!-- col-lg-3 col-md-3 col-sm-12 col-xs-12 animate_afl d1 animate_start -->
-                      <div class=" ani row animate_afl d1 animate_start">
-                            <div class="row">
-                                <!-- div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 giaiphap'> Solution</div -->
-                                <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='title_khachhang'><?php echo $notes['note1']['title']?></div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id='_contect_khachhang'>
-                                  <p class="p-view-ttkh "><strong><?php echo $notes['note1']['description']?></strong>
-                                    </p>
-                                </div>
-                            </div><!-- end row -->
 
-                      </div><!-- class="row animate_afl d1 animate_start" -->
-                        </div><!-- id='giaiphap' -->
-                  </div> <!-- class -row-->
-    </div><!-- container-->
-    <div class='container' id="giaiphap-ez2" >
- 
-    <div class='row  '>
-       <div id="content" class="container_12">
-            
-
-      <div id="home-page" class="container content">
-                   <!-- Till - block -->
-
-            <section id="till-block" class="row">
-
-
-                    <div id="slider-app">
-
-                        <div id="tillCarousel" class="carousel slide hidden-phone" data-interval="false">
-
-                        <div class="carousel-inner col-md-12">
-
-                            <div class="item active row item-doc2">
-                                <div class="col-md-8 pagination-centered" style="margin-left: 0;">
-                                    <img src="<?php echo WEB_PATH;?>/public/front/img/toandien.png" alt="caisse enregistreuse caltos"  class="col-md-12" style="width: 95%; max-width: 565px; margin-bottom: 1%;">
-                                    <h3 class="col-md-12" style="font-size: 17px;"><?php echo $notes['note4']['title'];?> : </h3>
-                                     <p class="col-md-12 text-left">
-                                        <?php echo $notes['note4']['description'];?>
-                                    </p>
-                                </div>
-                                <div class="col-md-4" style="/* margin-top: 5%; */">
-                                   <img src="<?php echo WEB_PATH;?>/public/front/img/01-toandien.png" class="col-md-2" style="width: 72px;height: 71px;padding: 0px; margin: 0px;">
-                                    <p class="col-md-12 bold-viewez">Complete POS solution</p>
-
-                                    <h3 class="col-md-12 text-left"><?php echo $notes['note2']['title']?>:</h3>
-                                    <p class="col-md-12 text-left">
-                                        <?php echo $notes['note2']['description'];?>
-                                    </p>
-                                    <h3 class="col-md-12 text-left"><?php echo $notes['note3']['title']?>:</h3>
-                                    <p class="col-md-12 text-left">
-                                        <?php echo $notes['note3']['description'];?>
-                                    </p>
-                                </div>
-
-                            </div><!-- class="item row" -->
-
-
-                          <div class="item  row item-doc2">
-                                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                                      <h3 class='h3-span7'><i><img src="<?php echo WEB_PATH;?>/public/front/img/icon-span6.png" class="iconspan6"></i>  <?php echo $notes['note9']['title'];?></h3>
-                                      <p class="col-md-11  text-left">  
-                                         <?php echo $notes['note9']['description'];?>
-                                      </p>
-                                      
-                                      </div><!-- span 6 -->
-                                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 "> 
-                                        <img src="<?php echo WEB_PATH;?>/public/front/img/bg_span4.png" class='img-responsive tt-span4' >
-                                      </div><!-- span 5 -->
-                            </div><!-- class="item row" -->
-                     <div class="item  row item-doc1">
-                                 <div class="col-md-6 pagination-centered" style="margin-left: 0;">
-                                     <h3 class='h3-span8'><i><img src="<?php echo WEB_PATH;?>/public/front/img/icon-tk.png" class="iconspan6 re-tkiem"></i><?php echo $notes['note10']['title'];?></h3>
-                                     <img src="<?php echo WEB_PATH;?>/public/front/img/tietkiem.png" alt="caisse enregistreuse caltos"  class="col-md-12" style="width: 95%; max-width: 327px; margin-bottom: 1%;height: 361px;">
-                                </div>
-								
-                                <div class="col-md-6 pagination-centered" style="margin-left: 0;">
-
-                                  <h3 class="col-md-12 text-left" style="margin-left: 2.564102564102564%;"><?php echo $notes['note11']['title'];?></h3>
-                                    <p class="col-md-11  text-left">
-                                     <?php echo $notes['note11']['description'];?>
-                                     </p>
-										<br style="clear: both;">
-                                     <h3 class="col-md-12 text-left"><?php echo $notes['note12']['title'];?></h3>
-                                    <p class="col-md-11  text-left">
-                                      <?php echo $notes['note12']['description'];?>
-                                    </p>
-									<br style="clear: both;">
-                                     <h3 class="col-md-12 text-left"><?php echo $notes['note13']['title'];?></h3>
-                                    <p class="col-md-11  text-left">
-                                      <?php echo $notes['note13']['description'];?>
-                                    </p>
-                                   
-                                </div>
-
-                            </div><!-- class="item active row" -->
-                        </div><!-- class="carousel-inner col-md-12" -->
-                        <div class="col-lg-4 col-md-4 col-sm-3 col-xs-1"></div>
-                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 pagination-centered btn-group flot-po" data-toggle="buttons-radio" style="margin-top: 2%;">
-                                <button type="button" class="btn btn active font_bt bg_bt_1  " data-target="#tillCarousel" data-slide-to="0"><?php echo $tr->translate('txt_title_tab_complet');?></button>
-                                <button type="button" class="btn btn font_bt bg_bt_2 " data-target="#tillCarousel" data-slide-to="1"><?php echo $tr->translate('txt_title_tab_simple');?></button> 
-                                <button type="button" class="btn btn font_bt bg_bt_3 " data-target="#tillCarousel" data-slide-to="2"><?php echo $tr->translate('txt_title_tab_raisonale');?></button>
-                            </div><!-- end button-->
-
-                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-2"></div>
-
-                        </div><!-- class="carousel-inner col-md-12" -->
-
-                    </div><!-- id="tillCarousel" class="carousel slide hidden-phone" data-interval="false" -->
-                
-
-            </section>
-      </div><!-- id="home-page" class="container content" -->
-    </div><!-- id="content" class="container_12" -->
-                        
-</div><!-- class="row" -->
-</div><!-- class='container ez2-tinhnang' -->
-<a href="<?php echo WEB_PATH;?>/front/index/home2">next</a>
+     <!--Content-->
+     <div id="main">
+      <div>
+      <script type="text/javascript" src="http://zone.sosmart.vn/sosmart.js#2188"></script>
+<noscript><a href="http://zone.sosmart.vn/ck.php?n=abc2188f4&oaparams=2__zoneid=2188"  target="_blank"><img src="http://zone.sosmart.vn/avw.php?zoneid=2188&n=abc2188f4" border="0" alt="SoSmart Banner" /></a></noscript>
       </div>
-      <script>
-      $('.scroll').jscroll();
-      </script>
+     	<!-- BEGIN: Hot nen xem -->
+       <div id="promoted"><div class="thumbnails">
+       <h2><a href="#"><i class="icon-hottest"></i>Hot ! nên xem nhất</a>
+         <ul class="clearfix">
+           <div id="promoted234"> </div>
+         </ul>
+       </h2>
+       </div></div>
+<!-- END: hot nen xem -->
 
+<!-- BEGIN: Photograper -->
+<div class="thumbnails">
+	<h2><a><i class="icon-members"></i>Nhiếp ảnh gia - nổi bật khác</a></h2>
+    <ul class="clearfix" id="promotedUser">
+        <script type="text/javascript">
+           photo_ajax.promotedUser();
+        </script> 
+    </ul>
+</div> 
+<!-- END: Photograper -->
+
+<!-- BEGIN: Goc ha noi -->
+<!-- END: Goc Ha Noi -->
+
+<!-- BEGIN: tam tay club -->
+<!-- END: tam tay club -->
+
+<!--large thumbnail-->
+<div id="thumbnails">
+    <!--<ul id="container" class="clearfix" style="width:100%!important;">-->
+        <div id="container" class="clearfix">
+<div class="box">
+    <a href="<?php echo WEB_PATH;?>/public/m.front/detail.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/8/22/1803802/53bc1550_0a543926_95e76ff5654e19d8767892205b68a6fa_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>1</li>
+            <li><i class="icon-comment"></i>5</li>
+            <li><i class="icon-eye"></i>653</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="<?php echo WEB_PATH;?>/front/index/detail" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/11/0/8101116/53bed382_7c741121_studionguyen-1_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>0</li>
+            <li><i class="icon-comment"></i>0</li>
+            <li><i class="icon-eye"></i>394</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="/xem-anh/583884/phieu.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/11/14/13710262/53bf957f_4437a37b_9e55735416ce8cbc5de60e67403425b4_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>4</li>
+            <li><i class="icon-comment"></i>0</li>
+            <li><i class="icon-eye"></i>1.281</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="<?php echo WEB_PATH;?>/front/index/detail" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/12/13/14159719/53c0d685_6adee894_91bb82ed9108bdc9c013f22f5c980ef6_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>0</li>
+            <li><i class="icon-comment"></i>0</li>
+            <li><i class="icon-eye"></i>541</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="/xem-anh/583810/co-em-o-day.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/12/10/8866240/53c0af6c_410a87b7_42640ef6b9147cafc579fd2afd673ede_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>0</li>
+            <li><i class="icon-comment"></i>0</li>
+            <li><i class="icon-eye"></i>177</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="/xem-anh/583760/hot-girl-nha-trang.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/10/21/13710262/53be9f75_225d05e0_852101bdf67c67753631d1021ba3919a_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>2</li>
+            <li><i class="icon-comment"></i>2</li>
+            <li><i class="icon-eye"></i>2.791</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="/xem-anh/583759/toc-roi.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/8/21/11937131/53bc04e8_0ceb71b3__dsc0264_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>0</li>
+            <li><i class="icon-comment"></i>2</li>
+            <li><i class="icon-eye"></i>1.359</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="/xem-anh/583876/girl-linh-chien.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/11/20/1803802/53bfe8d1_2985944c_cab193de5ade5f5ad8fb822ce574f883_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>2</li>
+            <li><i class="icon-comment"></i>2</li>
+            <li><i class="icon-eye"></i>791</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="/xem-anh/583871/mau-nang.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/10/22/12128865/53beb7b3_2b0cd14a_57d8106c4f6f24e4d109e87e2a519dd1_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>5</li>
+            <li><i class="icon-comment"></i>4</li>
+            <li><i class="icon-eye"></i>970</li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <a href="detail.html" class="thumbnail">
+        <img src="http://img3.tamtay.vn/files/photo2/2014/7/11/21/362893/53bff8db_111d8ae6_14362216800_94f944fc33_o_thumb.jpg" />
+    </a>
+    <div class="toolAlbum">
+        <ul class="clearfix">
+            <li><i class="icon-thumbs-up"></i>6</li>
+            <li><i class="icon-comment"></i>1</li>
+            <li><i class="icon-eye"></i>1.667</li>
+        </ul>
+    </div>
+</div>
+       
+</div>       <!--</ul>-->
+    
+</div>
+<nav id="page-nav">
+	<a href="home/ajax/?page=2"></a>
+</nav>    </div>
+    </div><!-- END: wrap -->
+   </div><!-- END : pageG -->
+   
+    <!--sidebar-right--> 
+    <!--
+    <div class="sidebar-right">	
+            <div class="sidebar-hide-scroll-right clearfix">
+                            <div class="login">
+              <form action="http://ids.tamtay.vn/user/login" method="post">
+                      <legend></legend>
+                      <span class="signin"><a href="#"></a></span>
+                      <input type="text" name="username" placeholder="Tên đăng nhập"/>
+                      <input type="password" name="password" placeholder="Mật khẩu"/>
+                      <input type="hidden" name="ref" value="http%3A%2F%2Fm.photo.tamtay.vn" />
+                      <button type="submit" class="btn">Đăng Nhập</button>
+                  </form>
+              </div>
+                            <div class="navTamtay">	
+                    <ul>
+                    	<li><a href="http://www.tamtay.vn/home" class="clearfix"><span class="img-circle"><i class="myhome"></i></span>Nhà tôi</a></li>
+                        <li><a href="http://m.photo.tamtay.vn" class="clearfix"><span class="img-circle"><i class="photo"></i></span>Ảnh</a></li>
+                        <li><a href="http://m.blog.tamtay.vn" class="clearfix"><span class="img-circle"><i class="blog"></i></span>Blog</a></li>
+                        <li><a href="http://m.sukien.tamtay.vn" class="clearfix"><span class="img-circle"><i class="game"></i></span>Sự kiện</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+    </div>
+    -->
+    
+   

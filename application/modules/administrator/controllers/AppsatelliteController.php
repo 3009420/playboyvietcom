@@ -60,7 +60,7 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 	{
 		$ReadJson = new Zend_Session_Namespace('ReadJson');
 		$ReadJson->setExpirationSeconds(604800);
-		$ReadJson->namefile = rand(10, 999999);
+		$ReadJson->namefile = "readJson";//rand(10, 999999);
 
        //var_dump($ReadJson->namefile);die;
 

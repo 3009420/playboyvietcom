@@ -1,97 +1,591 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <?php echo $this->headTitle() ?>
-  <?php echo $this->headMeta() ?>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Styles -->
-    <script type="text/javascript" src='<?php echo WEB_PATH;?>/public/js/jquery-1.10.2.min.js'></script>
-    <link href="<?php echo WEB_PATH;?>/public/front/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/compiled/bootstrap-overrides.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/compiled/theme.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/fonts/css.css">
-     <link href="<?php echo WEB_PATH;?>/public/front/css/custom.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/jazzy.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/jazzy-responsive.css">
-     <link href="<?php echo WEB_PATH;?>/public/front/css/custum.css" rel="stylesheet" media="screen">
-     <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/bootstrap.css">
-     <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/mabanghang.net_style.css">
-     <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/animations.css" media="screen">
-   <!--
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css">
-   -->
-   <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/menu-linespeed.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/product.css"> 
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/smartphone.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/backoffice.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/tablette.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/martketing.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/archive.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/telecharger.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/minscrire.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/hardware.css"> 
-	<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/fix-all-device.css"> 
-	
-    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/compiled/index.css" type="text/css" media="screen">    
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/lib/animate.css" media="screen, projection">    
-
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- css new -->
-    <!-- Animate CSS -->
-    <link href="<?php echo WEB_PATH;?>/public/front/css/animate.min.css" rel="stylesheet">
-    <!-- Slider Revolution CSS -->
-    <link href="<?php echo WEB_PATH;?>/public/front/css/rs-settings.css" rel="stylesheet">
-    <!--[if IE 8]>
-    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/rs-settings-ie8.css">
-    <![endif]-->
-    <!-- Countdown Watch -->
-    <link href="<?php echo WEB_PATH;?>/public/front/css/jquery.countdown.css" rel="stylesheet">
-    <!-- Portfolio CSS -->
-    <link href="<?php echo WEB_PATH;?>/public/front/css/prettyPhoto.css" rel="stylesheet">
-    <!-- Font awesome CSS -->
-    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/front/css/menu.css">
-    <link href="<?php echo WEB_PATH;?>/public/front/css/main.css" type="text/css" rel="stylesheet" />
-    <link href="<?php echo WEB_PATH;?>/public/front/css/main.css" type="text/css" rel="stylesheet" />
-   
-    <!-- <script src="jquery.jscroll.min.js"></script> -->
-    <script src="<?php echo WEB_PATH;?>/public/front/js/jquery.jscroll.js"></script>
-    <style type="text/css">
-      .container .scroll {
-            /* padding: 5px 10px;
-            height: 300px;
-            width: 940px;
-            overflow-y: scroll;
-            */
-
-            }
-		@charset "utf-8";
-		/* CSS Document */
-		
-		#menu {
-		background: #fff;
-		-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-		-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-		box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-		z-index: 999999;
-		overflow-x: hidden;
-		overflow-y: hidden;
-		/*line-height: 60px; */
-		}
-
-    </style>
-    <!-- css menu list chilren -->
-    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/superfish.css" media="screen">
-    <link rel="stylesheet" href="<?php echo WEB_PATH;?>/public/front/css/style-pix.css" media="screen">
-  
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" ng-app="playboyviet.com">
+    <head>
+    <?php echo $this->headTitle() ?>
+    <?php echo $this->headMeta() ?>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="language" content="de" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="playboy viet" />
+    <meta name="copyright" content="playboy viet 2014" />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta name="google-site-verification" content="nSFIQ1UoXBzxzxzxzxzxzxz5v4HjW4L_aW3f-mpPR_wvxjFulFCKQ9SA" />
+    <link rel="shortcut icon" href="<?php echo WEB_PATH;?>/public/m.front/images/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/m.front/css/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/m.front/css/icomoon.css"/>
     
-	<body class="pull_top">
-		<?php echo $this->action('analyticstracking','elements','front');?>
-		<?php echo $this->action('topmenu','elements','front');?>
-		<?php echo $this->layout()->content;?>
-	     <?php echo $this->action('footer','elements','front');?>
-	</body>
+    <link rel="apple-touch-icon" href="<?php echo WEB_PATH;?>/public/m.front/images/ttios.png"/>
+    
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/m.front/css/style_loading.css" media="screen" />
+    <script type="text/javascript" src="<?php echo WEB_PATH;?>/public/m.front/js/jquery-1.10.2.min.js"></script>
+	<script type='text/javascript' src='<?php echo WEB_PATH;?>/public/m.front/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/m.front/css/style.css" media="screen" />
+    <script type="text/javascript">
+	    photo_comment=
+		    {
+		        loadComment:  function(aid, p)
+		         {
+		             $.ajax({
+		                   type: "GET",
+		                   url: "/comment/view/" + aid + "?page=" + p,
+		                   complete: function(res, s){
+		                       $(".comments-area").html(res.responseText);
+		                    }       
+		                });
+		             return false;
+		         },
+		         showReply: function(cid)
+		         {
+		            $("#ajax_show_comment_"+cid).toggle();
+		            //return false;
+		      	    $.ajax({
+		     			   type: "GET",
+		     			   url: "/comment/detailview/" + cid ,
+		     		       complete: function(res, s){
+		                      $("#ajax_show_comment_" + cid).html(res.responseText);
+		                      //location.href='#comment';
+		     			    }
+		     	        });
+		      		return false;
+		         },
+		         
+		         deleteComment: function(cid,page)
+		         {
+		             /*
+		             if (!confirm("Bạn chắc chắn xóa bình luận này"))
+		                 return false;
+		             */
+		             $.ajax({
+		                   type: "POST",
+		                   url: "/comment/delete/" + cid + "?page=" + page,
+		                   error: function(req, status, info){
+		                          alert("Có lỗi khi xóa bình luận. Hãy thử lại lần khác");
+		                   },
+		                   success: function(comment, status){
+		                          $(".comments-area").html(comment);
+		                          location.href='#comment_section';
+		                   }
+		            });
+		            return false;
+		         },
+		         deleteReply: function(cid,rid,page)
+		         {
+		             /*
+		             if (!confirm("Bạn chắc chắn xóa bình luận này"))
+		                 return false;
+		             */
+		             $.ajax({
+		                   type: "POST",
+		                   url: "/comment/deletereply/" + cid + "?rid="+ rid + "&page=" + page,
+		                   error: function(req, status, info){
+		                          alert("Có lỗi khi xóa bình luận. Hãy thử lại lần khác");
+		                   },
+		                   success: function(comment, status){
+		                          $(".comments-area").html(comment);
+		                          location.href='#comment_section';
+		                   }
+		            });
+		            return false;
+		         },
+		        saveComment: function(aid, cid,page) 
+		        {
+		            var urllink;
+		            if (cid == '') {
+		                textAreaID = "#comment_content";
+		                urllink = "/comment/save/" + aid + "?page=" + page;
+		            } else {            
+		                textAreaID = "#comment_content_" + cid;
+		                urllink = "/comment/save/" + aid + "?cid=" + cid + "&page=" + page;
+		            }
+		            if ($(textAreaID).val()=="")
+		                return;                        
+		            $.ajax({
+		                   type: "POST",
+		                   //url: "/comment/save/" + aid + "/" + cid + "?page=" + page,
+		                   url: urllink,
+		                   data: $(textAreaID).serialize(),
+		                   /*
+		                   beforeSend: function(req){
+		                       $("#cmt_loader").show();
+		                       //photo_comment.commentPosting=true;
+		                   },
+		                   */
+		                   error: function(req, status, info){
+		                          alert("Có lỗi khi cập nhật bình luận của bạn");
+		                   },
+		                   success: function(comment, status){
+		                          $(".comments-area").html(comment);
+		                          $(textAreaID).val("");
+		                   },
+		                   complete: function(res, s){
+		                       //$("#cmt_loader").hide();
+		                       //photo_comment.commentPosting=false;
+		                       //photo_comment.commentPage=0;
+		                       location.href='#comment_section';
+		                    }
+		            });
+		            return false;
+		        }
+		        
+		    }
+		
+		    var photo_like = {    
+		        like: function(aid)
+		        {
+		            $.ajax({
+		                   type: "POST",
+		                   url: "/like/index",
+		                   data: "aid="+ aid,
+		                   error: function(req, status, info){
+		                        alert("Có lỗi xảy ra, xin bạn vui lòng thử lại sau!");
+		                   },
+		                   success: function(data, status){
+		                       //$('.follow .like').toggleClass('unlike');
+		                       $("#like_count").html(data);       
+		                   }
+		            });
+		            return false;       
+		        }
+		        
+		    }
+		
+		
+		    var photo_favorite = {    
+		           
+		        addFavorite: function(uid)
+		        {                                                       
+		            $.ajax({
+		                   type: "POST",
+		                   url: "/favorite/add",
+		                   data: "following=" + uid,
+		                   success: function(data){
+		                        $("#subscribe_count").html(data);
+		                        if(data == 1){
+		                            $("#text_sub").html("Hủy Dõi");
+		                        }else{
+		                            $("#text_sub").html("Dõi Theo");
+		                        }
+		                        /*
+		                        $('.btnDoitheo').toggleClass('unfollow');
+		                        if ($(".btnDoitheo").hasClass("unfollow")){
+		                		   $("#subscribe_count").html(data);
+		                           $("#subscribe_text").html("Bỏ dõi theo");
+		                       } else {
+		                    	   $("#subscribe_count").html(data);
+		                           $("#subscribe_text").html("Dõi theo");
+		                       }  
+		                       */   
+		                   }
+		                    
+		            });
+		            return false;       
+		        }
+		    }
+		
+		
+		    var image_note=
+		    {
+		        postURL:"/note/save",
+		        inprogress: false,
+		        /*
+		        delNote: function(id)
+		        {
+		            if (!confirm('Bạn chắc chắn xóa ghi chú của ảnh này'))
+		            {
+		                return;
+		            }
+		            $('#image_note_content_' + id).val("");
+		            image_note.saveNote(id);
+		        },
+		        */
+		        showEdit: function(id)
+		        {
+		            if (this.inprogress)
+		            {
+		                return;
+		            }
+		            $('#note_' + id).toggle();
+		            $('#edit_note_' + id).toggle();
+		            $('#image_note_content_'+id).focus();
+		        },
+		        cancelEdit: function(id)
+		        {
+		            $('#note_' + id).toggle();
+		            $('#edit_note_' + id).toggle();
+		        },
+		        saveNote: function(id)
+		        {
+		            if (this.inprogress)
+		            {
+		                return;
+		            }
+		            this.inprogress=true;
+		            var url=this.postURL + "/" + id;
+		            $.ajax({
+		                   type: "POST",
+		                   url: url,
+		                   data: $('#image_note_content_' + id).serialize(),
+		                   beforeSend: function(req){
+		                          $('#edit_note_' + id).hide();
+		                          $('#note_' + id).show();
+		                   },
+		                   error: function(req, status, info){
+		                          alert("Có lỗi trong quá trình cập nhật chú thích cho ảnh. Xin vui lòng thử lại lần khác");
+		                          image_note.inprogress=false;
+		                   },
+		                   success: function(note, status){
+		                        image_note.inprogress=false;
+		                        /*
+		                        if (note=="-1")
+		                        {
+		                         alert("Có lỗi trong quá trình cập nhật chú thích cho ảnh. Xin vui lòng thử lại lần khác");
+		                         return;
+		                        }
+		                        */
+		                        if (note!="")
+		                        {
+		                            $('#note_view_' + id).html(note);
+		                        }
+		                        else
+		                        {
+		                         $('#m_note_' + id).html("<i>Bạn có thể thêm chú thích cho ảnh (tối đa 300 ký tự)</i>");
+		                        }
+		                        
+		                   }
+		                });
+		        }
+		    }
+		
+		
+		    //My Album
+		    var myalbum=
+		    {
+		        
+		        del:function(aid){
+		            $.ajax({
+		                type: "POST",
+		                url: "/my/delete",
+		                data: "aid="+aid,
+		                success: function(data)
+		        		{
+		        			location.href='/my';  
+		        		}
+		            });
+		            
+		        }
+		    }
+		
+		    var photo_ajax =
+		    {
+		        promotedUser:function(){
+		            var promotedUser = $("#promotedUser");
+		            var html;
+		            var img;
+		            var url;
+		            var stt = 0;
+		            $.ajax({
+		                type: "GET",
+		                dataType:"json",  
+		                url: "<?php echo WEB_PATH;?>/playboyviet.com/public/m.front/api/promoteduser/promoteduser.json",
+		                error: function (){
+		                    //alert('Có lỗi xảy ra');
+		                },
+		                success: function(data, status){
+		                    $.each(data, function(i,val) {
+		                        //thumb_name = getImageServer(val.img_server) + val.thumb_small;
+		                        img = "http://a0.ttimg.vn/"+ val.uid +'.ava';
+		                        url = "/my/view/"+ val.uid; 
+		                        html  = '<li><a href="'+ url +'">';
+		                        html += '<img style="background:transparent url('+ img +') no-repeat scroll center center; width:100%;margin-bottom: 1px;background-size:cover;-moz-background-size:cover;" src="http://p0.ttimg.vn/images/spacer.gif" /><span></span></a></li>';
+		                        if(stt > 7){
+		                            return false;
+		                        }
+		                        stt = stt + 1; 
+		                        promotedUser.append(html);
+		                    });                         
+		                }
+		            });        
+		            return false;
+		        },
+		        listcatemiss:function(){
+		            var loadmiss = $("#loadmiss");
+		            var html;
+		            var name;
+		            var link;
+		            
+		            $.ajax({
+		                type: "GET",
+		                dataType:"json",  
+		                url: "<?php echo WEB_PATH;?>/public/m.front/api/listcatemiss/listcatemiss.json",
+		                error: function (){
+		                   // alert('Có lỗi xảy ra');
+		                },
+		                success: function(data, status){
+		                    $.each(data, function(i,val) {
+		                        link = "/category/browse/"+ val.tid;
+		                        html  = '<li><a href="'+ link +'">'+ val.name +'</a></li>';
+		                        loadmiss.append(html);
+		                    });                         
+		                }
+		            });        
+		            return false;
+		        }
+		        
+		    }
+		
+		    var photo_feed = {
+		    	
+		    	deleteFeed: function(fid){
+		    	   
+		                $.ajax({
+		                    type: "POST",
+		                    url: "/feed/delete/" + fid,
+		                    complete: function(res, s){        
+		                        window.location.href = "/feed";
+		                    }       
+		                });    
+		    	
+		    	}
+		    }
+	</script>
+    <!-- Begin: angular -->
+    <script src="<?php echo WEB_PATH;?>/public/m.front/js/angular/angular.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/m.front/js/angular/app.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/m.front/js/angular/controllers/ajaxcontroller.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/m.front/js/angular/controllers/CategoryController.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/m.front/js/angular/controllers/HomeController.js" type="text/javascript"></script>
+    <!-- END: angular -->
+    
+</head>
+<body>
+
+	<!--Header-->
+    <div class="pageG">
+        <div class="wrap">
+            <div id="header">
+                <div id="navigation" class="clearfix"> 
+                    <span id="site" class="navMain">
+                        <div class="btn-category img-circle"><a class="img-circle theloai" href="#"><i class="icon-list"></i></a></div>
+                    </span>
+                    <div class="navMain"> <span id="site"><a id="index" class="current" href="/"></a></span> </div>
+                                        <div id="networks"> 
+                        <a id="kontakt" href="#" style="display:block"><i class="user"></i></a> <span class="img-circle bgcircle" style="display:none"><i class="img-circle" style="background:url('/img/img-3.jpg') no-repeat center center; background-size:cover"></i></span>
+                    </div>
+                                    </div>
+            </div>
+     <!--End Header-->
+     
+     
+   <?php echo $this->layout()->content;?>
+    
+    
+        <div class="sidebar-right">
+        <div class="sidebar-hide-scroll-right">
+                      <div class="login">
+            <form action="http://ids.tamtay.vn/user/login" method="post">
+                    <legend></legend>
+                    <span class="signin"><a href="#"></a></span>
+                    <input type="text" name="username" placeholder="Tên đăng nhập"/>
+                    <input type="password" name="password" placeholder="Mật khẩu"/>
+                    <input type="hidden" name="ref" value="http%3A%2F%2Fm.photo.tamtay.vn" />
+                    <button type="submit" class="btn">Đăng Nhập</button>
+                </form>
+            </div>
+                      <div class="title-nav">Play Boy Viet 2014</div>
+          <div class="navTamtay">
+            <ul>
+              <li><a href="http://www.m.tamtay.vn/home" class="clearfix"><span class="img-circle"><i class="icon-house"></i></span>Nhà tôi</a></li>
+              <li><a href="http://m.photo.tamtay.vn" class="clearfix"><span class="img-circle"><i class="icon-picture"></i></span>Ảnh</a></li>
+              <li><a href="http://m.blog.tamtay.vn" class="clearfix"><span class="img-circle"><i class="icon-book"></i></span>Blog</a></li>
+              <li><a href="http://m.sukien.tamtay.vn" class="clearfix"><span class="img-circle"><i class="icon-table"></i></span>Sự kiện</a></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    <!--catagory menu -->
+    <div class="category-left">
+    	
+        <div class="sidebar-hide-scroll-left clearfix">
+                <div class="navTamtay">
+                    <ul class="category-photo">
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/all?sort=c2&filter=f0">Hot Nhất</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/all">Tất Cả</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11906">Người Đẹp</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/123955">Lifestyle</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/17800">Mùa Cưới</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11911">Nghệ Thuật</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11904">Con người & Cuộc sống</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/123915">T-Photo Club</a></li>
+                        <li><a class="miss" href="<?php echo WEB_PATH;?>/public/m.front/chuyen-muc-miss-hoc-duong/all/miss-hoc-duong.html"><i class="icon-right-circled"></i>Miss Học Đường</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11916">Khác</a></li>
+                    </ul>
+                    <div class="miss-list" ng-controller="CategoryController">
+                        <ul class="clearfix" id="loadmiss">
+                            <!--
+                            <script type="text/javascript">
+
+                               $(document).ready(function(){
+                                   $("#loadmiss").load("/category/listcatemiss");
+                               });
+
+                               photo_ajax.listcatemiss();
+                            </script>
+                            -->
+                            <li ng-repeat="data in datas">
+                                <a href="/category/browse/{{data.tid}}">{{data.name}}</a>
+                            </li>
+                        </ul>
+                        <!--<span class="back-category"><a href="#"><i class="icon-left-circled"></i></a></span>-->
+                    </div>
+                    <span class="back-category"><a href="#"><i class="icon-left-circled"></i></a></span>
+                </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    <div class="btnUpTop"><a href="#" title="Lên đầu trang" class="img-circle"><i class="icon-up-open-big"></i></a></div>
+<!--/*====== Masonry ========*/-->
+
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/m.front/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/m.front/js/jquery.nailthumb.1.1.min.js"></script>
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/m.front/js/appScript.js"></script>
+<script src="<?php echo WEB_PATH;?>/public/m.front/js/jquery.masonry.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="<?php echo WEB_PATH;?>/public/m.front/js/jquery.infinitescroll.min.js" type="text/javascript" charset="utf-8"></script>    
+<script type="text/javascript">
+
+/*====== arrange item in website ========*/
+$(function() {
+//$(document).ready(function(){
+    
+    
+    var $container2 = $('#container');
+    $container2.imagesLoaded( function(){
+      $container2.masonry({
+        itemSelector: '.box',
+    	  isAnimated: false,
+    	  gutterWidth: 0,
+    	  // set columnWidth a fraction of the container width
+          columnWidth: function( containerWidth ) {
+              if ($('body').width() >= 720) {
+                return containerWidth / 4;
+              }
+              if ($('body').width() >= 640 && $('body').width() <= 720) {
+                return containerWidth / 3;
+              }
+              if ($('body').width() >= 480 && $('body').width() <= 640) {
+                return containerWidth / 2;
+              }
+              if ($('body').width() <= 480) {
+                return containerWidth / 2;
+              }
+           }
+   
+      });
+    });
+    
+    $('.collapse').collapse({toggle: true})
+});
+</script> 
+<script>
+    $(function() {
+        var $container = $('#container');
+          $container.infinitescroll({
+          navSelector  : '#page-nav',
+          nextSelector : '#page-nav a:first',	
+          itemSelector : '.box',
+          extraScrollPx: 0,
+          bufferPx     : 400,
+          localMode    : true,
+          loading: {
+              finishedMsg: 'Không còn dữ liệu.',
+              img: '<?php echo WEB_PATH;?>/public/m.front/images/ajax-loader.gif'
+            }
+          },
+          // trigger Masonry as a callback
+          function( newElements ) {
+            // hide new items while they are loading
+            var $newElems = $( newElements ).css({ opacity: 0 });
+            // ensure that images load before adding to masonry layout
+            $newElems.imagesLoaded(function(){
+              // show elems now they're ready
+              $newElems.animate({ opacity: 1 });
+              $container.masonry( 'appended', $newElems, true ); 
+            });
+   
+	   }); 
+    });
+</script>
+ <script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('.nailthumb-container').nailthumb({
+            replaceAnimation:null
+        });
+    });
+</script>
+
+<script>
+    function setcook(url){
+        var cookieName = 'photo_version';
+        var cookieValue = 'web';
+        var myDate = new Date();
+        myDate.setMonth(myDate.getMonth() + 12);
+        document.cookie = cookieName +"=" + cookieValue + ";expires=" + myDate 
+                  + ";domain=.tamtay.vn;path=/";
+        //alert(getCookie('photo_version'));
+        location.href = '<?php echo WEB_PATH;?>/public/m.front'+url;
+    }
+    function getCookie(c_name)
+    {
+        var i,x,y,ARRcookies=document.cookie.split(";");
+    
+        for (i=0;i<ARRcookies.length;i++)
+        {
+            x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+            y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+            x=x.replace(/^\s+|\s+$/g,"");
+            if (x==c_name)
+            {
+                return unescape(y);
+            }
+         }
+    }
+    
+</script>
+<script type="text/javascript">
+        jQuery(document).ready(function() {
+        function Resizethumbnail() { 
+          $thumbnailsW = $('.thumbnails ul li').width();
+          
+          $thumbnailsH = $('.thumbnails ul li').height($thumbnailsW);
+          $('.thumbnails ul li a').height($thumbnailsW);
+          $('.thumbnails ul li a').width($thumbnailsW);
+          $('.thumbnails ul li img').width($thumbnailsW);
+          $thumbnailW = $('#thumbnails #container .box').width();
+            $('#thumbnails #container .box img').width($thumbnailW);
+         }
+         Resizethumbnail();
+         var TO = false;
+            $(window).resize(function () {
+                if (TO !== false)
+                    clearTimeout(TO);
+                TO = setTimeout(Resizethumbnail, 0.1); //200 is time in miliseconds
+            });
+         }
+         )
+    </script>
+</body>
 </html>
