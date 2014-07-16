@@ -112,7 +112,7 @@ $(document).ready(function()
                 	
                     <a class="navbar-brand logo" href="<?php echo WEB_PATH?>">
                     <img alt="" src="http://127.0.0.1/playboyviet.com/public/m.front/img/logo-tt.png" style="width: 96px;float:left;height: 35px;margin-left: 37%;margin-top: 8%;">
-                   </a>
+                    </a>
    
                   </div>
                    <div class="download">
@@ -123,13 +123,25 @@ $(document).ready(function()
                     </div>
                     
                     <div class="search">
-                        <div class="input-group">
-                            <input type="text" size="30" value="" class="form-control" id="inputString" onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);">
-                            <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" onclick="elasticSearch()"><span class="glyphicon glyphicon-search"></span></button>
-                            </span>
-                        </div>
+                        <div class="input-group" style="
+							    display: inline-block;
+							">
+							                            <input type="text" size="30" value="" class="form-control" id="inputString" onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);" style="
+							    float: left;
+							    width: 76%;
+							">
+							                            <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
+							                            <span class="input-group-btn" style="
+							    float: right;
+							    height: 27px;
+							    margin-top: -3px;
+							">
+							                                <button class="btn btn-default" type="button" onclick="elasticSearch()">
+							                                <i class="icon-search icon-white" style="
+							    float: right;
+							"></i></button>
+							                            </span>
+							                        </div>
                     </div>    
 
             </div>
