@@ -1,0 +1,6 @@
+Database:	playboyvie_playboyvie
+Host:	localhost
+Username:	playboyvie_user
+Password:	playboyvie
+
+Click HERE to go back

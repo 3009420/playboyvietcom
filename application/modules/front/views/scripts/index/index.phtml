@@ -1,46 +1,33 @@
-<script>
-$(document).ready(function()
-		{
-	    var url = "<?php echo WEB_PATH;?>/public/cache/<?php echo $this->namefile;?>.json";
-		$.getJSON(url, function(data)
-		{  			 
-		var totalCount=5;
-		var jsondata='';
-		$.each(data.Messages, function(i, M)
-		{
-		// alert(JSON.stringify(m));
-		var num = Math.ceil( Math.random() * totalCount );
-		var i = Math.random();
-// 		jsondata +='<div class="stbody"><span class="timeline_square color'+num+'"></span><div class="stimg"><img src="'+M.src+'" /></div>'
-// 		             +'<div class="sttext"><span class="stdelete" title="Delete">X</span><b>'+M.aid+'</b><br/>'+M.thumbnail
-// 		             +'<div class="sttime"><img src="'+M.thumbnail+'" style="width:100%;height:auto; border-radius:1px solid white;padding:5px;" /></div><div class="stexpand">Playboy Viet</div></div></div>';
-
-		jsondata +='<li style="height: 217px;"><a href="'+M.thumbnail+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url(http://img3.tamtay.vn/'+M.thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
-	     
-		});
-		$(jsondata).appendTo("#promoted234");
-
-		});
-		});
-</script>
 <style>
 <!-- tim kiem -->
-header a.logo {
-background: url('<?php echo WEB_PATH?>/public/m.front/images/logo_fpt_play.png') no-repeat left center;
-width: 160px;
-display: block;
-}
 .navbar > .container .navbar-brand {
 margin: 18px 0 10px;
 }
+
 .navbar {
 top: -21px;
 margin-bottom: 0px !important;
 z-index: 5;
 }
+.container>.navbar-header, .container>.navbar-collapse {
+margin-right: 0;
+margin-left: 0;
+}
 #suggestions {
 position: absolute;
 z-index: 100;
+}
+header a.logo {
+background: url('<?php echo WEB_PATH?>/public/m.front/images/logo_fpt_play.png') no-repeat left center;
+width: 160px;
+display: block;
+}
+header .search {
+float: right;
+padding: 0 20px;
+margin: 16px 0 11px;
+border-right: 1px solid #d3d3d3;
+width: 250px;
 }
 header .download {
 float: right;
@@ -48,6 +35,7 @@ background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_download.png')
 padding-left: 45px;
 text-transform: uppercase;
 }
+
 .input-group-btn:last-child>.btn {
 margin-left: -1px;
 }
@@ -65,6 +53,10 @@ a {
 color: #272727;
 cursor: pointer;
 }
+.pull-left {
+float: left !important;
+margin-top: 9%;
+}
 header .download a.android {
 background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_android.png');
 }
@@ -77,7 +69,27 @@ header .download a.apple:hover 		{ background:url('<?php echo WEB_PATH?>/public/
 header .download a.window:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_windownphone_on.png');}
 
 </style>
+<script>
+$(document).ready(function()
+		{
+	    var url = "<?php echo WEB_PATH;?>/public/cache/<?php echo $this->namefile;?>.json";
+		$.getJSON(url, function(data)
+		{  			 
+		var totalCount=5;
+		var jsondata='';
+		$.each(data.Messages, function(i, M)
+		{
+		// alert(JSON.stringify(m));
+		var num = Math.ceil( Math.random() * totalCount );
+		var i = Math.random();
+		jsondata +='<li style="height: 217px;"><a href="'+M.thumbnail+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url(http://img3.tamtay.vn/'+M.thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
+	     
+		});
+		$(jsondata).appendTo("#promoted234");
 
+		});
+		});
+</script>
    
 		
 
@@ -96,12 +108,18 @@ header .download a.window:hover 		{ background:url('<?php echo WEB_PATH?>/public
      
       <header class="navbar bs-docs-nav">
             <div class="container">
-                  <a class="navbar-brand logo" href="/"></a>
+                  <div class="navbar-header">
+                	
+                    <a class="navbar-brand logo" href="<?php echo WEB_PATH?>">
+                    <img alt="" src="http://127.0.0.1/playboyviet.com/public/m.front/img/logo-tt.png" style="width: 96px;float:left;height: 35px;margin-left: 37%;margin-top: 8%;">
+                   </a>
+   
+                  </div>
                    <div class="download">
                    		<p class="pull-left text_download_app">Tải ứng dụng</p>
                       	<a class="apple" target="_blank" href="https://itunes.apple.com/us/app/fptplay/id646297996?mt=8"></a>
                         <a class="android" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a>
-                        <a style=" width: 63px; margin-right: 5px; height: 63px;" class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a>
+                       <?php /*?> <a style=" width: 63px; margin-right: 5px; height: 63px;" class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a> */?>
                     </div>
                     
                     <div class="search">
