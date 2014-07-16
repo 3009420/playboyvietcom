@@ -115,6 +115,24 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 		return $this->_db->fetchOne($querry);
 	}
 	
+	
+	public function getHotgirl() 
+	{
+		$sql = " SELECT appsatellite.id,appsatellite.nameapp,appsatellite.image_thumbnail,appsatellite.content_detail
+				 FROM appsatellite
+				 WHERE  appsatellite.nameapp = 'igirlxinhcom' and appsatellite.id ORDER BY RAND()";
+		return $this->_db->fetchAll($sql);
+	}
+	
+	public function getHotgirlId()
+	{
+		$sql = " SELECT contentdetailfull.id,contentdetailfull.src,appsatellite.nameapp,appsatellite.image_thumbnail,appsatellite.content_detail
+				 FROM appsatellite
+				 INNER JOIN contentdetailfull  ON appsatellite.id = contentdetailfull.idforeign
+				 WHERE  appsatellite.nameapp = 'igirlxinhcom'";
+		return $this->_db->fetchAll($sql);
+	}
+	
 }
 
 ?>

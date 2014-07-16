@@ -79,10 +79,8 @@ $(document).ready(function()
 		var jsondata='';
 		$.each(data.Messages, function(i, M)
 		{
-		// alert(JSON.stringify(m));
-		var num = Math.ceil( Math.random() * totalCount );
-		var i = Math.random();
-		jsondata +='<li style="height: 217px;"><a href="'+M.thumbnail+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url(http://img3.tamtay.vn/'+M.thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
+		// alert(JSON.stringify(M.image_thumbnail));
+		jsondata +='<li style="height: 217px;"><a href="'+M.id+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url('+M.image_thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
 	     
 		});
 		$(jsondata).appendTo("#promoted234");
