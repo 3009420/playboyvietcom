@@ -110,13 +110,16 @@ i:before {
     z-index : 100;
 	border-bottom:1px solid #cdcdcd;
 	box-shadow: 0px 3px 10px #ddd; -moz-box-shadow: 0px 3px 10px #ddd; -webkit-box-shadow: 0px 3px 10px #ddd;
-	/*background:rgba(255,255,255,0.9);*/
+	/*background:rgba(255,255,255,0.9);
     background:rgba(255,255,255,0.9) url(../img/bg_secNav.gif) center 2px no-repeat;
+    */
+     background:rgba(255,255,255,0.9) url(../img/bg-top.png) center 2px no-repeat;
+   
 	margin:0 0 20px 0; 
 }
 #navigation {width:92%}
 #navigation, #header #navigation .navMain {margin:0 auto;}
-#header, #header #navigation, #header #navigation span, #header #navigation span a, #header #navigation .btn-category, #header #navigation .btn-category a {height:60px}
+/* #header, #header #navigation, #header #navigation span, #header #navigation span a, #header #navigation .btn-category, #header #navigation .btn-category a {height:60px}*/
 #header #navigation #site, #header #navigation .navMain .btn-category {float:left}
 
 #header #navigation #networks {float:right}

@@ -23,7 +23,60 @@ $(document).ready(function()
 		});
 		});
 </script>
+<style>
+<!-- tim kiem -->
+header a.logo {
+background: url('<?php echo WEB_PATH?>/public/m.front/images/logo_fpt_play.png') no-repeat left center;
+width: 160px;
+display: block;
+}
+.navbar > .container .navbar-brand {
+margin: 18px 0 10px;
+}
+.navbar {
+top: -21px;
+margin-bottom: 0px !important;
+z-index: 5;
+}
+#suggestions {
+position: absolute;
+z-index: 100;
+}
+header .download {
+float: right;
+background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_download.png') left 5px no-repeat;
+padding-left: 45px;
+text-transform: uppercase;
+}
+.input-group-btn:last-child>.btn {
+margin-left: -1px;
+}
+header .download a.apple {
+background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_apple.png');
+}
+header .download a {
+width: 50px;
+height: 50px;
+display: block;
+float: left;
+margin-top: 3px;
+}
+a {
+color: #272727;
+cursor: pointer;
+}
+header .download a.android {
+background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_android.png');
+}
+header .download a.window {
+background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_windown.png');
+}
 
+header .download a.android:hover 	{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_android_on.png'); }
+header .download a.apple:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_apple_on.png');}
+header .download a.window:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_windownphone_on.png');}
+
+</style>
 
    
 		
@@ -40,10 +93,30 @@ $(document).ready(function()
 
      <!--Content-->
      <div id="main">
-      <div>
-      <script type="text/javascript" src="http://zone.sosmart.vn/sosmart.js#2188"></script>
-<noscript><a href="http://zone.sosmart.vn/ck.php?n=abc2188f4&oaparams=2__zoneid=2188"  target="_blank"><img src="http://zone.sosmart.vn/avw.php?zoneid=2188&n=abc2188f4" border="0" alt="SoSmart Banner" /></a></noscript>
-      </div>
+     
+      <header class="navbar bs-docs-nav">
+            <div class="container">
+                  <a class="navbar-brand logo" href="/"></a>
+                   <div class="download">
+                   		<p class="pull-left text_download_app">Tải ứng dụng</p>
+                      	<a class="apple" target="_blank" href="https://itunes.apple.com/us/app/fptplay/id646297996?mt=8"></a>
+                        <a class="android" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a>
+                        <a style=" width: 63px; margin-right: 5px; height: 63px;" class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a>
+                    </div>
+                    
+                    <div class="search">
+                        <div class="input-group">
+                            <input type="text" size="30" value="" class="form-control" id="inputString" onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);">
+                            <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" onclick="elasticSearch()"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </div>    
+
+            </div>
+     </header>
+     
      	<!-- BEGIN: Hot nen xem -->
        <div id="promoted"><div class="thumbnails">
        <h2><a href="#"><i class="icon-hottest"></i>Hot ! nên xem nhất</a>
