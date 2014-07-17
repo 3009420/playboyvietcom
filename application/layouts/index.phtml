@@ -383,7 +383,7 @@
         <div class="sidebar-right">
         <div class="sidebar-hide-scroll-right">
                       <div class="login">
-            <form action="http://ids.tamtay.vn/user/login" method="post">
+               <form action="<?php echo WEB_PATH;?>/sign_up.html" method="post">
                     <legend></legend>
                     <span class="signin"><a href="#"></a></span>
                     <input type="text" name="username" placeholder="Tên đăng nhập"/>
@@ -395,10 +395,10 @@
                       <div class="title-nav">Play Boy Viet 2014</div>
           <div class="navTamtay">
             <ul>
-              <li><a href="http://www.m.tamtay.vn/home" class="clearfix"><span class="img-circle"><i class="icon-house"></i></span>Nhà tôi</a></li>
-              <li><a href="http://m.photo.tamtay.vn" class="clearfix"><span class="img-circle"><i class="icon-picture"></i></span>Ảnh</a></li>
-              <li><a href="http://m.blog.tamtay.vn" class="clearfix"><span class="img-circle"><i class="icon-book"></i></span>Blog</a></li>
-              <li><a href="http://m.sukien.tamtay.vn" class="clearfix"><span class="img-circle"><i class="icon-table"></i></span>Sự kiện</a></li>
+              <li><a href="#" class="clearfix"><span class="img-circle"><i class="icon-house"></i></span>Nhà tôi</a></li>
+              <li><a href="#" class="clearfix"><span class="img-circle"><i class="icon-picture"></i></span>Ảnh</a></li>
+              <li><a href="#" class="clearfix"><span class="img-circle"><i class="icon-book"></i></span>Blog</a></li>
+              <li><a href="#" class="clearfix"><span class="img-circle"><i class="icon-table"></i></span>Sự kiện</a></li>
             </ul>
           </div>
         </div>
@@ -418,16 +418,16 @@
         <div class="sidebar-hide-scroll-left clearfix">
                 <div class="navTamtay">
                     <ul class="category-photo">
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/all?sort=c2&filter=f0">Hot Nhất</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/all">Tất Cả</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11906">Người Đẹp</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/123955">Lifestyle</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/17800">Mùa Cưới</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11911">Nghệ Thuật</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11904">Con người & Cuộc sống</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/123915">T-Photo Club</a></li>
-                        <li><a class="miss" href="<?php echo WEB_PATH;?>/public/m.front/chuyen-muc-miss-hoc-duong/all/miss-hoc-duong.html"><i class="icon-right-circled"></i>Miss Học Đường</a></li>
-                        <li><a href="<?php echo WEB_PATH;?>/public/m.front/category/browse/11916">Khác</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Hot Nhất</a></li>
+                        <li><a href="#">Tất Cả</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Người Đẹp</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Lifestyle</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Mùa Cưới</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Nghệ Thuật</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Con người & Cuộc sống</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">T-Photo Club</a></li>
+                        <li><a class="miss" href="<?php echo WEB_PATH;?>/front/index/index"><i class="icon-right-circled"></i>Miss Học Đường</a></li>
+                        <li><a href="<?php echo WEB_PATH;?>">Khác</a></li>
                     </ul>
                     <div class="miss-list" ng-controller="CategoryController">
                         <ul class="clearfix" id="loadmiss">

@@ -34,9 +34,8 @@
 			
 			$appHotgirl = new HT_Model_administrator_models_appsatellite();
 			$arrr = $appHotgirl->getHotgirl();
-			//$this->view->hotgirls = $appHotgirl->getHotgirl();
 			
-	        $promoted = json_decode($arrr);
+	        $promoted = json_decode($arrr,true);
 			$path = ROOT_PATH . '/public/cache/'.$promotedjson->namefile.'.json';
 			$content = '{"Messages":'.json_encode($arrr,true).'}';
 			$handler = fopen ( $path, 'w+' );
@@ -45,11 +44,19 @@
 			
 			$this->view->namefile = $promotedjson->namefile;
 			
+			//get phototamtay
+			$arTamtay = $appHotgirl->getHotnewgirl();
+			$this->view->hotgirlsnew = $arTamtay;
+			
 		}
 		
 		public function detailAction(){
-			$objNote = new HT_Model_administrator_models_note();
-			$this->view->notes = $objNote->getHomeNotes();
+			$appHotgirl = new HT_Model_administrator_models_appsatellite();
+			$objUtil 	= new HT_Model_administrator_models_utility();
+			//$id 		= (int)$this->_request->getParam('id');
+			$id		= $this->_request->getParam('id');
+			$detail = $appHotgirl->getHotgirlId($id);
+			$this->view->detail = $detail;
 		}
 		
 		// ajax promoted json
