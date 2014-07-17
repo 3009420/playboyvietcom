@@ -70,12 +70,14 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 		if($id == 0) $this->_redirect(WEB_PATH.'/administrator/appsatellite');
 		$appsatellitedetailread				= $objAppsatellite->getAppsatellitejoihcontendetail($id);
 		
+		/*
 		// Lưu tin đã lấy vào file cache
 		$path = ROOT_PATH . '/public/cache/'.$ReadJson->namefile.'cache.php';
 		$content = '<?php $appsatellitedetailread = ' . var_export ( $appsatellitedetailread, true ) . ';?>';
 		$handler = fopen ( $path, 'w+' );
 		fwrite ( $handler, $content );
 		fclose ( $handler );
+		*/
 		
 		$path = ROOT_PATH . '/public/cache/'.$ReadJson->namefile.'.json';
 		$content = '{"Messages":'.json_encode($appsatellitedetailread,true).'}';
