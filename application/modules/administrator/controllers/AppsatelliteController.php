@@ -152,7 +152,7 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 			$ajaxData .= '<td>'.$cfg['nameapp'].'</td>';
 			$ajaxData .= '<td style="white-space: nowrap" align="center">';
 			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/appsatellite/readviewdetail/?id='.$cfg['id'].'" title="Read/view detail"><i class="icon-book"></i></a>|
-					     <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';
+					     <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'" title="Edit"><i class="icon-edit"></i></a>';
 // 			$ajaxData .= '<a class="btn btn-primary" style="padding: 0px 3px;"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$addN.'&foreign='.$cfg['idforeign'].'" title="Add New"><i class="icon-plus "></i></a>|
 // 					      <a class="btn btn-danger btn-xs"  href="#" onclick="deleteappsatellite('.$cfg['id'].')" title="Delete"><i class="icon-trash"></i></a>  |
 // 					       <a class="btn btn-xs"  href="'.WEB_PATH.'/administrator/appsatellite/update/?id='.$cfg['id'].'&foreign='.$cfg['idforeign'].'" title="Edit"><i class="icon-edit"></i></a>';

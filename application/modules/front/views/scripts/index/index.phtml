@@ -87,10 +87,49 @@ $(document).ready(function()
 		$(jsondata).appendTo("#promoted234");
 
 		});
+		
+		
+		// seacrh
+				getContentdetailfull(1);
+			$('#search').click(function(){
+			   var keyword =  $('#keyword').val('');
+			   alert(keyword);return;
+				getContentdetailfull(1);
+			});
+			$('#reset').click(function(){
+				$('#keyword').val('');
+				getContentdetailfull(1);
+			});
+			$('#keyword').keypress(function(event){
+				var keycode = (event.keyCode ? event.keyCode : event.which);
+				if(keycode == '13'){
+					getContentdetailfull(1); return false;
+				}
+		 });
+		}); 
+
+		function deletecontentdetailfull(contentdetailfullId){
+			if(confirm('Bạn có chắc chắn muốn xóa dữ liệu này không? Dữ liệu sẽ bị xóa và không thể phục hồi!')){
+				$('#loading').show();
+				$('#'+contentdetailfullId).hide("slow");
+				$.ajax({
+					url: $("#contentdetailfullUrl").val(),
+					cache: false,
+					type: "POST",
+					data: "do=delete&id="+contentdetailfullId,           
+					success: function(serverData){
+						$('#loading').hide();
+					}
+				});
+			}
+		}
 		});
 </script>
    
-		
+<script>
+$(document).ready(function(){
+	
+</script>	
 
 
 
@@ -124,25 +163,18 @@ $(document).ready(function()
                     </div>
                     
                     <div class="search">
-                        <div class="input-group" style="
-							    display: inline-block;
-							">
-							                            <input type="text" size="30" value="" class="form-control" id="inputString" onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);" style="
-							    float: left;
-							    width: 76%;
-							">
-							                            <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
-							                            <span class="input-group-btn" style="
-							    float: right;
-							    height: 27px;
-							    margin-top: -3px;
-							">
-							                                <button class="btn btn-default" type="button" onclick="elasticSearch()">
-							                                <i class="icon-search icon-white" style="
-							    float: right;
-							"></i></button>
-							                            </span>
-							                        </div>
+                        <div class="input-group" style="display: inline-block;">
+							  <input placeholder="Enter a keyword ..." title="Enter a keyword ..." type="text" size="30" value="" class="form-control" id="keyword"  style="float: left;width: 76%;"><!-- onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);" -->
+							  <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
+							  <span class="input-group-btn" style="float: right;height: 27px;margin-top: -3px;">
+							   <button id="search" class="btn btn-default" type="button" ">
+							    <i class="icon-search icon-white" style=" float: right;"></i>
+							   </button><!-- onclick="elasticSearch() -->
+							    </span>
+								 <button style="width: 30px !important;background: none; border: 0px;">
+		                             		 <i id="loading" class="icon-spinner icon-spin"></i>
+		                         </button>
+						 </div>
                     </div>    
 
             </div>
@@ -184,7 +216,8 @@ $(document).ready(function()
 <div id="thumbnails">
     <!--<ul id="container" class="clearfix" style="width:100%!important;">-->
         <div id="container" class="clearfix">
-        <?php foreach ($this->hotgirlsnew as $keynew => $valuekeynew) { ?>
+        <?php foreach ($this->hotgirlsnew as $keynew => $valuekeynew) {
+        	if($valuekeynew['image_thumbnail']!="") { ?>
 			<div class="box">
 			    <a href="<?php echo WEB_PATH;?>/front/index/readviewdetail/?id=<?php echo $valuekeynew['id']; ?>" class="thumbnail">
 			        <img src="<?php echo $valuekeynew['image_thumbnail'];?>" />
@@ -202,7 +235,7 @@ $(document).ready(function()
 			        </ul>
 			    </div>
 			</div>
-		<?php }// end foreach?>	
+		<?php } }// end foreach?>	
 
        
       </div>       <!--</ul>-->
