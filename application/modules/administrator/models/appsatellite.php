@@ -128,7 +128,7 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	{
 		$sql = " SELECT appsatellite.id,appsatellite.nameapp,appsatellite.image_thumbnail,appsatellite.content_detail
 				 FROM appsatellite
-				 WHERE  appsatellite.nameapp = 'phototamtayvn' and appsatellite.id ORDER BY RAND()";
+				 WHERE  appsatellite.nameapp = 'phototamtayvn' and appsatellite.id ORDER BY RAND() LIMIT 80";
 		return $this->_db->fetchAll($sql);
 	}
 	

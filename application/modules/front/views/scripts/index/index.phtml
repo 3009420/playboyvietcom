@@ -89,47 +89,12 @@ $(document).ready(function()
 		});
 		
 		
-		// seacrh
-				getContentdetailfull(1);
-			$('#search').click(function(){
-			   var keyword =  $('#keyword').val('');
-			   alert(keyword);return;
-				getContentdetailfull(1);
-			});
-			$('#reset').click(function(){
-				$('#keyword').val('');
-				getContentdetailfull(1);
-			});
-			$('#keyword').keypress(function(event){
-				var keycode = (event.keyCode ? event.keyCode : event.which);
-				if(keycode == '13'){
-					getContentdetailfull(1); return false;
-				}
-		 });
+		
 		}); 
 
-		function deletecontentdetailfull(contentdetailfullId){
-			if(confirm('Bạn có chắc chắn muốn xóa dữ liệu này không? Dữ liệu sẽ bị xóa và không thể phục hồi!')){
-				$('#loading').show();
-				$('#'+contentdetailfullId).hide("slow");
-				$.ajax({
-					url: $("#contentdetailfullUrl").val(),
-					cache: false,
-					type: "POST",
-					data: "do=delete&id="+contentdetailfullId,           
-					success: function(serverData){
-						$('#loading').hide();
-					}
-				});
-			}
-		}
-		});
+
 </script>
-   
-<script>
-$(document).ready(function(){
-	
-</script>	
+ <script type='text/javascript' src='<?php echo WEB_PATH;?>/public/m.front/js/indexfront.js'></script>  
 
 
 

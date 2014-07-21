@@ -52,6 +52,7 @@
 			$arTamtay = $appHotgirl->getHotnewgirl();
 			$this->view->hotgirlsnew = $arTamtay;
 			
+			//$this->view->inlineScript()->appendFile(WEB_PATH.'/public/m.front/js/indexfront.js');
 		}
 		
 		public function readviewdetailAction()
