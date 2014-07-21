@@ -36,7 +36,6 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		$delete_image = @$this->_request->getParam('delete_image');
 		
 		$status 	= (int)$this->_request->getParam('status');
-		var_dump($status);
 		
 		$groupId	= null;
 		if($do == 'submit'){

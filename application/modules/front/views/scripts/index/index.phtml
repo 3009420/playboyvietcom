@@ -84,7 +84,7 @@ $(document).ready(function()
 		jsondata +='<li style="height: 217px;"><a href="'+urlget+M.id+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url('+M.image_thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
 	     
 		});
-		$(jsondata).appendTo("#promoted234");
+		//$(jsondata).appendTo("#promoted234");
 
 		});
 		
@@ -155,8 +155,8 @@ $(document).ready(function(){
                   </div>
                    <div class="download">
                    		<p class="pull-left text_download_app">Tải ứng dụng</p>
-                      	<a class="apple" target="_blank" href="https://itunes.apple.com/us/app/fptplay/id646297996?mt=8"></a>
-                        <a class="android" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a>
+                      	<a class="apple" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
+                        <a class="android" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
                          <a class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a>
                   
                        <?php /*?> <a style=" width: 63px; margin-right: 5px; height: 63px;" class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a> */?>
@@ -184,7 +184,24 @@ $(document).ready(function(){
        <div id="promoted"><div class="thumbnails">
        <h2><a href="#"><i class="icon-hottest"></i>Hot ! nên xem nhất</a>
          <ul class="clearfix">
-           <div id="promoted234"> </div>
+         
+           <div id="promoted234">
+           <?php
+//            echo "<pre>";
+//            print_r($this->Promoted);
+//            echo "</pre>";
+
+            if( (is_array($this->Promoted)) and (!empty($this->Promoted) ))
+           {  foreach ($this->Promoted as $key =>$valueker){
+           	?>
+           <li style="height: 217px;">
+           <a href="<?php echo WEB_PATH;?>/front/index/detail/?id=<?php echo $valueker['id'];?>" style="height: 217px; width: 217px;">
+           <img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url('<?php // echo $valueker['image_thumbnail']?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $valueker['image_thumbnail']?>">
+           <span></span>
+           </a>
+           </li>
+           <?php } }?>
+            </div>
          </ul>
        </h2>
        </div></div>

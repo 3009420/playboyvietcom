@@ -43,6 +43,7 @@
 			fclose ( $handler );
 			
 			$this->view->namefile = $promotedjson->namefile;
+			$this->view->Promoted = $arrr;
 			
 			//get phototamtay
 			$arTamtay = $appHotgirl->getHotnewgirl();
