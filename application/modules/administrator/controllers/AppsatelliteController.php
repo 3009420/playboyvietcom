@@ -26,22 +26,43 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 	
 	public function updateAction(){
 		$objAppsatellite = new HT_Model_administrator_models_appsatellite();
+		$objUtil 	= new HT_Model_administrator_models_utility();
 		$do 		 = @$this->_request->getParam('do');
 		$id 		= (int)$this->_request->getParam('id');
 		$status 	= (int)$this->_request->getParam('status');
 		if($do == 'submit'){
+			//var_dump($_FILES['srcimgaes']);die;
 			$data = array();
-			$data['group_name'] 		= trim($this->_request->getParam('group_name'));
-			$data['group_order'] 		= $this->_request->getParam('group_order');
-			$data['description'] 		= $this->_request->getParam('description');
+			$data['nameapp'] 		= $this->_request->getParam('nameapp');
+			$data['content_detail'] 		= $this->_request->getParam('description');
+			//$datacontentdetail['comment_content'] 	= $this->_request->getParam('comment_content');
+			$image = $objUtil->uploadFile('srcimgaes',NEWS_IMAGE_PATH,MAX_IMAGE_FILE_SIZE,IMAGE_TYPE_ALLOW);
+			if(!in_array($image,array(1,2,3,4))){
+				$data['image_thumbnail'] = $image;
+			}
+			if($delete_image) $data['image_thumbnail'] = null;
+			
+			
+			
+// 			echo "</br>namne view </br>";
+// 			var_dump($image);
+			
+// 			var_dump($data);
+// 			die;
+			
+			
 			if($id >0){
-				$status = $objAppsatellite->updateData($data,(int)$id);
+				$idupdate = $objAppsatellite->updateData($data,(int)$id);
+				if($idupdate === $id) {$status = 1;}else $status = -1;
 			}else{
-				$status = $objAppsatellite->addData($data);
+				
+				$idadd = $objAppsatellite->addData($data);
+				if($idadd) {$status = 1;}else $status = -1;
 			}
 
 			if($status > 0){
-				$this->_redirect(WEB_PATH.'/administrator/appsatellite');
+				//$this->_redirect(WEB_PATH.'/administrator/appsatellite');
+				$this->_redirect(WEB_PATH.'/administrator/appsatellite/update?status='.$status.'&id='.$idadd);
 			}else{
 				$redirectLink = WEB_PATH."/administrator/appsatellite/update?status=$status";
 				if($id >0) $redirectLink .= "&id=$id";
@@ -49,10 +70,15 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 			}
 		}elseif($id >0){
 			$appsatellite				= $objAppsatellite->getAppsatellite($id);
+		
 			$this->view->appsatellite = $appsatellite;
 		}
 		$this->view->id 		= $id;
 		$this->view->status 	= $status;
+		$this->view->image = $image;
+		$disabled ="";//$disabled ="disabled";
+		$this->view->contentdetailfullGroup = $objUtil->GetComboboxvalue('nameapp','id','nameapp','appsatellite',array('cssClass'=>'form-control','isBlankVal'=>'no','defaultValue'=>'','disabled'=>$disabled));
+		
 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/update.js');
 	}
 

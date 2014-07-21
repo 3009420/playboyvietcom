@@ -36,6 +36,8 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 		$delete_image = @$this->_request->getParam('delete_image');
 		
 		$status 	= (int)$this->_request->getParam('status');
+		var_dump($status);
+		
 		$groupId	= null;
 		if($do == 'submit'){
 			$datacontentdetail = array();
@@ -55,14 +57,15 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 			$data_appsatellite['id'] 		= $_POST['idforeign'];
 			
 			if($id >0){
-				$status = $objcontentdetailfull->updateData($datacontentdetail,(int)$id);
-				//$status2 = $objappsatellite->updateData($data_appsatellite,(int)$idforeign);
+				$idupdate = $objcontentdetailfull->updateData($datacontentdetail,(int)$id);
+				if($idupdate === $id) {$status = 1;}else $status = -1;
 			}else{
-				$status = $objcontentdetailfull->addData($datacontentdetail);
+				$idadd = $objcontentdetailfull->addData($datacontentdetail);
+				if($idadd) {$status = 1;}else $status = -1;
 			}
 
 			if($status > 0){
-				$this->_redirect(WEB_PATH.'/administrator/contentdetailfull/update/?id='.$status.'&foreign='.$_POST['idforeign']);
+				$this->_redirect(WEB_PATH.'/administrator/contentdetailfull/update?status='.$status.'&id='.$idadd.'&foreign='.$_POST['idforeign']);
 			}else{
 				$redirectLink = WEB_PATH."/administrator/contentdetailfull/update?status=$status";
 				if($id >0) $redirectLink .= "&id=$id";

@@ -873,7 +873,25 @@ public function renderData($TitleTable=null,$data,$paging = null){
 		if($valueColumnAlias) $valueColumn = $valueColumnAlias;
 		return $this->toCombobox($coboboxName,$data,$keyColumn,$valueColumn,$defaultValue,$isBlankVal,$isMultiple,$cssClass,$disabled);
 	}
+	//toComboboxvalue
+	function GetComboboxvalue($coboboxName,$keyColumn,$valueColumn,$tableName,$filter=array()){
+		$defaultValue      =  @$filter['defaultValue'];
+		$whereCondition    =  @$filter['where'];
+		$groupBy           =  @$filter['groupBy'];
+		$orderBy           =  @$filter['orderBy'];
+		$isBlankVal        =  @$filter['isBlankVal'];
+		$isLinkTable       =  @$filter['isLinkTable'];
+		$isMultiple        =  @$filter['isMultiple'];
+		$cssClass          =  @$filter['cssClass'];
+		$valueColumnAlias  =  @$filter['valueColumnAlias'];
+		$disabled_check          =  @$filter['disabled'];
+		if($disabled_check !='') { $disabled          =  @$filter['disabled']; } else $disabled = null;
+		//$keyColumn 	       =  @$filter['keyColumn'];
 	
+		$data = $this->Query2Cols($tableName,$keyColumn,$valueColumn,$whereCondition,$groupBy,$orderBy,$isLinkTable);
+		if($valueColumnAlias) $valueColumn = $valueColumnAlias;
+		return $this->toComboboxvalue($coboboxName,$data,$keyColumn,$valueColumn,$defaultValue,$isBlankVal,$isMultiple,$cssClass,$disabled);
+	}
 	function Query2Options($tableName,$keyColumn,$valueColumn,$whereCondition,$groupBy,$orderBy,$isLinkTable,$languageId,$defaultValue=null){
 		if($defaultValue){
 			$selected = explode(',', $defaultValue);
@@ -953,6 +971,42 @@ public function renderData($TitleTable=null,$data,$paging = null){
 					$val 	= $data[$i][$val_column];
 					if(!in_array($id,$arrDefaultVal)){
 						$return .= '<option value="'.$id.'">'.$val.'</option>';
+					}else{
+						$return .= '<option selected="selected" value="'.$id.'">'.$val.'</option>';
+					}
+				}
+			}
+			$return .= '</select>';
+		}
+		return $return;
+	}
+	
+	public function toComboboxvalue($combo_name,$data,$id_column,$val_column,$default_val=null,$blank_val = "no",$isMultiple=null,$cssClass=null,$disabled = null){
+		$return = "";
+		$multiple = null;
+		$cssPlus = null;
+		$disable = null;
+		$combo_name = trim($combo_name);
+		$arrDefaultVal = explode(',',$default_val);
+		if($combo_name != ""){
+			if($isMultiple){
+				$multiple     = ' multiple="multiple" ';
+				$combo_name   .= '[]';
+			}
+			if($cssClass){
+				$cssPlus = ' class= "'.$cssClass.'"';
+			}
+			if(!is_array($data) || sizeof($data) == 0) $disable = ' disabled="disabled" ';
+			$return .= '<select '.$disabled.' id="'.$combo_name.'" name="'.$combo_name.'" '.$disable.$multiple.$cssPlus.'>';
+			if($blank_val != "no"){
+				$return .= '<option value="">'.$blank_val.'</option>';
+			}
+			if(is_array($data)){
+				for($i=0;$i<sizeof($data);$i++){
+					$id 	= $data[$i][$id_column];
+					$val 	= $data[$i][$val_column];
+					if(!in_array($id,$arrDefaultVal)){
+						$return .= '<option value="'.$val.'">'.$val.'</option>';
 					}else{
 						$return .= '<option selected="selected" value="'.$id.'">'.$val.'</option>';
 					}

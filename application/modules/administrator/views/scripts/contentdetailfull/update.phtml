@@ -52,8 +52,11 @@
                         	       ?>
                         </div>
                       </div>
-                  
-                  <?php if( (preg_match('/http/',$contentdetailfull['src']) == true) and ($contentdetailfull['src'] !='')) {?>
+                     <?php 
+                      $http   = 'http';
+                    //  var_dump((strpos($contentdetailfull['src'],$http )));
+                      ?>
+                  <?php if( ((strpos($contentdetailfull['src'],$http )=== 0) ) and ($contentdetailfull['src'] !='')) {?>
                       <div class='form-group'>
                         <label class='col-md-3 control-label' for='thumbnail'>ThumbNail</label>
                         <div class='col-md-9'>
@@ -61,7 +64,7 @@
                         </div>
                       </div>
                    <?php }
-                   if( (preg_match('/http/',$contentdetailfull['src'] == fasle) and ($contentdetailfull['src'] !='') ) )  {?>
+                   if( ( (strpos($contentdetailfull['src'],$http )=== false) and ($contentdetailfull['src'] !='') ) )  {?>
                       <div class='form-group'>
                         <label class='col-md-3 control-label' for='thumbnail'>ThumbNail</label>
                         <div class='col-md-9'>
