@@ -70,10 +70,14 @@ class Administrator_ContentdetailfullController extends Zend_Controller_Action
 				if($id >0) $redirectLink .= "&id=$id";
 				$this->_redirect($redirectLink);
 			}
-		}elseif($id >0){
-			$contentdetailfull				= $objcontentdetailfull->getcontentdetailfull($id);
-			$groupId			= (int)$contentdetailfull['group_id'];
-			$this->view->contentdetailfull 	= $contentdetailfull;
+		}elseif($idforeign >0){
+			$contentdetailfullArr				= $objcontentdetailfull->getContentdetailfulljoih($idforeign);
+// 			echo "<pre>";
+// 			print_r($contentdetailfullArr);die;
+// 			echo "</pre>";
+			
+		
+			$this->view->contentdetailfullArr 	= $contentdetailfullArr;
 		}
 		
 		$disabled ="disabled";

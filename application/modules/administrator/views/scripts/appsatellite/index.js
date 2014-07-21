@@ -15,15 +15,16 @@ $(document).ready(function(){
  });
 }); 
 
-function deleteAppsatellite(AppsatelliteId){
+function deleteAppsatellite(id){
+	
 	if(confirm('Bạn có chắc chắn muốn xóa dữ liệu này không? Dữ liệu sẽ bị xóa và không thể phục hồi!')){
 		$('#loading').show();
-		$('#'+AppsatelliteId).hide("slow");
+		$('#'+id).hide("slow");
 		$.ajax({
             url: $("#AppsatelliteUrl").val(),
             cache: false,
             type: "POST",
-            data: "do=delete&id="+AppsatelliteId,           
+            data: "do=delete&id="+id,           
             success: function(serverData){
             	$('#loading').hide();
             }
@@ -35,7 +36,7 @@ function getAppsatellite(page){
 	var ajaxData = $('#frmList').serialize()+"&do=list&page="+page;
 	$('#loading').show();
 	$.ajax({
-        url: $("#AppsatelliteUrl").val(),
+        url: $("#id").val(),
         cache: false,
         type: "POST",
         data: ajaxData,           

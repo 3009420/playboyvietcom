@@ -65,6 +65,10 @@ class HT_Model_administrator_models_contentdetailfull extends Zend_Db_Table {//t
 		$sql = " SELECT * FROM contentdetailfull WHERE id= ".(int)$noteId;
 		return $this->_db->fetchRow($sql);
 	}
+	public function getContentdetailfulljoih($noteId,$filter = array()) {
+		$sql = " SELECT * FROM contentdetailfull WHERE idforeign = ".(int)$noteId." ORDER BY id DESC";
+		return $this->_db->fetchAll($sql);
+	}
 	public function getListContentdetailfull_nb($filter = array()) {
 		$sqlPlus = $this->getListContentdetailfull_sqlPlus($filter);
 		$sql = "SELECT COUNT(contentdetailfull.id)

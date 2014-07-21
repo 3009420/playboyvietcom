@@ -132,6 +132,14 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 		return $this->_db->fetchAll($sql);
 	}
 	
+	public function getHotnewgirllimit20()
+	{
+		$sql = " SELECT appsatellite.id,appsatellite.nameapp,appsatellite.image_thumbnail,appsatellite.content_detail
+				 FROM appsatellite
+				 WHERE  appsatellite.nameapp = 'phototamtayvn' and appsatellite.id ORDER BY RAND() LIMIT 20";
+		return $this->_db->fetchAll($sql);
+	}
+	
 	public function getHotgirlId($Id)
 	{
 		$sql = " SELECT contentdetailfull.id,contentdetailfull.src,appsatellite.nameapp,appsatellite.image_thumbnail,appsatellite.content_detail

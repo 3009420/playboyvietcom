@@ -34,6 +34,7 @@
 			
 			$appHotgirl = new HT_Model_administrator_models_appsatellite();
 			$arrr = $appHotgirl->getHotgirl();
+			//$this->view->Promoted = $arrr;
 			
 	        $promoted = json_decode($arrr,true);
 			$path = ROOT_PATH . '/public/cache/'.$promotedjson->namefile.'.json';
@@ -43,7 +44,9 @@
 			fclose ( $handler );
 			
 			$this->view->namefile = $promotedjson->namefile;
-			$this->view->Promoted = $arrr;
+			$arTamtaydesc = $appHotgirl->getHotnewgirllimit20(); //var_dump($arTamtaydesc);die;
+			$this->view->Promoted = $arTamtaydesc;
+			
 			
 			//get phototamtay
 			$arTamtay = $appHotgirl->getHotnewgirl();
