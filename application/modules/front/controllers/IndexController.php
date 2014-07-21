@@ -10,6 +10,12 @@
 			}
 		}
 		public function indexAction(){
+			$do = @$this->_request->getParam('do');
+			//search
+			if($do == 'list'){
+				$this->getListcontentdetailfull();
+				
+			}
 			$objNote = new HT_Model_administrator_models_note();
 			$this->view->notes = $objNote->getHomeNotes();
 			//+++++
@@ -54,6 +60,53 @@
 			
 			//$this->view->inlineScript()->appendFile(WEB_PATH.'/public/m.front/js/indexfront.js');
 		}
+		
+		function getListcontentdetailfull(){
+			 
+			$objUtil 		            = new HT_Model_administrator_models_utility();
+			$objAppsatellite 		= new HT_Model_administrator_models_appsatellite();
+			$keyword 		= trim($this->_request->getParam('keyword'));
+			$page 			= (int)$this->_request->getParam('page');
+			$size 			= PAGING_SIZE;
+			if (!is_numeric($page) || $page <= 0) {
+				$page = 1;
+			}
+			$start = $page * $size - $size;
+		
+			$filter = array();
+			if($keyword) $filter['keyword'] = $keyword;
+			//if($nameapp) $filter['nameapp'] = $nameapp;
+		
+			$totalRecord = $objAppsatellite->getListAppsatellite_nb($filter);
+			$listcontentdetailfull = $objAppsatellite->getListAppsatellitenewfull($start,$size,$filter);
+			$paging = trim($objUtil->paging($page, $size, $totalRecord));
+	
+		
+			$i=0;
+			$arrGroup = array();$addN = -1;
+
+		
+			$ajaxData .= '<div id="promoted"><div class="thumbnails">';
+            $ajaxData .=           ' <h2><a href="#"><i class="icon-hottest"></i>Seach Result</a>';
+            $ajaxData .=             '<ul class="clearfix">';
+            $ajaxData .=                '<div id="promoted234">';
+            foreach($listcontentdetailfull as $cfg) {
+            $ajaxData .=                   '<li style="height: 217px;">';
+            $ajaxData .=                    '<a href="'.WEB_PATH.'/front/index/detail/?id="'.trim($cfg['id']).'" style="height: 217px; width: 217px;">';
+            $ajaxData .=                     '<img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url("'.$cfg['image_thumbnail'].'") 50% 50% / cover no-repeat scroll transparent;" src="'.$cfg['image_thumbnail'].'">';
+            $ajaxData .=                      '<span></span>';
+            $ajaxData .=                       '</a>';
+            $ajaxData .=                   '</li>';
+                             }
+            $ajaxData .=                 '</div>';
+            $ajaxData .=               '</ul>';
+             $ajaxData .=           '</h2>';
+             $ajaxData .=          '</div></div>';
+			
+			$title = '';
+			echo $objUtil->renderData($title,$ajaxData,$paging);die();
+		}
+		
 		
 		public function readviewdetailAction()
 		{

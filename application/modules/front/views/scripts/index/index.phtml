@@ -67,7 +67,10 @@ background: url('<?php echo WEB_PATH?>/public/m.front/images/icon-window.png');
 header .download a.android:hover 	{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_android_on.png'); }
 header .download a.apple:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_apple_on.png');}
 header .download a.window:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/window-hover.png');}
-
+/***************phan trang***************/
+ .dataTables_paginate.paging_bootstrap.text-right {
+display: none;
+}
 </style>
 <script>
 $(document).ready(function()
@@ -129,6 +132,8 @@ $(document).ready(function()
                     
                     <div class="search">
                         <div class="input-group" style="display: inline-block;">
+                           <form id="frmList" name="frmList" method="post">
+                              <input type="hidden" id="contentdetailfullUrl" value="<?php echo WEB_PATH;?>/front/index/index" />
 							  <input placeholder="Enter a keyword ..." title="Enter a keyword ..." type="text" size="30" value="" class="form-control" id="keyword"  style="float: left;width: 76%;"><!-- onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);" -->
 							  <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
 							  <span class="input-group-btn" style="float: right;height: 27px;margin-top: -3px;">
@@ -139,12 +144,15 @@ $(document).ready(function()
 								 <button style="width: 30px !important;background: none; border: 0px;">
 		                             		 <i id="loading" class="icon-spinner icon-spin"></i>
 		                         </button>
+		                     
+
+                       </form>
 						 </div>
                     </div>    
 
             </div>
      </header>
-     
+      <span id="contentdetailfullArea"></span>
      	<!-- BEGIN: Hot nen xem -->
        <div id="promoted"><div class="thumbnails">
        <h2><a href="#"><i class="icon-hottest"></i>Hot ! nên xem nhất</a>

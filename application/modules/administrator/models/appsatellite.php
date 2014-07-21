@@ -75,11 +75,22 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	public function getListAppsatellite($start=0,$size = 10,$filter = array()) {
 		$sqlPlus = $this->getListAppsatellite_sqlPlus($filter);
 		$sql = "SELECT appsatellite.nameapp,appsatellite.title,appsatellite.id,
+		appsatellite.link,appsatellite.image_thumbnail,
+		appsatellite.content_detail
+		FROM appsatellite
+		WHERE 1=1  $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
+		return  $this->_db->fetchAll($sql);
+	}
+	
+	public function getListAppsatellitenewfull($start=0,$size = 10,$filter = array()) {
+		$sqlPlus = $this->getListAppsatellite_sqlPlus($filter);
+		$sql = "SELECT appsatellite.nameapp,appsatellite.title,appsatellite.id,
 		               appsatellite.link,appsatellite.image_thumbnail,
 		               appsatellite.content_detail
 				FROM appsatellite 
-				WHERE 1=1 $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
-		return $this->_db->fetchAll($sql);
+				WHERE appsatellite.nameapp ='phototamtayvn' $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
+		return  $this->_db->fetchAll($sql);
+		//WHERE appsatellite.nameapp ='phototamtayvn' OR appsatellite.nameapp ='igirlxinhcom'  $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
 	}
 	
 	private function getListAppsatellite_sqlPlus($filter){

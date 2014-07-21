@@ -1,11 +1,6 @@
   $(document).ready(function(){
-	//  alert("da cxzxzxzxzxzxzxlick");
-	     getContentdetailfull(1);
-				// seacrh
+//	     getContentdetailfull(1);
 				$('#search').click(function(){
-				//	alert("da click");//return 0;
-//				   var keyword =  $('#keyword').val('');
-//				   alert(keyword);return 0;
 					getContentdetailfull(1);
 				});
 				$('#reset').click(function(){
