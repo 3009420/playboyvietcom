@@ -89,7 +89,9 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 		               appsatellite.content_detail
 				FROM appsatellite 
 				WHERE appsatellite.nameapp ='phototamtayvn' $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
-		return  $this->_db->fetchAll($sql);
+		return $this->_db->fetchAll($sql);
+		// $sql;
+		//$this->_db->fetchAll($sql);
 		//WHERE appsatellite.nameapp ='phototamtayvn' OR appsatellite.nameapp ='igirlxinhcom'  $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
 	}
 	
@@ -109,7 +111,9 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 				case 'keyword':
 					if($val){
 						// Noi bang nhieu truong o day 
+						//$sqlPlus .= " AND appsatellite.title LIKE '%$val%' ";// OR appsatellite.nameapp LIKE '%$val%' OR appsatellite.title LIKE '%$val%'";
 						$sqlPlus .= " AND appsatellite.content_detail LIKE '%$val%' OR appsatellite.nameapp LIKE '%$val%' OR appsatellite.title LIKE '%$val%'";
+						
 					}
 					break;
 				case 'nameapp':

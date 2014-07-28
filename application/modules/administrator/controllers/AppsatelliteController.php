@@ -52,10 +52,11 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 			
 			
 			if($id >0){
+				
 				$idupdate = $objAppsatellite->updateData($data,(int)$id);
 				if($idupdate === $id) {$status = 1;}else $status = -1;
 			}else{
-				
+				//echo $data['content_detail'];die;
 				$idadd = $objAppsatellite->addData($data);
 				if($idadd) {$status = 1;}else $status = -1;
 			}
@@ -160,7 +161,7 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 				$ajaxData .= '<th width="50">#</th>';
 			$ajaxData .= '</tr>';
 		$ajaxData .= '</thead>';
-		
+		$http   = 'http';
 		$i=0;
 		$arrGroup = array();$addN = -1;
 		foreach($listAppsatellite as $cfg){
@@ -168,12 +169,14 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 			$trClass = null;
 			if($cfg['title'] =="igirlxinhcom") {$nameview ="Hot girl";}
 			if($cfg['title'] =="phototamtayvn") {$nameview ="New hot girl";}
+			if ( (strpos($cfg['image_thumbnail'],$http )=== false) and ($cfg['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$cfg['image_thumbnail'];}
+			if ((strpos($cfg['image_thumbnail'],$http )=== 0 ) and ($cfg['image_thumbnail']!= "")) { $src= $cfg['image_thumbnail'];}
 			
 			if($i%2 == 1) $trClass = ' class="altrow"';
 			$ajaxData .= '<tr id="'.$cfg['id'].'" '.$trClass.'>';
 			$ajaxData .= '<td align="center">'.$i.'</td>';
 			$ajaxData .= '<td>'.$nameview.'</td>';
-			$ajaxData .= '<td><img src="'.$cfg['image_thumbnail'].'" style="wieght:100px;height:100px;"</td>';
+			$ajaxData .= '<td><img src="'.$src.'" style="wieght:100px;height:100px;"</td>';
 			$ajaxData .= '<td>'.$cfg['content_detail'].'</td>';
 			$ajaxData .= '<td>'.$cfg['nameapp'].'</td>';
 			$ajaxData .= '<td style="white-space: nowrap" align="center">';

@@ -33,6 +33,10 @@
 
 			function getContentdetailfull(page){
 				var ajaxData = $('#frmList').serialize()+"&do=list&page="+page;
+				var keyword = document.getElementById("frmList").elements["keyword"];
+				
+				//alert(keyword);return 0;
+				
 				$('#loading').show();
 				$.ajax({
 			        url: $("#contentdetailfullUrl").val(),

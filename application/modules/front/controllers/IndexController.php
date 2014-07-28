@@ -79,23 +79,40 @@
 		
 			$totalRecord = $objAppsatellite->getListAppsatellite_nb($filter);
 			$listcontentdetailfull = $objAppsatellite->getListAppsatellitenewfull($start,$size,$filter);
+			
+// 			var_dump($keyword);
+// 			echo "</br>";
+// 			echo "<pre>";
+// 			print_r($filter);
+// 			echo "</pre>";
+			
+// 			echo "<pre>";
+// 			print_r($listcontentdetailfull);
+// 			echo "</pre>";
+ 			//die;
+			
 			$paging = trim($objUtil->paging($page, $size, $totalRecord));
 	
 		
 			$i=0;
 			$arrGroup = array();$addN = -1;
-
-		
+			$http   = 'http';
+			
 			$ajaxData .= '<div id="promoted"><div class="thumbnails">';
             $ajaxData .=           ' <h2><a href="#"><i class="icon-hottest"></i>Seach Result</a>';
             $ajaxData .=             '<ul class="clearfix">';
             $ajaxData .=                '<div id="promoted234">';
             foreach($listcontentdetailfull as $cfg) {
+            	if ( (strpos($cfg['image_thumbnail'],$http )=== false) and ($cfg['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$cfg['image_thumbnail'];}
+            	if ((strpos($cfg['image_thumbnail'],$http )=== 0 ) and ($cfg['image_thumbnail']!= "")) { $src= $cfg['image_thumbnail'];}
+            	//var_dump($src);die;
+            	
             $ajaxData .=                   '<li style="height: 217px;">';
             $ajaxData .=                    '<a href="'.WEB_PATH.'/front/index/detail/?id="'.trim($cfg['id']).'" style="height: 217px; width: 217px;">';
-            $ajaxData .=                     '<img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url("'.$cfg['image_thumbnail'].'") 50% 50% / cover no-repeat scroll transparent;" src="'.$cfg['image_thumbnail'].'">';
+            $ajaxData .=                     '<img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url("'.$src.'") 50% 50% / cover no-repeat scroll transparent;" src="'.$src.'">';
             $ajaxData .=                      '<span></span>';
             $ajaxData .=                       '</a>';
+            $ajaxData .=                    '<h4 style=" text-align: center; font-weight: bold;padding: 3px;  color: #4eacdd;">'.$cfg['content_detail'].'</h4>';
             $ajaxData .=                   '</li>';
                              }
             $ajaxData .=                 '</div>';
