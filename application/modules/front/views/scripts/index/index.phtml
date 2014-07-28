@@ -163,13 +163,19 @@ $(document).ready(function()
 //            echo "<pre>";
 //            print_r($this->Promoted);
 //            echo "</pre>";
-
+           $http   = 'http';
+          
             if( (is_array($this->Promoted)) and (!empty($this->Promoted) ))
            {  foreach ($this->Promoted as $key =>$valueker){
+            $http   = 'http';
+			if ( (strpos($valueker['image_thumbnail'],$http )=== false) and ($valueker['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valueker['image_thumbnail'];}
+			if ((strpos($valueker['image_thumbnail'],$http )=== 0 ) and ($valueker['image_thumbnail']!= "")) { $src= $valueker['image_thumbnail'];}
+
+ 
            	?>
            <li style="height: 217px;">
            <a href="<?php echo WEB_PATH;?>/front/index/detail/?id=<?php echo $valueker['id'];?>" style="height: 217px; width: 217px;">
-           <img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url('<?php // echo $valueker['image_thumbnail']?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $valueker['image_thumbnail']?>">
+           <img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url('<?php // echo $src;?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $src;?>">
            <span></span>
            </a>
            </li>
@@ -206,11 +212,17 @@ $(document).ready(function()
 <div id="thumbnails">
     <!--<ul id="container" class="clearfix" style="width:100%!important;">-->
         <div id="container" class="clearfix">
-        <?php foreach ($this->hotgirlsnew as $keynew => $valuekeynew) {
-        	if($valuekeynew['image_thumbnail']!="") { ?>
+        <?php $http   = 'http'; 
+        foreach ($this->hotgirlsnew as $keynew => $valuekeynew) {
+        	if($valuekeynew['image_thumbnail']!="") { 
+
+if ( (strpos($valuekeynew['image_thumbnail'],$http )=== false) and ($valuekeynew['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valuekeynew['image_thumbnail'];}
+if ((strpos($valuekeynew['image_thumbnail'],$http )=== 0 ) and ($valuekeynew['image_thumbnail']!= "")) { $src= $valuekeynew['image_thumbnail'];}
+
+?>
 			<div class="box">
 			    <a href="<?php echo WEB_PATH;?>/front/index/readviewdetail/?id=<?php echo $valuekeynew['id']; ?>" class="thumbnail">
-			        <img src="<?php echo $valuekeynew['image_thumbnail'];?>" />
+			        <img src="<?php echo $src?>" />
 			    </a>
 			    <div class="toolAlbum">
 			        <ul class="clearfix">
