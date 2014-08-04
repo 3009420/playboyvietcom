@@ -66,9 +66,9 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	
 	public function getAppsatellitejoihcontendetail($appsatelliteId,$filter = array()) {
 		$sql = " SELECT contentdetailfull.id,contentdetailfull.src,appsatellite.*
-				 FROM appsatellite 
-				 INNER JOIN contentdetailfull  ON appsatellite.id = contentdetailfull.idforeign
-				 WHERE appsatellite.id= ".(int)$appsatelliteId;
+				 FROM  contentdetailfull
+				 INNER JOIN appsatellite  ON appsatellite.id = contentdetailfull.idforeign
+				 WHERE contentdetailfull.idforeign= ".(int)$appsatelliteId;
 		return $this->_db->fetchAll($sql);
 	}
 	
@@ -78,7 +78,7 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 		appsatellite.link,appsatellite.image_thumbnail,
 		appsatellite.content_detail
 		FROM appsatellite
-		WHERE 1=1  $sqlPlus ORDER BY appsatellite.id ASC LIMIT $start,$size";
+		WHERE 1=1  $sqlPlus ORDER BY appsatellite.id DESC LIMIT $start,$size";
 		return  $this->_db->fetchAll($sql);
 	}
 	
@@ -158,9 +158,9 @@ class HT_Model_administrator_models_appsatellite extends Zend_Db_Table {//ten cl
 	public function getHotgirlId($Id)
 	{
 		$sql = " SELECT contentdetailfull.id,contentdetailfull.src,appsatellite.nameapp,appsatellite.image_thumbnail,appsatellite.content_detail
-				 FROM appsatellite
-				 INNER JOIN contentdetailfull  ON appsatellite.id = contentdetailfull.idforeign
-				 WHERE appsatellite.id= ".(int)$Id;//. " AND appsatellite.nameapp = 'igirlxinhcom'";
+				 FROM  contentdetailfull
+				 INNER JOIN appsatellite  ON appsatellite.id = contentdetailfull.idforeign
+				 WHERE contentdetailfull.idforeign= ".(int)$Id;//. " AND appsatellite.nameapp = 'igirlxinhcom'";
 		return $this->_db->fetchAll($sql);
 	}
 	

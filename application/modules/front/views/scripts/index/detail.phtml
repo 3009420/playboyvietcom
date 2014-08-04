@@ -137,10 +137,16 @@ $detail = $this->detail;
         
       
       <!--BEGIN: Photo-->
-      <?php foreach ($detail as $keyv =>$valuev) {?>
+      <?php 
+      $http   = 'http';
+      foreach ($detail as $keyv =>$valuev) {
+if ( (strpos($valuev['src'],$http )=== false) and ($valuev['src'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valuev['src'];}
+if ((strpos($valuev['src'],$http )=== 0 ) and ($valuev['src']!= "")) { $src= $valuev['src'];}
+
+?>
             <div class="photoView">
 		        <p>
-		            <img src="<?php echo $valuev['src'];?>" />
+		            <img src="<?php echo $src;?>" />
 		        </p>
 		        <ul class="shareAlbum clearfix">
 		          <!--<li><a class="btn btn-share share-image" id="share-image-" onclick="chiase()">Chia sẻ</a></li>-->

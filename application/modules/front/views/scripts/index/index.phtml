@@ -167,7 +167,7 @@ $(document).ready(function()
           
             if( (is_array($this->Promoted)) and (!empty($this->Promoted) ))
            {  foreach ($this->Promoted as $key =>$valueker){
-            $http   = 'http';
+            
 			if ( (strpos($valueker['image_thumbnail'],$http )=== false) and ($valueker['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valueker['image_thumbnail'];}
 			if ((strpos($valueker['image_thumbnail'],$http )=== 0 ) and ($valueker['image_thumbnail']!= "")) { $src= $valueker['image_thumbnail'];}
 

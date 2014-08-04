@@ -159,6 +159,7 @@
 			// 		exit();
 		
 			$this->view->namefile = $ReadJson->namefile;
+			$this->view->appsatellitedetailread = $appsatellitedetailread;
 		
 			// 		$this->view->appsatellitedetailread = $appsatellitedetailread;
 			// 		$this->view->inlineScript()->appendFile(WEB_PATH.'/application/modules/administrator/views/scripts/appsatellite/readviewdetail.js');

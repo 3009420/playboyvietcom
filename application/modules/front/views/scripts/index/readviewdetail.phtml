@@ -1,4 +1,5 @@
-<?php //echo $this->appsatellitedetailread;?>
+<?php //echo $this->appsatellitedetailread;
+?>
 <script>
 $(document).ready(function()
 		{
@@ -9,18 +10,18 @@ $(document).ready(function()
 		var url = "<?php echo WEB_PATH;?>/public/cache/<?php echo $this->namefile;?>.json";
 		$.getJSON(url, function(data)
 		{  			 
-		var totalCount=5;
-		var jsondata='';
-		$.each(data.Messages, function(i, M)
-		{
-		// alert(JSON.stringify(m));
-		var num = Math.ceil( Math.random() * totalCount );
-		var i = Math.random();
-		jsondata +='<div class="stbody"><span class="timeline_square color'+num+'"></span><div class="stimg"><img src="'+M.src+'" /></div>'
-		             +'<div class="sttext"><span class="stdelete" title="Delete">X</span><b>'+M.i+'</b><br/>'+M.content_detail
-		             +'<div class="sttime"><img src="'+M.src+'" style="width:100%;height:auto; border-radius:1px solid white;padding:5px;" /></div><div class="stexpand">Playboy Viet</div></div></div>';
-		});
-		$(jsondata).appendTo("#updates");
+// 		var totalCount=5;
+// 		var jsondata='';
+// 		$.each(data.Messages, function(i, M)
+// 		{
+// 		// alert(JSON.stringify(m));
+// 		var num = Math.ceil( Math.random() * totalCount );
+// 		var i = Math.random();
+// 		jsondata +='<div class="stbody"><span class="timeline_square color'+num+'"></span><div class="stimg"><img src="'+M.src+'" /></div>'
+// 		             +'<div class="sttext"><span class="stdelete" title="Delete">X</span><b>'+M.i+'</b><br/>'+M.content_detail
+// 		             +'<div class="sttime"><img src="'+M.src+'" style="width:100%;height:auto; border-radius:1px solid white;padding:5px;" /></div><div class="stexpand">Playboy Viet</div></div></div>';
+// 		});
+// 		$(jsondata).appendTo("#updates");
 
 		});
 
@@ -40,8 +41,23 @@ $(document).ready(function()
 <div id='container'>
 <h1>Timeline Hot Girl Detail</h1>
 <div id="updates">
-
-
+<?php 
+ $http   = 'http';
+$i=0;
+foreach ($this->appsatellitedetailread as $key =>$valueker){
+if ( (strpos($valueker['src'],$http )=== false) and ($valueker['src'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valueker['src'];}
+if ((strpos($valueker['src'],$http )=== 0 ) and ($valueker['src']!= "")) { $src= $valueker['src'];}
+?>
+<div class="stbody">
+<span class="timeline_square color<?php echo $i?>"></span>
+<div class="stimg"><img src="<?php echo $src;?>" /></div>
+<div class="sttext"><span class="stdelete" title="Delete">X</span><b><?php echo $valueker['content_detail'];?></b><br/>
+<?php echo $valueker['content_detail'];?>
+<div class="sttime">
+<img src="<?php echo $src;?>" style="width:100%;height:auto; border-radius:1px solid white;padding:5px;" />
+</div>
+<div class="stexpand">Playboy Viet</div></div></div>
+<?php $i++;} // end for?>
 
 </div>	
 

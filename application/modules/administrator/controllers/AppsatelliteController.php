@@ -96,7 +96,7 @@ class Administrator_AppsatelliteController extends Zend_Controller_Action
 		$id 		= (int)$this->_request->getParam('id');
 		if($id == 0) $this->_redirect(WEB_PATH.'/administrator/appsatellite');
 		$appsatellitedetailread				= $objAppsatellite->getAppsatellitejoihcontendetail($id);
-		
+		$this->view->appsatellitedetailread = $appsatellitedetailread;
 		/*
 		// Lưu tin đã lấy vào file cache
 		$path = ROOT_PATH . '/public/cache/'.$ReadJson->namefile.'cache.php';
