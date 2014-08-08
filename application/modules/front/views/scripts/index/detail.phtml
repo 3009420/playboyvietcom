@@ -139,11 +139,13 @@ $detail = $this->detail;
       <!--BEGIN: Photo-->
       <?php 
       $http   = 'http';
-      foreach ($detail as $keyv =>$valuev) {
-if ( (strpos($valuev['src'],$http )=== false) and ($valuev['src'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valuev['src'];}
-if ((strpos($valuev['src'],$http )=== 0 ) and ($valuev['src']!= "")) { $src= $valuev['src'];}
-
-?>
+      if(!empty($detail) and is_array($detail))
+      {
+       foreach ($detail as $keyv =>$valuev) {
+		if ( (strpos($valuev['src'],$http )=== false) and ($valuev['src'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valuev['src'];}
+		if ((strpos($valuev['src'],$http )=== 0 ) and ($valuev['src']!= "")) { $src= $valuev['src'];}
+		
+		?>
             <div class="photoView">
 		        <p>
 		            <img src="<?php echo $src;?>" />
@@ -195,7 +197,15 @@ if ((strpos($valuev['src'],$http )=== 0 ) and ($valuev['src']!= "")) { $src= $va
             </div>
           </div>
         </div>
-      <?php }// end foreach?>
+      <?php }// end foreach
+		}else {
+			?>
+			<h3 style="color: red;font-size: 26px;text-align: center;font-weight: bold;"> Dữ liệu Đang được Cập Nhật</h3>
+			<button>
+			<a style="color: black;font-size: 15px;text-align: center;font-weight: bold;" href="http://playboyviet.com/">Quay lại trang chủ</a>
+			</button>
+			<?php 
+		}?>
             <!--End photo-->
       
             
