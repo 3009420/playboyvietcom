@@ -61,7 +61,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
                     "host" => "localhost",
                     "username" => "root",
                     "password" => "",
-                    "dbname" => "playboyviet.com",
+                    "dbname" => "playboyviet",
                 ));
 /*         $db2 = Zend_Db::factory("PDO_MYSQL", array(
                     "host" => "localhost",

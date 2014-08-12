@@ -1,280 +1,364 @@
+<!-- //////////////////////BANNER 2 BÊN /////////////////-->
 <style>
-<!-- tim kiem -->
-.navbar > .container .navbar-brand {
-margin: 18px 0 10px;
-}
-
-.navbar {
-top: -21px;
-margin-bottom: 0px !important;
-z-index: 5;
-}
-.container>.navbar-header, .container>.navbar-collapse {
-margin-right: 0;
-margin-left: 0;
-}
-#suggestions {
-position: absolute;
-z-index: 100;
-}
-header a.logo {
-background: url('<?php echo WEB_PATH?>/public/m.front/images/logo_fpt_play.png') no-repeat left center;
-width: 160px;
-display: block;
-}
-header .search {
-float: right;
-padding: 0 20px;
-margin: 16px 0 11px;
-border-right: 1px solid #d3d3d3;
-width: 250px;
-}
-header .download {
-float: right;
-background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_download.png') left 5px no-repeat;
-padding-left: 45px;
-text-transform: uppercase;
-}
-
-.input-group-btn:last-child>.btn {
-margin-left: -1px;
-}
-header .download a.apple {
-background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_apple.png');
-}
-header .download a {
-width: 50px;
-height: 50px;
-display: block;
-float: left;
-margin-top: 3px;
-}
-a {
-color: #272727;
-cursor: pointer;
-}
-.pull-left {
-float: left !important;
-margin-top: 9%;
-}
-header .download a.android {
-background: url('<?php echo WEB_PATH?>/public/m.front/images/icon_android.png');
-}
-header .download a.window {
-background: url('<?php echo WEB_PATH?>/public/m.front/images/icon-window.png');
-}
-
-header .download a.android:hover 	{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_android_on.png'); }
-header .download a.apple:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/icon_apple_on.png');}
-header .download a.window:hover 		{ background:url('<?php echo WEB_PATH?>/public/m.front/images/window-hover.png');}
-/***************phan trang***************/
- .dataTables_paginate.paging_bootstrap.text-right {
-display: none;
-}
+    .adsrightleft{
+        margin-top: 370px;
+    }
 </style>
 <script>
-$(document).ready(function()
-		{
-	    var url = "<?php echo WEB_PATH;?>/public/cache/<?php echo $this->namefile;?>.json";
-	    var urlget ="<?php echo WEB_PATH;?>/front/index/detail/?id=" ;//detail
-		$.getJSON(url, function(data)
-		{  			 
-		var totalCount=5;
-		var jsondata='';
-		$.each(data.Messages, function(i, M)
-		{
-		// alert(JSON.stringify(M.image_thumbnail));
-		jsondata +='<li style="height: 217px;"><a href="'+urlget+M.id+'" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url('+M.image_thumbnail+') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
-	     
-		});
-		//$(jsondata).appendTo("#promoted234");
+    $(function() {
+        $(window).scroll(function() {
 
-		});
-		
-		
-		
-		}); 
+            if ($(this).scrollTop() < 370) {
+                $("#divAdLeft").addClass('adsrightleft');
+                $("#divAdRight").addClass('adsrightleft');
+            } else {
+                $("#divAdLeft").removeClass('adsrightleft');
+                $("#divAdRight").removeClass('adsrightleft');
+            }
+        });
+
+    });
+</script>
+<div id="divAdRight" class="adsrightleft" style="DISPLAY: none; POSITION: absolute; TOP: 200px">
+    <?php
+    echo $this->adsindex3["adsFrame"];
+    ?>
+</div>
+
+<div id="divAdLeft" class="adsrightleft" style="DISPLAY: none; POSITION: absolute; TOP: 200px; margin-left:-15px;">
+    <?php
+    echo $this->adsindex2["adsFrame"];
+    ?>
+</div>
+<script src="<?php echo WEB_PATH; ?>public/banner.js" type="text/javascript" ></script>
+
+
+<style>
+    <!-- tim kiem -->
+    .navbar > .container .navbar-brand {
+        margin: 18px 0 10px;
+    }
+
+    .navbar {
+        top: -21px;
+        margin-bottom: 0px !important;
+        z-index: 5;
+    }
+    .container>.navbar-header, .container>.navbar-collapse {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    #suggestions {
+        position: absolute;
+        z-index: 100;
+    }
+    header a.logo {
+        background: url('<?php echo WEB_PATH ?>/public/m.front/images/logo_fpt_play.png') no-repeat left center;
+        width: 160px;
+        display: block;
+    }
+    header .search {
+        float: right;
+        padding: 0 20px;
+        margin: 16px 0 11px;
+        border-right: 1px solid #d3d3d3;
+        width: 250px;
+    }
+    header .download {
+        float: right;
+        background: url('<?php echo WEB_PATH ?>/public/m.front/images/icon_download.png') left 5px no-repeat;
+        padding-left: 45px;
+        text-transform: uppercase;
+    }
+
+    .input-group-btn:last-child>.btn {
+        margin-left: -1px;
+    }
+    header .download a.apple {
+        background: url('<?php echo WEB_PATH ?>/public/m.front/images/icon_apple.png');
+    }
+    header .download a {
+        width: 50px;
+        height: 50px;
+        display: block;
+        float: left;
+        margin-top: 3px;
+    }
+    a {
+        color: #272727;
+        cursor: pointer;
+    }
+    .pull-left {
+        float: left !important;
+        margin-top: 9%;
+    }
+    header .download a.android {
+        background: url('<?php echo WEB_PATH ?>/public/m.front/images/icon_android.png');
+    }
+    header .download a.window {
+        background: url('<?php echo WEB_PATH ?>/public/m.front/images/icon-window.png');
+    }
+
+    header .download a.android:hover 	{ background:url('<?php echo WEB_PATH ?>/public/m.front/images/icon_android_on.png'); }
+    header .download a.apple:hover 		{ background:url('<?php echo WEB_PATH ?>/public/m.front/images/icon_apple_on.png');}
+    header .download a.window:hover 		{ background:url('<?php echo WEB_PATH ?>/public/m.front/images/window-hover.png');}
+    /***************phan trang***************/
+    .dataTables_paginate.paging_bootstrap.text-right {
+        display: none;
+    }
+</style>
+<script>
+    $(document).ready(function()
+    {
+        var url = "<?php echo WEB_PATH; ?>/public/cache/<?php echo $this->namefile; ?>.json";
+        var urlget = "<?php echo WEB_PATH; ?>/front/index/detail/?id=";//detail
+        $.getJSON(url, function(data)
+        {
+            var totalCount = 5;
+            var jsondata = '';
+            $.each(data.Messages, function(i, M)
+            {
+                // alert(JSON.stringify(M.image_thumbnail));
+                jsondata += '<li style="height: 217px;"><a href="' + urlget + M.id + '" style="height: 217px; width: 217px;"><img style="width: 217px; margin-bottom: 1px; background: url(' + M.image_thumbnail + ') 50% 50% / cover no-repeat scroll transparent;" src="http://p0.ttimg.vn/images/spacer.gif"><span></span></a></li>';
+
+            });
+            //$(jsondata).appendTo("#promoted234");
+
+        });
+
+
+
+    });
 
 
 </script>
- <script type='text/javascript' src='<?php echo WEB_PATH;?>/public/m.front/js/indexfront.js'></script>  
+<script type='text/javascript' src='<?php echo WEB_PATH; ?>/public/m.front/js/indexfront.js'></script>  
 
 
 
 
-<?php 
-	$notes = $this->notes;
-	$tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
-	//echo $this->action('slider','elements','front');
-
+<?php
+$notes = $this->notes;
+$tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
+//echo $this->action('slider','elements','front');
 ?>
 
-     <!--Content-->
-     <div id="main">
-     
-      <header class="navbar bs-docs-nav">
-            <div class="container">
-                  <div class="navbar-header">
-                	
-                    <a class="navbar-brand logo" href="<?php echo WEB_PATH?>">
-                    <img alt="" src="<?php echo WEB_PATH;?>/public/m.front/img/logo-tt.png" style="width: 96px;float:left;height: 35px;margin-left: 37%;margin-top: 8%;">
-                    </a>
-   
-                  </div>
-                   <div class="download">
-                   		<p class="pull-left text_download_app">Tải ứng dụng</p>
-                      	<a class="apple" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
-                        <a class="android" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
-                         <a class="window" target="_blank" href="http://www.windowsphone.com/en-us/store/app/playboyviet/2820e163-f66e-4cae-823d-ea256716d385/xap?apptype=regular"></a>
-                  
-                       <?php /*?> <a style=" width: 63px; margin-right: 5px; height: 63px;" class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a> */?>
-                    </div>
-                    
-                    <div class="search">
-                        <div class="input-group" style="display: inline-block;">
-                           <form id="frmList" name="frmList" method="post">
-                              <input type="hidden" id="contentdetailfullUrl" value="<?php echo WEB_PATH;?>/front/index/index" />
-							  <input placeholder="Enter a keyword ..." title="Enter a keyword ..." type="text" size="30" class="form-control" id="keyword" name="keyword"  style="float: left;width: 76%;"><!-- onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);" -->
-							  <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
-							  <span class="input-group-btn" style="float: right;height: 27px;margin-top: -3px;">
-							   <button id="search" class="btn btn-default" type="button" ">
-							    <i class="icon-search icon-white" style=" float: right;"></i>
-							   </button><!-- onclick="elasticSearch() -->
-							    </span>
-								 <button style="width: 30px !important;background: none; border: 0px;">
-		                             		 <i id="loading" class="icon-spinner icon-spin"></i>
-		                         </button>
-		                     
+<!--Content-->
 
-                       </form>
-						 </div>
-                    </div>    
+<div id="main">
+
+    <header class="navbar bs-docs-nav">
+        <div class="container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand logo" href="<?php echo WEB_PATH ?>">
+                    <img alt="" src="<?php echo WEB_PATH; ?>/public/m.front/img/logo-tt.png" style="width: 96px;float:left;height: 35px;margin-left: 37%;margin-top: 8%;">
+                </a>
 
             </div>
-     </header>
-      <span id="contentdetailfullArea"></span>
-     	<!-- BEGIN: Hot nen xem -->
-       <div id="promoted"><div class="thumbnails">
-       <h2><a href="#"><i class="icon-hottest"></i>Hot ! nên xem nhất</a>
-         <ul class="clearfix">
-         
-           <div id="promoted234">
-           <?php
+            <div class="download">
+                <p class="pull-left text_download_app">Tải ứng dụng</p>
+                <a class="apple" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
+                <a class="android" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
+                <a class="window" target="_blank" href="http://www.windowsphone.com/en-us/store/app/playboyviet/2820e163-f66e-4cae-823d-ea256716d385/xap?apptype=regular"></a>
+
+                <?php /* ?> <a style=" width: 63px; margin-right: 5px; height: 63px;" class="window" target="_blank" href="https://play.google.com/store/apps/details?id=com.fptplay.activity"></a> */ ?>
+            </div>
+
+            <div class="search">
+                <div class="input-group" style="display: inline-block;">
+                    <form id="frmList" name="frmList" method="post">
+                        <input type="hidden" id="contentdetailfullUrl" value="<?php echo WEB_PATH; ?>/front/index/index" />
+                        <input placeholder="Enter a keyword ..." title="Enter a keyword ..." type="text" size="30" class="form-control" id="keyword" name="keyword"  style="float: left;width: 76%;"><!-- onkeypress="searchKeyPress(event);" onkeyup="suggestElasticSearch(this.value);" -->
+                        <div id="suggestions" style="box-shadow: rgb(136, 136, 136) 5px 10px 10px; -webkit-box-shadow: rgb(136, 136, 136) 5px 10px 10px;"></div>
+                        <span class="input-group-btn" style="float: right;height: 27px;margin-top: -3px;">
+                            <button id="search" class="btn btn-default" type="button" ">
+                                <i class="icon-search icon-white" style=" float: right;"></i>
+                            </button><!-- onclick="elasticSearch() -->
+                        </span>
+                        <button style="width: 30px !important;background: none; border: 0px;">
+                            <i id="loading" class="icon-spinner icon-spin"></i>
+                        </button>
+
+
+                    </form>
+                </div>
+            </div>    
+
+        </div>
+    </header>
+    <style type="text/css">
+        @media screen and (max-width:768px){
+            .adsindextop2{
+                display: none !important;
+
+            }
+            .adsindextop{
+                width:48% !important;
+            }
+        }
+        @media screen and (max-width:480px){
+            .adsindextop2{
+                display: none !important;
+            }
+            .adsindextop1{
+                display: none !important;
+            }
+            .adsindextop{
+                width:100% !important;
+            }
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <?php
+            foreach ($this->adsindex1 as $key => $listadsindextop) {
+                echo '<div class="span4 adsindextop adsindextop' . $key . '">';
+
+                echo $listadsindextop["adsFrame"];
+
+                echo'</div>';
+            }
+            ?>
+
+
+        </div>
+    </div>
+    <div class="adsindextop">
+        <div class="adsindextopone"></div>
+        <div class="adsindextoptwo"></div>
+    </div>
+    <span id="contentdetailfullArea"></span>
+    <!-- BEGIN: Hot nen xem -->
+    <div id="promoted"><div class="thumbnails">
+            <h2><a href="#"><i class="icon-hottest"></i>Hot ! nên xem nhất</a> </h2>
+                <ul class="clearfix">
+
+                    <div id="promoted234">
+                        <?php
 //            echo "<pre>";
 //            print_r($this->Promoted);
 //            echo "</pre>";
-           $http   = 'http';
-          
-            if( (is_array($this->Promoted)) and (!empty($this->Promoted) ))
-           {  foreach ($this->Promoted as $key =>$valueker){
-            
-			if ( (strpos($valueker['image_thumbnail'],$http )=== false) and ($valueker['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valueker['image_thumbnail'];}
-			if ((strpos($valueker['image_thumbnail'],$http )=== 0 ) and ($valueker['image_thumbnail']!= "")) { $src= $valueker['image_thumbnail'];}
+                        $http = 'http';
 
- 
-           	?>
-           <li style="height: 217px;">
-           <a href="<?php echo WEB_PATH;?>/front/index/detail/?id=<?php echo $valueker['id'];?>" style="height: 217px; width: 217px;">
-           <img style="max-height: 108%;width: 217px; margin-bottom: 1px; background: url('<?php // echo $src;?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $src;?>">
-           <span></span>
-           </a>
-           </li>
-           <?php } }?>
-            </div>
-         </ul>
-       </h2>
-       </div></div>
-<!-- END: hot nen xem -->
+                        if ((is_array($this->Promoted)) and ( !empty($this->Promoted) )) {
+                            foreach ($this->Promoted as $key => $valueker) {
 
-<!-- BEGIN: Photograper -->
-<div class="thumbnails">
-	<h2><a><i class="icon-members"></i>Nhiếp ảnh gia - nổi bật khác</a></h2>
-    <ul class="clearfix" id="promotedUser">
-        <script type="text/javascript">
-           photo_ajax.promotedUser();
-        </script> 
-    </ul>
-</div> 
-<!-- END: Photograper -->
+                                if ((strpos($valueker['image_thumbnail'], $http) === false) and ( $valueker['image_thumbnail'] != "")) {
+                                    $src = WEB_PATH . '/public/uploads/news/' . $valueker['image_thumbnail'];
+                                }
+                                if ((strpos($valueker['image_thumbnail'], $http) === 0 ) and ( $valueker['image_thumbnail'] != "")) {
+                                    $src = $valueker['image_thumbnail'];
+                                }
+                                ?>
+                                <li style="height: auto;">
+                                    <a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" >
+                                        <img style="max-height: 108%;height:auto;width: auto; margin-bottom: 1px; background: url('<?php // echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $src; ?>">
+                                        <span></span>
+                                    </a>
+                                </li>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </ul>
+           
+        </div></div>
+    <!-- END: hot nen xem -->
 
-<!-- BEGIN: Goc ha noi -->
-<!-- END: Goc Ha Noi -->
+    <!-- BEGIN: Photograper -->
+    <div class="thumbnails">
+        <h2><a><i class="icon-members"></i>Nhiếp ảnh gia - nổi bật khác</a></h2>
+        <ul class="clearfix" id="promotedUser">
+            <script type="text/javascript">
+    photo_ajax.promotedUser();
+            </script> 
+        </ul>
+    </div> 
+    <!-- END: Photograper -->
 
-<!-- BEGIN: tam tay club -->
-<!-- END: tam tay club -->
+    <!-- BEGIN: Goc ha noi -->
+    <!-- END: Goc Ha Noi -->
 
-<!--large thumbnail-->
-<?php 
+    <!-- BEGIN: tam tay club -->
+    <!-- END: tam tay club -->
+
+    <!--large thumbnail-->
+    <?php
 // echo "<pre>";
 // print_r($this->hotgirlsnew);
 // echo "</pre>";
-?>
-<div id="thumbnails">
-    <!--<ul id="container" class="clearfix" style="width:100%!important;">-->
-        <div id="container" class="clearfix">
-        <?php $http   = 'http'; 
-        foreach ($this->hotgirlsnew as $keynew => $valuekeynew) {
-        	if($valuekeynew['image_thumbnail']!="") { 
+    ?>
+    <div id="thumbnails">
+        <!--<ul id="container" class="clearfix" style="width:100%!important;">-->
+        <ul id="container" class="clearfix">
+            
+            <?php
+            $http = 'http';
+            foreach ($this->hotgirlsnew as $keynew => $valuekeynew) {
+                if ($valuekeynew['image_thumbnail'] != "") {
 
-if ( (strpos($valuekeynew['image_thumbnail'],$http )=== false) and ($valuekeynew['image_thumbnail'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valuekeynew['image_thumbnail'];}
-if ((strpos($valuekeynew['image_thumbnail'],$http )=== 0 ) and ($valuekeynew['image_thumbnail']!= "")) { $src= $valuekeynew['image_thumbnail'];}
-
-?>
-			<div class="box">
-			    <a href="<?php echo WEB_PATH;?>/front/index/readviewdetail/?id=<?php echo $valuekeynew['id']; ?>" class="thumbnail">
-			        <img src="<?php echo $src?>" />
-			    </a>
-			    <div class="toolAlbum">
-			        <ul class="clearfix">
-			            <li style="  text-align: center; color: rgb(34,23,23);"><?php echo $valuekeynew['content_detail'];?></li>
-			        </ul>
-			    </div>
-			    <div class="toolAlbum">
-			        <ul class="clearfix">
-			            <li><i class="icon-thumbs-up"></i><?php echo rand(1, 50)?></li>
-			            <li><i class="icon-comment"></i><?php echo rand(1, 200)?></li>
-			            <li><i class="icon-eye"></i><?php echo rand(2, 400)?></li>
-			        </ul>
-			    </div>
-			</div>
-		<?php } }// end foreach?>	
-
-       
-      </div>       <!--</ul>-->
-    
-</div>
-<!-- <nav id="page-nav"> -->
-<!-- 	<a href="home/ajax/?page=2"></a> -->
-<!-- </nav>    -->
- </div>
-    </div><!-- END: wrap -->
-   </div><!-- END : pageG -->
-   
-    <!--sidebar-right--> 
-    <!--
-    <div class="sidebar-right">	
-            <div class="sidebar-hide-scroll-right clearfix">
-                            <div class="login">
-              <form action="http://ids.tamtay.vn/user/login" method="post">
-                      <legend></legend>
-                      <span class="signin"><a href="#"></a></span>
-                      <input type="text" name="username" placeholder="Tên đăng nhập"/>
-                      <input type="password" name="password" placeholder="Mật khẩu"/>
-                      <input type="hidden" name="ref" value="" />
-                      <button type="submit" class="btn">Đăng Nhập</button>
-                  </form>
-              </div>
-                            <div class="navTamtay">	
-                    <ul>
-                    	<li><a href="http://www.tamtay.vn/home" class="clearfix"><span class="img-circle"><i class="myhome"></i></span>Nhà tôi</a></li>
-                        <li><a href="http://m.photo.tamtay.vn" class="clearfix"><span class="img-circle"><i class="photo"></i></span>Ảnh</a></li>
-                        <li><a href="http://m.blog.tamtay.vn" class="clearfix"><span class="img-circle"><i class="blog"></i></span>Blog</a></li>
-                        <li><a href="http://m.sukien.tamtay.vn" class="clearfix"><span class="img-circle"><i class="game"></i></span>Sự kiện</a></li>
+                    if ((strpos($valuekeynew['image_thumbnail'], $http) === false) and ( $valuekeynew['image_thumbnail'] != "")) {
+                        $src = WEB_PATH . '/public/uploads/news/' . $valuekeynew['image_thumbnail'];
+                    }
+                    if ((strpos($valuekeynew['image_thumbnail'], $http) === 0 ) and ( $valuekeynew['image_thumbnail'] != "")) {
+                        $src = $valuekeynew['image_thumbnail'];
+                    }
+                    ?>
+                    <li class="box">
+                        <a href="<?php echo WEB_PATH; ?>/front/index/readviewdetail/?id=<?php echo $valuekeynew['id']; ?>" class="thumbnail">
+                            <img src="<?php echo $src ?>" /><span></span>
+                        </a>
                         
-                    </ul>
-                </div>
-            </div>
+                        <div class="toolAlbum">
+                            <ul class="clearfix">
+                                <li><i class="icon-thumbs-up"></i><?php echo rand(1, 50) ?></li>
+                                <li><i class="icon-comment"></i><?php echo rand(1, 200) ?></li>
+                                <li><i class="icon-eye"></i><?php echo rand(2, 400) ?></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php
+                }
+            }// end foreach 
+            ?>	
+
+
+        </ul>       <!--</ul>-->
+
     </div>
-    -->
-    
-   
+    <!-- <nav id="page-nav"> -->
+    <!-- 	<a href="home/ajax/?page=2"></a> -->
+    <!-- </nav>    -->
+</div>
+</div><!-- END: wrap -->
+</div><!-- END : pageG -->
+
+<!--sidebar-right--> 
+<!--
+<div class="sidebar-right">	
+        <div class="sidebar-hide-scroll-right clearfix">
+                        <div class="login">
+          <form action="http://ids.tamtay.vn/user/login" method="post">
+                  <legend></legend>
+                  <span class="signin"><a href="#"></a></span>
+                  <input type="text" name="username" placeholder="Tên đăng nhập"/>
+                  <input type="password" name="password" placeholder="Mật khẩu"/>
+                  <input type="hidden" name="ref" value="" />
+                  <button type="submit" class="btn">Đăng Nhập</button>
+              </form>
+          </div>
+                        <div class="navTamtay">	
+                <ul>
+                    <li><a href="http://www.tamtay.vn/home" class="clearfix"><span class="img-circle"><i class="myhome"></i></span>Nhà tôi</a></li>
+                    <li><a href="http://m.photo.tamtay.vn" class="clearfix"><span class="img-circle"><i class="photo"></i></span>Ảnh</a></li>
+                    <li><a href="http://m.blog.tamtay.vn" class="clearfix"><span class="img-circle"><i class="blog"></i></span>Blog</a></li>
+                    <li><a href="http://m.sukien.tamtay.vn" class="clearfix"><span class="img-circle"><i class="game"></i></span>Sự kiện</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+</div>
+-->
+

@@ -1,0 +1,80 @@
+
+<style>
+    .ub_right1 input {height: auto;}
+</style>
+<div class="row" style="height: 16px;"></div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box">
+            <div class="box-header blue-background">
+                <div class="title">Chỉnh sửa quảng cáo</div>
+                <div class="actions">
+                    <a class="btn box-remove btn-xs btn-link" href="#"><i class="icon-remove"></i> </a>
+                    <a class="btn box-collapse btn-xs btn-link" href="#"><i></i> </a>
+                </div>
+            </div>
+
+            <div class="box-content">
+                <form  class="form form-horizontal validate-form" style="margin-bottom: 0;" novalidate="novalidate" id="frmUpdate" name="frmUpdate" method="post" action="" >
+                    <input type="hidden" id="id" name="id" value="<?php echo $this->id; ?>">
+                    <input type="hidden" id="do" name="do" value="submit" />
+                    <div class='form-group'>
+                        <label class='control-label col-sm-3' for=''>Mô tả quảng cáo.</label>
+                        <div class='col-sm-4 controls'>
+                            <textarea style="float: left;text-align: left;" class='form-control' name="adsDes">
+                                <?php
+                                echo $this->data["adsDescription"];
+                                ?>
+                            </textarea>    
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label class='control-label col-sm-3' for=''>Thân quảng cáo.</label>
+                        <div class='col-sm-4 controls'>
+                            <textarea class='form-control' name="adsFrame">
+                                <?php
+                                echo $this->data["adsFrame"];
+                                ?>
+                            </textarea>    
+                        </div>
+                    </div>
+
+
+                    <div class='form-group'>
+                        <label class='control-label col-sm-3' for=''>Hết hạn ngày</label>
+                        <div class='col-sm-4 controls'>
+                            <input class='form-control' value="<?php echo date("d/m/Y", strtotime($this->data["adsDateEnd"])); ?>" required input type="text" pattern="\d{1,2}/\d{1,2}/\d{4}" name="dateEnd"  />
+                            (dd/mm/yyyy)
+                        </div>
+                    </div>
+                    <div class='form-actions' style='margin-bottom:0'>
+                        <div class='row'>
+                            <div class="col-sm-4"></div>
+                            <div class='col-sm-2'>
+                                <button class='btn btn-primary ub_button fl' type='submit' name="btn" value="btn">
+                                    <i class='icon-save'></i>
+                                    Lưu lại
+                                </button>
+
+                            </div>
+                            <div class="col-sm-2">
+                                
+                                   
+                                    <a class='btn ub_button fl' href="<?php echo WEB_PATH . 'administrator/ads'; ?>"> <i class='icon-remove'></i> Hủy</a>
+                                
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

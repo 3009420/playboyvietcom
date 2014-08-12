@@ -1,3 +1,38 @@
+<!-- //////////////////////BANNER 2 BÊN /////////////////-->
+
+<style>
+    .adsrightleft{
+        margin-top: 370px;
+    }
+</style>
+<script>
+    $(function() {
+        $(window).scroll(function() {
+
+            if ($(this).scrollTop() < 370) {
+                $("#divAdLeft").addClass('adsrightleft');
+                $("#divAdRight").addClass('adsrightleft');
+            } else {
+                $("#divAdLeft").removeClass('adsrightleft');
+                $("#divAdRight").removeClass('adsrightleft');
+            }
+        });
+
+    });
+</script>
+<div id="divAdRight" class="adsrightleft" style="DISPLAY: none; POSITION: absolute; TOP: 0px">
+    <?php
+    echo $this->adsdetail4["adsFrame"];
+    ?>
+</div>
+
+<div id="divAdLeft" class="adsrightleft" style="DISPLAY: none; POSITION: absolute; TOP: 0px; margin-left:-15px;">
+    <?php
+    echo $this->adsdetail3["adsFrame"];
+    ?>
+</div>
+<script src="<?php echo WEB_PATH; ?>public/banner.js" type="text/javascript" ></script>
+
 <?php
 // echo 'viewwww</br>';
 $detail = $this->detail;
@@ -6,245 +41,287 @@ $detail = $this->detail;
 // echo "</pre>";
 //die;
 ?>
-<?php $tr   = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);?>
- <!--Content-->
-     <div id="main">
-      <div>
-      <script type="text/javascript" src="http://zone.sosmart.vn/sosmart.js#2188"></script>
-<noscript><a href="http://zone.sosmart.vn/ck.php?n=abc2188f4&oaparams=2__zoneid=2188"  target="_blank"><img src="http://zone.sosmart.vn/avw.php?zoneid=2188&n=abc2188f4" border="0" alt="SoSmart Banner" /></a></noscript>
-      </div>
-     	<div id="other-house" class="fixview"> 
-      <!--Tieu de Album & Like-->
-      <div class="titleView clearfix">
-        <h1>Hot Girl Detail</h1>
-        <div class="like">
-                            <a href="javascript:void(0)" style="" onclick="photo_like.like('583667')" class="img-circle"><i class="icon-thumbs-up"></i></a>
-                        <span class="likeDeal">
-                                <span id="like_count">5</span> người thích Album này
-            </span>
+<?php $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE); ?>
+<!--Content-->
+<style type="text/css">
+        @media screen and (max-width:768px){
+            .adsindextop2{
+                display: none !important;
+
+            }
+            .adsindextop{
+                width:48% !important;
+            }
+        }
+        @media screen and (max-width:480px){
+            .adsindextop2{
+                display: none !important;
+            }
+            .adsindextop1{
+                display: none !important;
+            }
+            .adsindextop{
+                width:100% !important;
+            }
+        }
+    </style>
+<div id="main">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <?php
+            foreach ($this->adsdetail1 as $key => $listads) {
+                echo'<div class="span4 adsindextop adsindextop' . $key . '">' .
+                $listads["adsFrame"] .
+                '</div>';
+            }
+            ?>
+           
+<?php
+echo $this->adsdetail2["adsFrame"];
+?>
+            </div>
         </div>
-      </div>
-
-      <!--Ngay dang, luot view & binh luan-->
-      <div class="infoAlbum clearfix">
-        <ul>
-          <li><i class="icon-clock"></i>06/07/2014</li>
-          <li><i class="icon-eye"></i>2.707</li>
-          <li><i class="icon-comment"></i><span>0</span></li>
-        </ul>
-      </div>
-
-      <div class="btn-detail-box"><span>Xem chi tiết</span><i class="icon-down-open"></i></div>
-      <!--
-      <div class="detail-box">
-      <div class="clearfix">
-        <div class="userInfo">
-          <div class="avatar"> <a href="/my/view/9542144" class="nailthumb-container"><img src="http://a0.ttimg.vn/9542144.ava" /></a> </div>
-          <div class="username"> <a href="/my/view/9542144">kellylovebg</a> <span>(2 bộ ảnh)</span> </div>
+    </div>
+    <div>
+        <script type="text/javascript" src="http://zone.sosmart.vn/sosmart.js#2188"></script>
+        <noscript><a href="http://zone.sosmart.vn/ck.php?n=abc2188f4&oaparams=2__zoneid=2188"  target="_blank"><img src="http://zone.sosmart.vn/avw.php?zoneid=2188&n=abc2188f4" border="0" alt="SoSmart Banner" /></a></noscript>
+    </div>
+    <div id="other-house" class="fixview"> 
+        <!--Tieu de Album & Like-->
+        <div class="titleView clearfix">
+            <h1>Hot Girl Detail</h1>
+            <div class="like">
+                <a href="javascript:void(0)" style="" onclick="photo_like.like('583667')" class="img-circle"><i class="icon-thumbs-up"></i></a>
+                <span class="likeDeal">
+                    <span id="like_count">5</span> người thích Album này
+                </span>
+            </div>
         </div>
-                <div class="follow">
-                        <a style="Dõi theo" href="javascript:void(0)" onclick="return photo_favorite.addFavorite('9542144');" class="btn btn-danger btn-doitheo"><i></i><label id="text_sub">Dõi theo</label></a> <span>+ <i id="subscribe_count">4</i> người dõi theo</span>
-                    </div>
-      </div>
 
-      <div class="detail"> 
+        <!--Ngay dang, luot view & binh luan-->
+        <div class="infoAlbum clearfix">
+            <ul>
+                <li><i class="icon-clock"></i>06/07/2014</li>
+                <li><i class="icon-eye"></i>2.707</li>
+                <li><i class="icon-comment"></i><span>0</span></li>
+            </ul>
+        </div>
 
+        <div class="btn-detail-box"><span>Xem chi tiết</span><i class="icon-down-open"></i></div>
+        <!--
+        <div class="detail-box">
         <div class="clearfix">
-          <div class="topic"> 
-            <span><b>Chuyên mục</b> : <a href="/category/browse/11904">Con người & Cuộc sống</a></span>
+          <div class="userInfo">
+            <div class="avatar"> <a href="/my/view/9542144" class="nailthumb-container"><img src="http://a0.ttimg.vn/9542144.ava" /></a> </div>
+            <div class="username"> <a href="/my/view/9542144">kellylovebg</a> <span>(2 bộ ảnh)</span> </div>
+          </div>
+                  <div class="follow">
+                          <a style="Dõi theo" href="javascript:void(0)" onclick="return photo_favorite.addFavorite('9542144');" class="btn btn-danger btn-doitheo"><i></i><label id="text_sub">Dõi theo</label></a> <span>+ <i id="subscribe_count">4</i> người dõi theo</span>
                       </div>
-          <div class="profilePic"> <a class="nailthumb-container"><img src="http://img3.tamtay.vn/files/photo2/2014/7/8/14/9542144/53bb9923_4ad23c0f_3c61249f0e861c4700244f04a818e127_thumb.jpg" class="fixnail" /></a> <span>Ảnh đại diện</span> </div>
         </div>
-        
-
-        <div class="description">
-          <p></p>
-        </div>
-      </div>
-      </div>
-        -->
-      <!-- end .detail-box-->
-
-      <!-- BEGIN: added By Minhpn 2013-07-24 -->
-      <div class="detail-box">
+  
+        <div class="detail"> 
+  
           <div class="clearfix">
-              <div class="userInfo">
-                  <div class="avatar"> <a href="#modallink" role="button" data-toggle="modal" class="nailthumb-container"><img src="http://a0.ttimg.vn/9542144.ava" ></a> </div>
-                  <div class="username"><a href="#modallink" role="button" data-toggle="modal">kellylovebg</a></div>
-              </div>
-                            <div class="follow">
-                                    <a style="Dõi theo" href="javascript:void(0)" onclick="return photo_favorite.addFavorite('9542144');" class="btn btn-danger btn-doitheo"><i class="icon-location"></i>
-                      <label id="text_sub">Dõi Theo</label>
-                  </a>
-                                </div>
-          </div></i>
-          <ul class="box-w-color">
-              <li><i class="icon-picture"></i> 2 bộ ảnh</li>
-              <li class="close-border"><i class="icon-location"></i><label id="subscribe_count" style="display: inline;font-size: 11px">4</label> Dõi theo</li>
-          </ul>
-
-          <!--Thong tin Album-->
-          <div class="detail" style="">
-              <!--Tu khoa, Chuyen muc, Anh dai dien-->
-              <div class="clearfix" style="">
-                  <div class="topic">
-                      <span><b>Chuyên mục</b> : <a href="/category/browse/11904">Con người & Cuộc sống</a></span>
-                                            <!--Thong tin mo ta-->
-                      <div class="description">
-                          <p></p>
-                      </div>
-                  </div>
-
-                  <div class="profilePic"> <a class="nailthumb-container"><img class="fixnail nailthumb-image" src="http://img3.tamtay.vn/files/photo2/2014/7/8/14/9542144/53bb9923_4ad23c0f_3c61249f0e861c4700244f04a818e127_thumb.jpg"></a> <span>Ảnh đại diện</span> </div>
-              </div>
-
+            <div class="topic"> 
+              <span><b>Chuyên mục</b> : <a href="/category/browse/11904">Con người & Cuộc sống</a></span>
+                        </div>
+            <div class="profilePic"> <a class="nailthumb-container"><img src="http://img3.tamtay.vn/files/photo2/2014/7/8/14/9542144/53bb9923_4ad23c0f_3c61249f0e861c4700244f04a818e127_thumb.jpg" class="fixnail" /></a> <span>Ảnh đại diện</span> </div>
           </div>
-      </div>
-      <!-- end .detail-box-->
-      <!-- END: -->
-
-
-
-      <!--End thong tin Album--> 
-              <!--alert cho truong hop chua dang nhap-->
-        <div class="modal hide fade modalShadow" id="alertlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-bdr">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel">Thông báo</h3>
-            </div>
-            <div class="modal-body">
-              <p style="text-align:center">Bạn cần phải <a href="http://ids.tamtay.vn/user/login?popup=1&ref=http://m.photo.tamtay.vn/xem-anh/583667/hot-girl-ha-i-pho-ng.html" style="color:#ED4D4B; font-weight:bold; text-decoration:underline">đăng nhập</a> để sử dụng chức năng này</p>
-            </div>
+          
+  
+          <div class="description">
+            <p></p>
           </div>
         </div>
-        
+        </div>
+        -->
+        <!-- end .detail-box-->
+
+        <!-- BEGIN: added By Minhpn 2013-07-24 -->
+        <div class="detail-box">
+            <div class="clearfix">
+                <div class="userInfo">
+                    <div class="avatar"> <a href="#modallink" role="button" data-toggle="modal" class="nailthumb-container"><img src="http://a0.ttimg.vn/9542144.ava" ></a> </div>
+                    <div class="username"><a href="#modallink" role="button" data-toggle="modal">kellylovebg</a></div>
+                </div>
+                <div class="follow">
+                    <a style="Dõi theo" href="javascript:void(0)" onclick="return photo_favorite.addFavorite('9542144');" class="btn btn-danger btn-doitheo"><i class="icon-location"></i>
+                        <label id="text_sub">Dõi Theo</label>
+                    </a>
+                </div>
+            </div></i>
+            <ul class="box-w-color">
+                <li><i class="icon-picture"></i> 2 bộ ảnh</li>
+                <li class="close-border"><i class="icon-location"></i><label id="subscribe_count" style="display: inline;font-size: 11px">4</label> Dõi theo</li>
+            </ul>
+
+            <!--Thong tin Album-->
+            <div class="detail" style="">
+                <!--Tu khoa, Chuyen muc, Anh dai dien-->
+                <div class="clearfix" style="">
+                    <div class="topic">
+                        <span><b>Chuyên mục</b> : <a href="/category/browse/11904">Con người & Cuộc sống</a></span>
+                        <!--Thong tin mo ta-->
+                        <div class="description">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="profilePic"> <a class="nailthumb-container"><img class="fixnail nailthumb-image" src="http://img3.tamtay.vn/files/photo2/2014/7/8/14/9542144/53bb9923_4ad23c0f_3c61249f0e861c4700244f04a818e127_thumb.jpg"></a> <span>Ảnh đại diện</span> </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end .detail-box-->
+        <!-- END: -->
+
+
+
+        <!--End thong tin Album--> 
+        <!--alert cho truong hop chua dang nhap-->
+        <div class="modal hide fade modalShadow" id="alertlogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-bdr">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Thông báo</h3>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align:center">Bạn cần phải <a href="http://ids.tamtay.vn/user/login?popup=1&ref=http://m.photo.tamtay.vn/xem-anh/583667/hot-girl-ha-i-pho-ng.html" style="color:#ED4D4B; font-weight:bold; text-decoration:underline">đăng nhập</a> để sử dụng chức năng này</p>
+                </div>
+            </div>
+        </div>
+
         <!--alert cho truong hop subcribe-->
         <div class="modal hide fade modalShadow" id="alertsubcribe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-bdr">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel">Thông báo</h3>
+            <div class="modal-bdr">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="myModalLabel">Thông báo</h3>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align:center">Bạn không được subcribe chính bạn.</p>
+                    <div style="text-align:center"> 
+                        <a href="#" data-dismiss="modal" class="btn btn-fix">Đồng Ý</a> 
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-              <p style="text-align:center">Bạn không được subcribe chính bạn.</p>
-              <div style="text-align:center"> 
-                <a href="#" data-dismiss="modal" class="btn btn-fix">Đồng Ý</a> 
-              </div>
-            </div>
-          </div>
         </div>
-        
-      
-      <!--BEGIN: Photo-->
-      <?php 
-      $http   = 'http';
-      if(!empty($detail) and is_array($detail))
-      {
-       foreach ($detail as $keyv =>$valuev) {
-		if ( (strpos($valuev['src'],$http )=== false) and ($valuev['src'] != "")) { $src= WEB_PATH.'/public/uploads/news/'.$valuev['src'];}
-		if ((strpos($valuev['src'],$http )=== 0 ) and ($valuev['src']!= "")) { $src= $valuev['src'];}
-		
-		?>
-            <div class="photoView">
-		        <p>
-		            <img src="<?php echo $src;?>" />
-		        </p>
-		        <ul class="shareAlbum clearfix">
-		          <!--<li><a class="btn btn-share share-image" id="share-image-" onclick="chiase()">Chia sẻ</a></li>-->
-		          <li><p><?php echo $valuev['content_detail'];?></p></li>
-		          <li>
-		            <div class="box-share-link">
-		                <div class="facebook"><a href="https://www.facebook.com/appastoresharring.vn"><i class="icon-facebook"></i></a></div>
-		            </div>
-		          </li>
-		                
-		                  </ul>
-		        
-		        <!--BEGIN: chu thich cho hinh anh -->
-		                <!-- END: chu thich cho hinh anh -->
-             </div><!-- end class="photoView" -->
-        <!--alert sau khi dang nhap - vi tri : cuoi trang-->
-        <div class="modal hide fade modalShadow" id="alertlogin_5404004" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-bdr">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel">Photo.tamtay.vn</h3>
-            </div>
-            <div class="modal-body">
-              <p style="text-align:center">Bạn chắc chắn muốn chọn ảnh này làm ảnh đại diện cho Album ?</p>
-              <div style="text-align:center"> 
-                <a href="#" data-dismiss="modal" class="btn btn-fix">Hủy bỏ</a> 
-                <a href="/edit/cover/5404004" class="btn btn-danger btn-danger-fix">Đồng ý</a> 
-              </div>
-            </div>
-          </div>
+
+
+        <!--BEGIN: Photo-->
+<?php
+$http = 'http';
+if (!empty($detail) and is_array($detail)) {
+    foreach ($detail as $keyv => $valuev) {
+        if ((strpos($valuev['src'], $http) === false) and ( $valuev['src'] != "")) {
+            $src = WEB_PATH . '/public/uploads/news/' . $valuev['src'];
+        }
+        if ((strpos($valuev['src'], $http) === 0 ) and ( $valuev['src'] != "")) {
+            $src = $valuev['src'];
+        }
+        ?>
+                <div class="photoView">
+                    <p>
+                        <img src="<?php echo $src; ?>" />
+                    </p>
+        <?php echo $this->adsdetail5["adsFrame"]; ?>
+                    <ul class="shareAlbum clearfix">
+                        <!--<li><a class="btn btn-share share-image" id="share-image-" onclick="chiase()">Chia sẻ</a></li>-->
+                        <li><p><?php echo $valuev['content_detail']; ?></p></li>
+                        <li>
+                            <div class="box-share-link">
+                                <div class="facebook"><a href="https://www.facebook.com/appastoresharring.vn"><i class="icon-facebook"></i></a></div>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <!--BEGIN: chu thich cho hinh anh -->
+                    <!-- END: chu thich cho hinh anh -->
+                </div><!-- end class="photoView" -->
+                <!--alert sau khi dang nhap - vi tri : cuoi trang-->
+                <div class="modal hide fade modalShadow" id="alertlogin_5404004" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-bdr">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">Photo.tamtay.vn</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p style="text-align:center">Bạn chắc chắn muốn chọn ảnh này làm ảnh đại diện cho Album ?</p>
+                            <div style="text-align:center"> 
+                                <a href="#" data-dismiss="modal" class="btn btn-fix">Hủy bỏ</a> 
+                                <a href="/edit/cover/5404004" class="btn btn-danger btn-danger-fix">Đồng ý</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--alert xoa anh - vi tri : cuoi trang-->
+                <div class="modal hide fade modalShadow" id="alertdelete_5404004" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-bdr">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="myModalLabel">Photo.tamtay.vn</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p style="text-align:center">Bạn chắc chắn muốn xóa ảnh này ?</p>
+                            <div style="text-align:center"> 
+                                <a href="#" data-dismiss="modal" class="btn btn-fix">Hủy bỏ</a> 
+                                <a href="/edit/delete/5404004" class="btn btn-danger btn-danger-fix">Đồng ý</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <?php
+    }// end foreach
+} else {
+    ?>
+            <h3 style="color: red;font-size: 26px;text-align: center;font-weight: bold;"> Dữ liệu Đang được Cập Nhật</h3>
+            <button>
+                <a style="color: black;font-size: 15px;text-align: center;font-weight: bold;" href="http://playboyviet.com/">Quay lại trang chủ</a>
+            </button>
+<?php }
+?>
+        <!--End photo-->
+
+
+        <!--chia se tren mang xa hoi-->
+        <div class="shareSocialNetwork">
+            <ul class="clearfix">
+              <!--<li><a href="" class="img-circle"><i class="icon-facebook"></i></a></li>-->         
+                <li>
+                </li>
+            </ul>
         </div>
-        
-        <!--alert xoa anh - vi tri : cuoi trang-->
-        <div class="modal hide fade modalShadow" id="alertdelete_5404004" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-bdr">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h3 id="myModalLabel">Photo.tamtay.vn</h3>
-            </div>
-            <div class="modal-body">
-              <p style="text-align:center">Bạn chắc chắn muốn xóa ảnh này ?</p>
-              <div style="text-align:center"> 
-                <a href="#" data-dismiss="modal" class="btn btn-fix">Hủy bỏ</a> 
-                <a href="/edit/delete/5404004" class="btn btn-danger btn-danger-fix">Đồng ý</a> 
-              </div>
-            </div>
-          </div>
-        </div>
-      <?php }// end foreach
-		}else {
-			?>
-			<h3 style="color: red;font-size: 26px;text-align: center;font-weight: bold;"> Dữ liệu Đang được Cập Nhật</h3>
-			<button>
-			<a style="color: black;font-size: 15px;text-align: center;font-weight: bold;" href="http://playboyviet.com/">Quay lại trang chủ</a>
-			</button>
-			<?php 
-		}?>
-            <!--End photo-->
-      
-            
-      <!--chia se tren mang xa hoi-->
-      <div class="shareSocialNetwork">
-        <ul class="clearfix">
-          <!--<li><a href="" class="img-circle"><i class="icon-facebook"></i></a></li>-->         
-          <li>
-                      </li>
-        </ul>
-      </div>
-      <!--End chia se tren mang xa hoi--> 
-      
-      <!--Binh luan-->
-<!--       <div class="commentDetailArticle" id="comment_section"> -->
-<!--         <h1>Bình luận (0)</h1>            -->
-<!--         <form> -->
-<!--           <div class="comments-area"> -->
-<!--             <script language="JavaScript"> 
-//                  photo_comment.loadComment(583667, 1);
-                 
-//                  function loadPage(link,page) {
-//                         $(".comments-area").load(link + '='+ page);
-//                  } 
-            </script>
-            
-<!--           </div> -->
-<!--         </form> -->
-<!--       </div> -->
+        <!--End chia se tren mang xa hoi--> 
+
+        <!--Binh luan-->
+        <!--       <div class="commentDetailArticle" id="comment_section"> -->
+        <!--         <h1>Bình luận (0)</h1>            -->
+        <!--         <form> -->
+        <!--           <div class="comments-area"> -->
+        <!--             <script language="JavaScript"> 
+        //                  photo_comment.loadComment(583667, 1);
+                         
+        //                  function loadPage(link,page) {
+        //                         $(".comments-area").load(link + '='+ page);
+        //                  } 
+                    </script>
+                    
+        <!--           </div> -->
+        <!--         </form> -->
+        <!--       </div> -->
     </div>
 
 
-<!--/*====== MODAL ========*/-->
-<div class="modal hide fade modalShadow in" id="modallink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-    <div class="modal-body">
-        <div><a href="http://m.tamtay.vn/home/kellylovebg" class="optLink"><i class="icon-home"></i>Xem Nhà<b class="icon-right-open pull-right"></b></a></div>
-        <div><a href="/my/view/9542144" class="optLink"><i class="icon-picture"></i>Xem toàn bộ ảnh<b class="icon-right-open pull-right"></b></a></div>
-        <div><a href="#" class="optLink no-border" data-dismiss="modal" aria-hidden="true" ><i class="icon-cancel"></i>Hủy bỏ<b class="icon-right-open pull-right"></b></a></div>
-    </div>
-</div>    </div>
-    </div><!-- END: wrap -->
-   </div><!-- END : pageG -->
+    <!--/*====== MODAL ========*/-->
+    <div class="modal hide fade modalShadow in" id="modallink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+        <div class="modal-body">
+            <div><a href="http://m.tamtay.vn/home/kellylovebg" class="optLink"><i class="icon-home"></i>Xem Nhà<b class="icon-right-open pull-right"></b></a></div>
+            <div><a href="/my/view/9542144" class="optLink"><i class="icon-picture"></i>Xem toàn bộ ảnh<b class="icon-right-open pull-right"></b></a></div>
+            <div><a href="#" class="optLink no-border" data-dismiss="modal" aria-hidden="true" ><i class="icon-cancel"></i>Hủy bỏ<b class="icon-right-open pull-right"></b></a></div>
+        </div>
+    </div>    </div>
+</div><!-- END: wrap -->
+</div><!-- END : pageG -->

@@ -1,0 +1,64 @@
+<form id="frmList" name="frmList" method="post">
+    <input type="hidden" id="UrlUrl" value="<?php echo WEB_PATH; ?>/administrator/news/" />
+    <input type="hidden" id="pageAds" value="<?php echo $this->page; ?>" />
+    <input type="hidden" id="viTriAds" value="<?php echo $this->viTri; ?>" />
+    <br/>
+    <div class="row">
+
+        <div class="box_message"><?php //echo $message;               ?></div>
+        <div class="col-md-4">
+            <div class=' page-header-with-buttons'>
+
+                <h1 class='' style="margin-top: 0px;">
+                    <i class=' icon-flag-checkered'></i>
+                    <span class="page_title">Quản lý quảng cáo</span>
+                </h1>
+            </div>
+        </div>                  
+        <div class="col-md-2 pull-right ">
+
+            <a href="<?php echo WEB_PATH . "administrator/ads/addnew?page=" . $this->page . "&vitri=" . $this->viTri; ?>" class="btn btn-primary pull-right" title="Add"> <i class="icon-plus "></i>
+                Add 
+            </a>
+
+        </div>   
+
+    </div>
+    <span id="newsArea">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Mô tả quảng cáo</th>
+                    <th>Khởi tạo ngày</th>
+                    <th>Hết hạn lúc</th>
+
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                $objul = new HT_Model_administrator_models_utility();
+                foreach ($this->listAds as $key => $data) {
+                    echo'<tr>' .
+                    '<td>' . ($key + 1) . '</td>' .
+                    '<td>' . $data["adsDescription"] . '</td>' .
+                    '<td>' . $objul->formatDate($data["adsDateStart"]) . '</td>' .
+                    '<td>' . $objul->formatDate($data["adsDateEnd"]) . '</td>' .
+                    '<td>';
+                    if ($data["adsStatus"] == 1) {
+                        echo '<a class="btn btn-xs" href="' . WEB_PATH . 'administrator/ads/lockads?adsId=' . $data["adsId"] . '&page=' . $this->page . '&vitri=' . $this->viTri . '&status=0"><i class="icon-lock"></i></a>';
+                    } else {
+                        echo '<a class="btn btn-xs" href="' . WEB_PATH . 'administrator/ads/lockads?adsId=' . $data["adsId"] . '&page=' . $this->page . '&vitri=' . $this->viTri . '&status=1"><i class="icon-unlock-alt"></i></a>';
+                    }
+                    echo '<a class="btn btn-xs" href="' . WEB_PATH . 'administrator/ads/edit?adsId=' . $data["adsId"] . '&page=' . $this->page . '&vitri=' . $this->viTri . '"><i class="icon-pencil"></i></a> ' .
+                    '<a  class="btn btn-danger btn-xs" href="' . WEB_PATH . 'administrator/ads/delads?adsId=' . $data["adsId"] . '&page=' . $this->page . '&vitri=' . $this->viTri . '"><i class="icon-remove"></i></a>' .
+                    '</td>' .
+                    '</tr>';
+                }
+                ?>
+            </tbody>
+        </table>
+    </span>
+</form>
