@@ -1242,9 +1242,9 @@ public function renderData($TitleTable=null,$data,$paging = null){
 				}
 				if($errorCode == 0) {
 					if(!$fileName){
-						$fileName = time()."_".$fileAttach['name'];
+						$fileName = time();
 					}else{
-						$fileName = time()."_".$fileName;
+						$fileName = time();
 					}
 					$thumbPath = $path."thumb/".$fileName;
 					$path .= $fileName;
