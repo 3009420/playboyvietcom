@@ -9,9 +9,9 @@ $(document).ready(function() {
     loadcss.media = 'all';
     head.appendChild(loadcss);
     var listLink = new Array();
-    listLink["https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn#"] = "Clipplayboyviet";
-    listLink["https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"] = "Clipplayboyviet";
-    listLink["http://dowsphone.com/en-us/store/app/playboyviet/2820e163-f66e-4cae-823d-ea256716d385/xap?apptype=regular"] = "Clipplayboyviet";
+    listLink["https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn#"] = "Click Download App android";
+    listLink["https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"] = "Click Download App android";
+    listLink["http://dowsphone.com/en-us/store/app/playboyviet/2820e163-f66e-4cae-823d-ea256716d385/xap?apptype=regular"] = "Click Download App Windows Phone";
 	
     var dateAds = "";
     //
