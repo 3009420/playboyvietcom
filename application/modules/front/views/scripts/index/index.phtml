@@ -1,5 +1,5 @@
 <!-- //////////////////////BANNER 2 BÊN /////////////////-->
-
+<link rel="stylesheet" type="text/css" href="<?php echo WEB_PATH;?>/public/m.front/css/fix-all-device.css" media="screen" />
 <style>
     .adsrightleft{
         margin-top: 370px;
@@ -241,17 +241,15 @@ $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
 
                     <div id="promoted234">
                         <?php
-//            echo "<pre>";
-//            print_r($this->Promoted);
-//            echo "</pre>";
 /*
-	
-                                <li style="height: auto;">
-                                    <a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" >
-                                        <img style="max-height: 108%;height:auto;width: auto; margin-bottom: 1px; background: url('<?php // echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $src; ?>">
-                                        <span></span>
-                                    </a>
-                                </li>
+	<li style="height: 217px;">
+								<a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" style="height: 217px; width: 217px;">
+								<img style="width: 217px;height: 245px; margin-bottom: 1px; background: url('<?php echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" 
+								src="<?php echo $src; ?>">
+								<span>
+								</span>
+								</a>
+								</li>
 */
 
                         $http = 'http';
@@ -266,9 +264,10 @@ $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
                                     $src = $valueker['image_thumbnail'];
                                 }
                                 ?>
-								<li style="height: 217px;">
-								<a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" style="height: 217px; width: 217px;">
-								<img style="width: 217px;height: 245px; margin-bottom: 1px; background: url('<?php echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" 
+								<li class="liindexnew">
+								<a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" 
+								class="liindexnewaimg" >
+								<img class ="imgnewimg" style="background: url('<?php echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" 
 								src="<?php echo $src; ?>">
 								<span>
 								</span>
@@ -310,7 +309,7 @@ $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
     ?>
     <div id="thumbnails">
         <!--<ul id="container" class="clearfix" style="width:100%!important;">-->
-        <ul id="container" class="clearfix">
+        <ul id="container phuc" class="clearfix">
             
             <?php
             $http = 'http';
