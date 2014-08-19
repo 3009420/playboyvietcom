@@ -1,4 +1,5 @@
 <!-- //////////////////////BANNER 2 BÊN /////////////////-->
+
 <style>
     .adsrightleft{
         margin-top: 370px;
@@ -21,7 +22,7 @@
 </script>
 <div id="divAdRight" class="adsrightleft" style="DISPLAY: none; POSITION: absolute; TOP: 200px">
     <?php
-    echo $this->adsindex3["adsFrame"];
+echo $this->adsindex3["adsFrame"];
     ?>
 </div>
 
@@ -30,7 +31,7 @@
     echo $this->adsindex2["adsFrame"];
     ?>
 </div>
-<script src="<?php echo WEB_PATH; ?>public/banner.js" type="text/javascript" ></script>
+<script src="<?php echo WEB_PATH; ?>/public/banner.js" type="text/javascript" ></script>
 
 
 <style>
@@ -110,6 +111,7 @@
 <script>
     $(document).ready(function()
     {
+	/*
         var url = "<?php echo WEB_PATH; ?>/public/cache/<?php echo $this->namefile; ?>.json";
         var urlget = "<?php echo WEB_PATH; ?>/front/index/detail/?id=";//detail
         $.getJSON(url, function(data)
@@ -126,7 +128,7 @@
 
         });
 
-
+*/
 
     });
 
@@ -149,15 +151,16 @@ $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
 
     <header class="navbar bs-docs-nav">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navbar-header" style="width:100%;height:auto;float:left;">
 
-                <a class="navbar-brand logo" href="<?php echo WEB_PATH ?>">
+                <a style="width:96px;height:auto;float:left;"  href="<?php echo WEB_PATH ?>">
                     <img alt="" src="<?php echo WEB_PATH; ?>/public/m.front/img/logo-tt.png" style="width: 96px;float:left;height: 35px;margin-left: 37%;margin-top: 8%;">
                 </a>
-<a style="width:96px;height:auto;float:left;" href="http://clipplayboy.com" title="Xem video hot girl">
-				<img style="width: 96px;float:left;height: 35px;margin-left: 50%;margin-top: 8%;" src="http://clipplayboy.com/public/images/boomerang-logo-dark.png">
+				<a  style="width:96px;height:auto;float:left;" href="http://clipplayboy.com" title="Xem video hot girl">
+				<img style="width: 96px;float:left;height: 35px;margin-left: 50%;margin-top: 8%;" src="http://clipplayboy.com/public/images/boomerang-logo-dark.png"/>
 				</a>
             </div>
+			
             <div class="download">
                 <p class="pull-left text_download_app">Tải ứng dụng</p>
                 <a class="apple" target="_blank" href="https://play.google.com/store/apps/details?id=com.playboyviet.alatca.vn"></a>
@@ -241,6 +244,16 @@ $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
 //            echo "<pre>";
 //            print_r($this->Promoted);
 //            echo "</pre>";
+/*
+	
+                                <li style="height: auto;">
+                                    <a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" >
+                                        <img style="max-height: 108%;height:auto;width: auto; margin-bottom: 1px; background: url('<?php // echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $src; ?>">
+                                        <span></span>
+                                    </a>
+                                </li>
+*/
+
                         $http = 'http';
 
                         if ((is_array($this->Promoted)) and ( !empty($this->Promoted) )) {
@@ -253,12 +266,15 @@ $tr = new Zend_Translate('ini', LANG_PATH, DEFAULT_LANGUAGE);
                                     $src = $valueker['image_thumbnail'];
                                 }
                                 ?>
-                                <li style="height: auto;">
-                                    <a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" >
-                                        <img style="max-height: 108%;height:auto;width: auto; margin-bottom: 1px; background: url('<?php // echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" src="<?php echo $src; ?>">
-                                        <span></span>
-                                    </a>
-                                </li>
+								<li style="height: 217px;">
+								<a href="<?php echo WEB_PATH; ?>/front/index/detail/?id=<?php echo $valueker['id']; ?>" style="height: 217px; width: 217px;">
+								<img style="width: 217px;height: 245px; margin-bottom: 1px; background: url('<?php echo $src;           ?>') 50% 50% / cover no-repeat scroll transparent;" 
+								src="<?php echo $src; ?>">
+								<span>
+								</span>
+								</a>
+								</li>
+							
                                 <?php
                             }
                         }
