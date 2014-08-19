@@ -48,21 +48,21 @@ $(document).ready(function() {
     //
     $("body").append(dateAds);
     $(".bgtran").hide();
-    $("#app").hide();
+    $(".flagclassapp").hide();
     var adshello = sessionStorage.flag;
     if (adshello == null) {
         setTimeout(function() {
             $(".bgtran").show();
-            $("#app").show();
+            $(".flagclassapp").show();
         }, 2000);
     } else {
         $(".bgtran").hide();
-        $("#app").hide();
+        $(".flagclassapp").hide();
     }
 });
 function closepopupads() {
     $(".bgtran").hide();
-    $("#app").hide();
+    $(".flagclassapp").hide();
     sessionStorage.flag = "Tat roi thi thoi.Khong hien nua.";
 }
 ;
