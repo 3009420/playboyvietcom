@@ -3,6 +3,17 @@
 	.liindexnew {height: 217px;}
 	.liindexnewaimg {height: 217px; width: 217px;}
 	.imgnewimg{width: 217px;height: 245px; margin-bottom: 1px;}
+	
+	/****************************************************/
+	.clearfix .masonry{position: relative;height: 8781px;margin-left: -43px;}
+	#thumbnails #container .box > a, .thumbnails > ul li {
+    background: none repeat scroll 0 0 #fff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    
+}
+	
 }
 
 /* Portrait tablet to landscape and desktop */
@@ -10,6 +21,15 @@
 	.liindexnew {height: 217px;}
 	.liindexnewaimg {height: 217px; width: 217px;}
 	.imgnewimg{width: 217px;height: 245px; margin-bottom: 1px;}
+	/****************************************************/
+	.clearfix .masonry{position: relative;height: 8781px;margin-left: -43px;}
+	#thumbnails #container .box > a, .thumbnails > ul li {
+    background: none repeat scroll 0 0 #fff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+   
+}
 }
 
 /* Landscape phone to portrait tablet */
@@ -17,6 +37,15 @@
 	.liindexnew {height: 217px;}
 	.liindexnewaimg {height: 217px; width: 217px;}
 	.imgnewimg{width: 217px;height: 245px; margin-bottom: 1px;}
+	/****************************************************/
+	.clearfix .masonry{position: relative;height: 8781px;margin-left: -43px;}
+	#thumbnails #container .box > a, .thumbnails > ul li {
+    background: none repeat scroll 0 0 #fff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-left: -52px;
+}
 
 }
 
@@ -28,6 +57,13 @@
 	
 	/****************************************************/
 	.clearfix .masonry{position: relative;height: 8781px;margin-left: -43px;}
+	#thumbnails #container .box > a, .thumbnails > ul li {
+    background: none repeat scroll 0 0 #fff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-left: -52px;
+}
 	
 }
 

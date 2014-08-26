@@ -1,0 +1,38 @@
+.box_div_right_view {
+/* height: 598px; */
+}
+.title_h1_st2 {
+font-family: "SFUGillSansRegular";
+font-size: 18px;
+color: #ff6222;
+line-height: 30px;
+display: block;
+margin-bottom: 5px;
+text-transform: uppercase;
+}
+
+.tn-hhapp-bx {
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+background-color: #fff;
+-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .75);
+-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .75);
+box-shadow: 0 1px 2px rgba(0, 0, 0, .75);
+margin-bottom: 10px;
+display: block;
+text-align: center;
+overflow: hidden;
+transition: All 0.2s ease;
+-webkit-transition: All 0.2s ease;
+-moz-transition: All 0.2s ease;
+-o-transition: All 0.2s ease;
+text-align: center;
+}
+.tn-hhapp-bx a {
+display: inline-block;
+margin: 5px 0px;
+}
+a {
+outline: none;
+}
